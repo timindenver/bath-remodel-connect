@@ -1,22 +1,41 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+
+const ROTATING_PHRASES = [
+  { top: "Floor to Ceiling Slabs", headline: "Natural Surface", accent: "Walls" },
+  { top: "Lifetime Warranty", headline: "Solid Surface", accent: "Showers" },
+  { top: "3 Day Installation", headline: "Transform Your", accent: "Bathroom" },
+  { top: "No Interest Financing", headline: "Premium Quality", accent: "Design" },
+];
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    // Ensure video plays on mobile (some browsers need programmatic play)
     const video = videoRef.current;
     if (video) {
-      video.play().catch(() => {
-        // Autoplay blocked — video will show poster instead
-      });
+      video.play().catch(() => {});
     }
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setPhraseIndex((prev) => (prev + 1) % ROTATING_PHRASES.length);
+        setVisible(true);
+      }, 400);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const phrase = ROTATING_PHRASES[phraseIndex];
 
   return (
     <section className="relative">
       {/* Video area */}
-      <div className="relative min-h-[100svh]">
+      <div className="relative min-h-[60svh] lg:min-h-[100svh]">
         <div className="absolute inset-0 z-0">
           <video
             ref={videoRef}
@@ -33,25 +52,41 @@ const HeroSection = () => {
           <div className="absolute inset-0 bg-hero-overlay/50" />
         </div>
 
-        {/* Left text — vertically centered in the video */}
-        <div className="relative z-10 flex items-center min-h-[100svh]">
+        {/* Rotating text — top-left on desktop, hidden on mobile/tablet */}
+        <div className="relative z-10 hidden lg:flex items-start pt-32 min-h-[100svh]">
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="max-w-xl text-primary-foreground text-center lg:text-left">
-              <p className="uppercase tracking-[0.3em] text-xs sm:text-sm font-sans font-light mb-4 opacity-80">
-                Floor to Ceiling Slabs
+            <div
+              className={`max-w-xl text-primary-foreground transition-opacity duration-400 ${
+                visible ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <p className="uppercase tracking-[0.3em] text-sm font-sans font-light mb-4 opacity-80">
+                {phrase.top}
               </p>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold leading-tight">
-                Natural Surface
+              <h1 className="text-7xl font-serif font-bold leading-tight">
+                {phrase.headline}
                 <br />
-                <span className="border-l-4 border-accent pl-4">Walls</span>
+                <span className="border-l-4 border-accent pl-4">{phrase.accent}</span>
               </h1>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Form — pulls up so its top sits at ~50% of the video */}
-      <div className="relative z-20 -mt-[50svh] flex justify-center lg:justify-end max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20">
+      {/* Mobile/tablet: static text above form */}
+      <div className="lg:hidden bg-background px-4 pt-8 pb-4 text-center">
+        <p className="uppercase tracking-[0.3em] text-xs sm:text-sm font-sans font-light mb-3 text-muted-foreground">
+          {phrase.top}
+        </p>
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold leading-tight text-foreground">
+          {phrase.headline}
+          <br />
+          <span className="border-l-4 border-accent pl-4">{phrase.accent}</span>
+        </h1>
+      </div>
+
+      {/* Form — overlaps video on desktop, flows naturally on mobile */}
+      <div className="relative z-20 lg:-mt-[50svh] flex justify-center lg:justify-end max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20">
         <div className="w-full max-w-md bg-card/95 backdrop-blur-sm rounded-lg p-6 sm:p-8 shadow-2xl">
           <h2 className="text-xl sm:text-2xl font-serif font-bold text-card-foreground mb-2">
             Don't Settle for a One Day Plastic Shower
