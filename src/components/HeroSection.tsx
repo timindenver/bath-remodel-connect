@@ -7,17 +7,35 @@ const ROTATING_PHRASES = [
   { top: "No Interest Financing", headline: "Premium Quality", accent: "Design" },
 ];
 
+function getVideoSrc() {
+  const w = window.innerWidth;
+  if (w < 768) return "/hero-mobile.mp4";
+  if (w < 1024) return "/hero-tablet.mp4";
+  return "/hero.mp4";
+}
+
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [videoSrc, setVideoSrc] = useState(getVideoSrc);
+
+  useEffect(() => {
+    const onResize = () => {
+      const newSrc = getVideoSrc();
+      setVideoSrc((prev) => (prev !== newSrc ? newSrc : prev));
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
+      video.load();
       video.play().catch(() => {});
     }
-  }, []);
+  }, [videoSrc]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -47,7 +65,7 @@ const HeroSection = () => {
             className="w-full h-full object-cover"
             aria-hidden="true"
           >
-            <source src="/hero.mp4?v=3" type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-hero-overlay/50" />
         </div>
