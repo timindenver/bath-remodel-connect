@@ -68,7 +68,7 @@ const HeroSection = () => {
             aria-hidden="true"
             src={videoSrc}
           />
-          <div className="absolute inset-0 bg-hero-overlay/25" />
+          <div className="absolute inset-0 bg-hero-overlay/10" />
         </div>
 
         {/* Rotating text — top-left on desktop, hidden on mobile/tablet */}
