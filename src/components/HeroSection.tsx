@@ -55,6 +55,7 @@ const HeroSection = () => {
       <div className="relative min-h-[60svh] lg:min-h-[100svh]">
         <div className="absolute inset-0 z-0">
           <video
+            key={videoSrc}
             ref={videoRef}
             autoPlay
             muted
@@ -63,9 +64,8 @@ const HeroSection = () => {
             preload="auto"
             className="w-full h-full object-cover"
             aria-hidden="true"
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
+            src={videoSrc}
+          />
           <div className="absolute inset-0 bg-hero-overlay/50" />
         </div>
 
