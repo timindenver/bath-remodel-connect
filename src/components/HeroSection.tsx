@@ -65,7 +65,7 @@ const HeroSection = () => {
             className="w-full h-full object-cover"
             aria-hidden="true"
           >
-            <source src="/hero.mp4?v=3" type="video/mp4" />
+            <source src={videoSrc} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-hero-overlay/50" />
         </div>
