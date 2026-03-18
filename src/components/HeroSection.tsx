@@ -32,7 +32,6 @@ const HeroSection = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      video.load();
       video.play().catch(() => {});
     }
   }, [videoSrc]);
