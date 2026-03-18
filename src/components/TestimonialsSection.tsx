@@ -3,7 +3,7 @@ const testimonials = [
     quote: "Amazing craftsmanship!",
     text: "The quality of the solid surface walls exceeded our expectations. It looks like natural stone but without the maintenance headaches.",
     author: "Sarah M.",
-    location: "Dallas, TX",
+    location: "Philadelphia, PA",
   },
   {
     quote: "Quick and professional.",
