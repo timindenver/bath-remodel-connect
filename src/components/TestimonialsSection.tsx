@@ -9,7 +9,7 @@ const testimonials = [
     quote: "Quick and professional.",
     text: "From consultation to completion in just 3 days. The team was respectful of our home and the result is stunning.",
     author: "James R.",
-    location: "Austin, TX",
+    location: "Brooklyn, NY",
   },
   {
     quote: "I love my new shower!",
