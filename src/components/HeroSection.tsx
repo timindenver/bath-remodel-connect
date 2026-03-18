@@ -1,15 +1,17 @@
-import heroBg from "@/assets/hero-bg.jpg";
-
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center">
-      {/* Background image (placeholder for video) */}
+      {/* Background video */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          alt="Natural solid surface bathroom walls"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover"
-        />
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-hero-overlay/50" />
       </div>
 
