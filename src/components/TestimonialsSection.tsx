@@ -15,7 +15,7 @@ const testimonials = [
     quote: "I love my new shower!",
     text: "No more scrubbing grout lines. The seamless walls are beautiful and so easy to clean. Best home improvement decision we've made.",
     author: "Linda K.",
-    location: "Houston, TX",
+    location: "Charlotte, NC",
   },
 ];
 
