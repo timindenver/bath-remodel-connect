@@ -93,7 +93,7 @@ const HeroSection = () => {
         </div>
 
         {/* Form — overlaid on video on all sizes */}
-        <div className="flex justify-center lg:justify-end max-w-7xl mx-auto w-full px-4 sm:px-6 pb-8 sm:pb-12 lg:pb-16">
+        <div className="mt-[30svh] sm:mt-[50svh] lg:mt-0 flex justify-center lg:justify-end max-w-7xl mx-auto w-full px-4 sm:px-6 pb-8 sm:pb-12 lg:pb-16">
           <div className="w-full max-w-md bg-card/95 backdrop-blur-sm rounded-lg p-5 sm:p-6 lg:p-8 shadow-2xl">
             <h2 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-card-foreground mb-2">
               Don't Settle for a One Day Plastic Shower
