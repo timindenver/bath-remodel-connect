@@ -7,11 +7,13 @@ const ROTATING_PHRASES = [
   { top: "No Interest Financing", headline: "Premium Quality", accent: "Design" },
 ];
 
+const VIDEO_VERSION = "4";
+
 function getVideoSrc() {
   const w = window.innerWidth;
-  if (w < 768) return "/hero-mobile.mp4";
-  if (w < 1024) return "/hero-tablet.mp4";
-  return "/hero.mp4";
+  if (w < 768) return `/hero-mobile.mp4?v=${VIDEO_VERSION}`;
+  if (w < 1024) return `/hero-tablet.mp4?v=${VIDEO_VERSION}`;
+  return `/hero.mp4?v=${VIDEO_VERSION}`;
 }
 
 const HeroSection = () => {
