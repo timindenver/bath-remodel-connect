@@ -14,39 +14,44 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] flex items-center">
-      {/* Background video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover"
-          aria-hidden="true"
-        >
-          <source src="/hero.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-hero-overlay/50" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-        {/* Left text */}
-        <div className="flex-1 text-primary-foreground pt-8 sm:pt-12 lg:pt-24 text-center lg:text-left">
-          <p className="uppercase tracking-[0.3em] text-xs sm:text-sm font-sans font-light mb-4 opacity-80">
-            Floor to Ceiling Slabs
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold leading-tight">
-            Natural Surface
-            <br />
-            <span className="border-l-4 border-accent pl-4">Walls</span>
-          </h1>
+    <section className="relative">
+      {/* Video area */}
+      <div className="relative min-h-[100svh]">
+        <div className="absolute inset-0 z-0">
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          >
+            <source src="/hero.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-hero-overlay/50" />
         </div>
 
-        {/* Lead capture form */}
+        {/* Left text — vertically centered in the video */}
+        <div className="relative z-10 flex items-center min-h-[100svh]">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="max-w-xl text-primary-foreground text-center lg:text-left">
+              <p className="uppercase tracking-[0.3em] text-xs sm:text-sm font-sans font-light mb-4 opacity-80">
+                Floor to Ceiling Slabs
+              </p>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold leading-tight">
+                Natural Surface
+                <br />
+                <span className="border-l-4 border-accent pl-4">Walls</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Form — pulls up so its top sits at ~50% of the video */}
+      <div className="relative z-20 -mt-[50svh] flex justify-center lg:justify-end max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20">
         <div className="w-full max-w-md bg-card/95 backdrop-blur-sm rounded-lg p-6 sm:p-8 shadow-2xl">
           <h2 className="text-xl sm:text-2xl font-serif font-bold text-card-foreground mb-2">
             Don't Settle for a One Day Plastic Shower
