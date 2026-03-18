@@ -3,19 +3,19 @@ const testimonials = [
     quote: "Amazing craftsmanship!",
     text: "The quality of the solid surface walls exceeded our expectations. It looks like natural stone but without the maintenance headaches.",
     author: "Sarah M.",
-    location: "Dallas, TX",
+    location: "Philadelphia, PA",
   },
   {
     quote: "Quick and professional.",
     text: "From consultation to completion in just 3 days. The team was respectful of our home and the result is stunning.",
     author: "James R.",
-    location: "Austin, TX",
+    location: "Brooklyn, NY",
   },
   {
     quote: "I love my new shower!",
     text: "No more scrubbing grout lines. The seamless walls are beautiful and so easy to clean. Best home improvement decision we've made.",
     author: "Linda K.",
-    location: "Houston, TX",
+    location: "Charlotte, NC",
   },
 ];
 
