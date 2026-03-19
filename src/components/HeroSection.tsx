@@ -1,12 +1,5 @@
 import { useRef, useEffect, useState } from "react";
 
-const ROTATING_PHRASES = [
-  { top: "Floor to Ceiling Slabs", headline: "Natural Surface", accent: "Walls" },
-  { top: "Lifetime Warranty", headline: "Solid Surface", accent: "Showers" },
-  { top: "3 Day Installation", headline: "Transform Your", accent: "Bathroom" },
-  { top: "No Interest Financing", headline: "Premium Quality", accent: "Design" },
-];
-
 const VIDEO_VERSION = "4";
 
 function getVideoSrc() {
@@ -18,8 +11,6 @@ function getVideoSrc() {
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
   const [videoSrc, setVideoSrc] = useState(getVideoSrc);
 
   useEffect(() => {
@@ -38,22 +29,9 @@ const HeroSection = () => {
     }
   }, [videoSrc]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setPhraseIndex((prev) => (prev + 1) % ROTATING_PHRASES.length);
-        setVisible(true);
-      }, 400);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const phrase = ROTATING_PHRASES[phraseIndex];
-
   return (
     <section className="relative min-h-[100svh]">
-      {/* Video background — full viewport on all sizes */}
+      {/* Video background */}
       <div className="absolute inset-0 z-0">
         <video
           key={videoSrc}
@@ -72,22 +50,23 @@ const HeroSection = () => {
 
       {/* Content overlay */}
       <div className="relative z-10 min-h-[100svh] flex flex-col">
-        {/* Rotating text — visible on all sizes */}
+        {/* Static headline */}
         <div className="flex-1 flex items-start pt-24 sm:pt-28 lg:pt-32 px-4 sm:px-6">
           <div className="w-full max-w-7xl mx-auto">
-            <div
-              className={`max-w-xl text-primary-foreground transition-opacity duration-400 text-center lg:text-left mx-auto lg:mx-0 ${
-                visible ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <p className="uppercase tracking-[0.3em] text-xs sm:text-sm font-sans font-light mb-3 sm:mb-4 opacity-80">
-                {phrase.top}
-              </p>
-              <h1 className="text-3xl sm:text-4xl lg:text-7xl font-serif font-bold leading-tight">
-                {phrase.headline}
+            <div className="max-w-2xl text-primary-foreground text-center lg:text-left mx-auto lg:mx-0">
+              <h1 className="text-3xl sm:text-4xl lg:text-7xl font-serif font-bold leading-tight mb-4 sm:mb-6">
+                The Solid Surface Shower
                 <br />
-                <span className="border-l-4 border-accent pl-4">{phrase.accent}</span>
+                <span className="border-l-4 border-accent pl-4">of Your Dreams</span>
               </h1>
+              <p className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2">
+                No Grout · No Plastic Panels
+              </p>
+              <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed">
+                Installed in just <span className="font-bold">3 Days</span> for usually just <span className="font-bold">20% more</span>
+                <br />
+                than the one day plastic systems.
+              </p>
             </div>
           </div>
         </div>
