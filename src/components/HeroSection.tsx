@@ -1,12 +1,5 @@
 import { useRef, useEffect, useState } from "react";
 
-const ROTATING_PHRASES = [
-  { top: "Floor to Ceiling Slabs", headline: "Natural Surface", accent: "Walls" },
-  { top: "Lifetime Warranty", headline: "Solid Surface", accent: "Showers" },
-  { top: "3 Day Installation", headline: "Transform Your", accent: "Bathroom" },
-  { top: "No Interest Financing", headline: "Premium Quality", accent: "Design" },
-];
-
 const VIDEO_VERSION = "4";
 
 function getVideoSrc() {
