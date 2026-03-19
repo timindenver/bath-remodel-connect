@@ -1,3 +1,6 @@
+import testimonialsBgDesktop from "@/assets/testimonials-bg-desktop.png";
+import testimonialsBgMobile from "@/assets/testimonials-bg-mobile.png";
+
 const testimonials = [
   {
     quote: "Amazing craftsmanship!",
@@ -21,8 +24,21 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 px-6 bg-background">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative py-20 px-6 overflow-hidden">
+      {/* Desktop/Tablet background */}
+      <div
+        className="absolute inset-0 hidden md:block bg-cover bg-center"
+        style={{ backgroundImage: `url(${testimonialsBgDesktop})` }}
+      />
+      {/* Mobile background */}
+      <div
+        className="absolute inset-0 md:hidden bg-cover bg-center"
+        style={{ backgroundImage: `url(${testimonialsBgMobile})` }}
+      />
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-background/80" />
+
+      <div className="relative max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-12">
           What Our Customers Say
         </h2>
@@ -31,7 +47,7 @@ const TestimonialsSection = () => {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-secondary rounded-lg p-8 border border-border"
+              className="bg-background/60 backdrop-blur-sm rounded-lg p-8 border border-border"
             >
               <p className="text-lg font-serif font-semibold text-accent mb-3">
                 "{t.quote}"
