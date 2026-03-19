@@ -5,11 +5,11 @@ import shower2 from "@/assets/projects/shower2.png";
 import shower3 from "@/assets/projects/shower3.jpeg";
 
 const PROJECTS = [
-  { src: shower2, label: "Marble Walk-In Shower & Freestanding Tub" },
-  { src: blue, label: "Blue Marble Glass Enclosure" },
+  { src: shower2, label: "Silver Shimmer w/ Matte Black" },
+  { src: blue, label: "Blue and Gold" },
   { src: bath1, label: "Farmhouse Tub Surround" },
   { src: shower1, label: "Modern Frameless Shower" },
-  { src: shower3, label: "Classic Marble Sliding Door" },
+  { src: shower3, label: "Cool Blue + Polished Chrome" },
 ];
 
 const ProjectGallerySection = () => {
@@ -17,11 +17,8 @@ const ProjectGallerySection = () => {
     <section className="py-16 sm:py-20 lg:py-24 bg-muted/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-14">
-          <p className="uppercase tracking-[0.25em] text-xs sm:text-sm font-sans text-accent mb-3">
-            Recent Installations
-          </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground">
-            Real Projects by Our Local Contractors
+            The Perfect Look to Fit Your Space
           </h2>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
             Every installation is completed by certified, 5-star rated contractors in your area.
