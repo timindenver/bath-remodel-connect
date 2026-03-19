@@ -12,13 +12,14 @@ function getVideoSrc() {
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState(getVideoSrc);
-  const [fullName, setFullName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [phone, setPhone] = useState("");
   const [projectType, setProjectType] = useState("");
 
-  const isFormComplete = fullName.trim() !== "" && email.trim() !== "" && zipCode.trim() !== "" && phone.trim() !== "" && projectType !== "";
+  const isFormComplete = firstName.trim() !== "" && lastName.trim() !== "" && email.trim() !== "" && zipCode.trim() !== "" && phone.trim() !== "" && projectType !== "";
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
