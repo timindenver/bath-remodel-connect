@@ -1,5 +1,5 @@
 import bath1 from "@/assets/projects/bath1.jpeg";
-import bath2 from "@/assets/projects/bath2.jpeg";
+import bath3 from "@/assets/projects/bath3.jpeg";
 import blue from "@/assets/projects/blue.jpeg";
 import shower1 from "@/assets/projects/shower1.jpeg";
 import shower2 from "@/assets/projects/shower2.png";
