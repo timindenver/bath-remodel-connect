@@ -118,22 +118,22 @@ const HeroSection = () => {
                   <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
                 </div>
               </div>
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Email Address</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Email Address</label>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               </div>
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Zip Code</label>
-                <input type="text" inputMode="numeric" value={zipCode} onChange={(e) => setZipCode(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Zip Code</label>
+                <input type="text" inputMode="numeric" value={zipCode} onChange={(e) => setZipCode(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               </div>
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Phone Number</label>
-                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Phone Number</label>
+                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               </div>
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Project Type</label>
-                <select value={projectType} onChange={(e) => setProjectType(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
-                  <option value="" disabled></option>
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Project Type</label>
+                <select value={projectType} onChange={(e) => setProjectType(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+                  <option value="" disabled>Select one...</option>
                   <option>Shower</option>
                   <option>Bathtub</option>
                   <option>Full Bathroom</option>
