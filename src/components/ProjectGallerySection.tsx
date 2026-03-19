@@ -11,7 +11,7 @@ const PROJECTS = [
   { src: bath1, label: "Farmhouse Tub Surround" },
   { src: shower1, label: "Modern Frameless Shower" },
   { src: shower3, label: "Cool Blue + Polished Chrome" },
-  { src: bath2, label: "Dark Marble & Oak Vanity" },
+  { src: bath3, label: "Modern Grey & White Spa Bath" },
 ];
 
 const ProjectGallerySection = () => {
