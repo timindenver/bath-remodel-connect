@@ -77,6 +77,10 @@ export default {
             height: "var(--radix-accordion-content-height)",
           },
         },
+        "scroll-badges": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
         "accordion-up": {
           from: {
             height: "var(--radix-accordion-content-height)",
