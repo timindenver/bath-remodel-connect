@@ -108,9 +108,15 @@ const HeroSection = () => {
                 We DO NOT Share your Info with any other companies.
               </p>
 
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Full Name</label>
-                <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                <div>
+                  <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">First Name</label>
+                  <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+                </div>
+                <div>
+                  <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Last Name</label>
+                  <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+                </div>
               </div>
               <div className="relative">
                 <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Email Address</label>
