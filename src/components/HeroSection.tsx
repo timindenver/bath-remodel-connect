@@ -96,19 +96,22 @@ const HeroSection = () => {
         <div className="mt-[30svh] sm:mt-[50svh] lg:mt-0 flex justify-center lg:justify-end max-w-7xl mx-auto w-full px-4 sm:px-6 pb-8 sm:pb-12 lg:pb-16">
           <div className="w-full max-w-md bg-card/95 backdrop-blur-sm rounded-lg p-5 sm:p-6 lg:p-8 shadow-2xl">
             <h2 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-card-foreground mb-2">
-              Don't Settle for a One Day Plastic Shower
+              Get Natural Solid Surface
             </h2>
             <p className="text-accent font-medium mb-3 sm:mb-4 lg:mb-5 text-sm sm:text-base">
-              Get Natural Solid Surface for the same price!
+              Our Local Certified Contractors can often install real solid surface for just 20% more!
             </p>
 
             <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-5 lg:mb-6 text-sm text-card-foreground">
-              <li>• Lifetime Warranty</li>
+              <li>• Full Turnkey Demo and Installation</li>
               <li>• 3 Day Installation</li>
               <li>• No Interest Financing</li>
             </ul>
 
             <form className="space-y-2.5 sm:space-y-3" onSubmit={(e) => e.preventDefault()}>
+              <button type="submit" className="w-full py-3 sm:py-3.5 bg-accent text-accent-foreground font-semibold rounded-sm hover:opacity-90 active:opacity-80 transition-opacity text-sm uppercase tracking-wider touch-manipulation">
+                Get Your Free Quote
+              </button>
               <input type="text" placeholder="Full Name" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               <input type="text" placeholder="Zip Code" inputMode="numeric" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               <input type="tel" placeholder="Phone Number" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
