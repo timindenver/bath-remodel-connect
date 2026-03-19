@@ -19,9 +19,6 @@ const badges = [
 const TrustBadgesSection = () => (
   <section className="py-10 sm:py-14 px-4 sm:px-6 bg-card border-y border-border overflow-hidden">
     <div className="max-w-6xl mx-auto">
-      <p className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8">
-        Trusted &amp; Certified
-      </p>
       <div className="relative">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-card to-transparent z-10 pointer-events-none" />
