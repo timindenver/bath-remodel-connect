@@ -91,6 +91,9 @@ const HeroSection = () => {
               <button type="submit" className="w-full py-3 sm:py-3.5 bg-accent text-accent-foreground font-semibold rounded-sm hover:opacity-90 active:opacity-80 transition-opacity text-sm uppercase tracking-wider touch-manipulation">
                 Get Your Free Quote
               </button>
+              <p className="text-xs text-center text-card-foreground font-medium">
+                We DO NOT Share your Info with any other companies.
+              </p>
               <input type="text" placeholder="Full Name" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               <input type="text" placeholder="Zip Code" inputMode="numeric" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               <input type="tel" placeholder="Phone Number" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
@@ -102,6 +105,9 @@ const HeroSection = () => {
                 <option>Other</option>
               </select>
             </form>
+            <p className="text-[10px] leading-tight text-muted-foreground text-center mt-3">
+              By clicking Submit, I expressly consent to Solid Surface Baths contacting me at the telephone number or email address provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology, SMS/MMS messages, AI generative voice, and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. Message and data rates may apply. I understand that consent is not a condition of purchase and to be helped I can call 1-720-807-3626
+            </p>
           </div>
         </div>
       </div>
