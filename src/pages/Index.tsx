@@ -3,6 +3,7 @@ import ServiceAreaSection from "@/components/ServiceAreaSection";
 import ProjectGallerySection from "@/components/ProjectGallerySection";
 import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import DesignToolSection from "@/components/DesignToolSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -13,6 +14,7 @@ const Index = () => {
       <ProjectGallerySection />
       <BenefitsSection />
       <TestimonialsSection />
+      <DesignToolSection />
       <Footer />
     </div>
   );
