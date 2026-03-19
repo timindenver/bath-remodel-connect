@@ -25,7 +25,7 @@ const ProjectGallerySection = () => {
             The Perfect Look to Fit Your Space
           </h2>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
-            Every installation is completed by certified, 5-star rated contractors in your area.
+            Every project is completed by 5 Star Rated remodelers in your area.
           </p>
         </div>
 
