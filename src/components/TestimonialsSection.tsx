@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
         style={{ backgroundImage: `url(${testimonialsBgMobile})` }}
       />
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-background/80" />
+      <div className="absolute inset-0 bg-background/20" />
 
       <div className="relative max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-12">
