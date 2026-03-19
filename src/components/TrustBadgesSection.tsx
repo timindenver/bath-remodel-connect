@@ -17,20 +17,27 @@ const badges = [
 ];
 
 const TrustBadgesSection = () => (
-  <section className="py-10 sm:py-14 px-4 sm:px-6 bg-card border-y border-border">
+  <section className="py-10 sm:py-14 px-4 sm:px-6 bg-card border-y border-border overflow-hidden">
     <div className="max-w-6xl mx-auto">
       <p className="text-center text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8">
         Trusted &amp; Certified
       </p>
-      <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
-        {badges.map((badge) => (
-          <img
-            key={badge.alt}
-            src={badge.src}
-            alt={badge.alt}
-            className="h-14 sm:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100"
-          />
-        ))}
+      <div className="relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-card to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-card to-transparent z-10 pointer-events-none" />
+
+        <div className="flex animate-scroll-badges gap-12 w-max">
+          {/* Duplicate badges twice for seamless loop */}
+          {[...badges, ...badges].map((badge, i) => (
+            <img
+              key={`${badge.alt}-${i}`}
+              src={badge.src}
+              alt={badge.alt}
+              className="h-14 sm:h-16 w-auto object-contain flex-shrink-0"
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>

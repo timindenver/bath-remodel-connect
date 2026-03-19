@@ -77,6 +77,10 @@ export default {
             height: "var(--radix-accordion-content-height)",
           },
         },
+        "scroll-badges": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
         "accordion-up": {
           from: {
             height: "var(--radix-accordion-content-height)",
@@ -89,6 +93,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "scroll-badges": "scroll-badges 25s linear infinite",
       },
     },
   },
