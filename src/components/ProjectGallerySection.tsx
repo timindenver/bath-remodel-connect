@@ -1,5 +1,6 @@
 import bath1 from "@/assets/projects/bath1.jpeg";
 import bath3 from "@/assets/projects/bath3.jpeg";
+import bath4 from "@/assets/projects/bath4.jpeg";
 import blue from "@/assets/projects/blue.jpeg";
 import shower1 from "@/assets/projects/shower1.jpeg";
 import shower2 from "@/assets/projects/shower2.png";
@@ -12,6 +13,7 @@ const PROJECTS = [
   { src: shower1, label: "Modern Frameless Shower" },
   { src: shower3, label: "Cool Blue + Polished Chrome" },
   { src: bath3, label: "Modern Grey & White Spa Bath" },
+  { src: bath4, label: "Dark Slate Tub Surround" },
 ];
 
 const ProjectGallerySection = () => {
