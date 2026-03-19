@@ -12,13 +12,14 @@ function getVideoSrc() {
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState(getVideoSrc);
-  const [fullName, setFullName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [phone, setPhone] = useState("");
   const [projectType, setProjectType] = useState("");
 
-  const isFormComplete = fullName.trim() !== "" && email.trim() !== "" && zipCode.trim() !== "" && phone.trim() !== "" && projectType !== "";
+  const isFormComplete = firstName.trim() !== "" && lastName.trim() !== "" && email.trim() !== "" && zipCode.trim() !== "" && phone.trim() !== "" && projectType !== "";
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -85,7 +86,7 @@ const HeroSection = () => {
 
         {/* Form — overlaid on video on all sizes */}
         <div className="mt-[30svh] sm:mt-[50svh] lg:mt-[20svh] flex justify-center lg:justify-end max-w-7xl mx-auto w-full px-4 sm:px-6 pb-8 sm:pb-12 lg:pb-16">
-          <div className="w-full max-w-md bg-card/95 backdrop-blur-sm rounded-lg p-5 sm:p-6 lg:p-8 shadow-2xl">
+          <div className="w-full max-w-md lg:max-w-xl bg-card/95 backdrop-blur-sm rounded-lg p-5 sm:p-6 lg:p-8 shadow-2xl">
             <h2 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-card-foreground mb-2">
               Lock in your price for 1 year – All Labor and Materials Included
             </h2>
@@ -107,26 +108,32 @@ const HeroSection = () => {
                 We DO NOT Share your Info with any other companies.
               </p>
 
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Full Name</label>
-                <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                <div>
+                  <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">First Name</label>
+                  <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+                </div>
+                <div>
+                  <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Last Name</label>
+                  <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+                </div>
               </div>
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Email Address</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Email Address</label>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               </div>
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Zip Code</label>
-                <input type="text" inputMode="numeric" value={zipCode} onChange={(e) => setZipCode(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Zip Code</label>
+                <input type="text" inputMode="numeric" value={zipCode} onChange={(e) => setZipCode(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               </div>
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Phone Number</label>
-                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Phone Number</label>
+                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
               </div>
-              <div className="relative">
-                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Project Type</label>
-                <select value={projectType} onChange={(e) => setProjectType(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
-                  <option value="" disabled></option>
+              <div>
+                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Project Type</label>
+                <select value={projectType} onChange={(e) => setProjectType(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+                  <option value="" disabled>Select one...</option>
                   <option>Shower</option>
                   <option>Bathtub</option>
                   <option>Full Bathroom</option>
