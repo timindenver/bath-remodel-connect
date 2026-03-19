@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, FormEvent } from "react";
 
 const VIDEO_VERSION = "4";
 
@@ -12,6 +12,18 @@ function getVideoSrc() {
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState(getVideoSrc);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [phone, setPhone] = useState("");
+  const [projectType, setProjectType] = useState("");
+
+  const isFormComplete = fullName.trim() !== "" && email.trim() !== "" && zipCode.trim() !== "" && phone.trim() !== "" && projectType !== "";
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!isFormComplete) return;
+  };
 
   useEffect(() => {
     const onResize = () => {
@@ -87,23 +99,48 @@ const HeroSection = () => {
               <li>• No Interest Financing</li>
             </ul>
 
-            <form className="space-y-2.5 sm:space-y-3" onSubmit={(e) => e.preventDefault()}>
-              <button type="submit" className="w-full py-3 sm:py-3.5 bg-accent text-accent-foreground font-semibold rounded-sm hover:opacity-90 active:opacity-80 transition-opacity text-sm uppercase tracking-wider touch-manipulation">
+            <form className="space-y-2.5 sm:space-y-3" onSubmit={handleSubmit}>
+              <button type="button" className="w-full py-3 sm:py-3.5 bg-accent text-accent-foreground font-semibold rounded-sm hover:opacity-90 active:opacity-80 transition-opacity text-sm uppercase tracking-wider touch-manipulation">
                 Get Your Free Quote
               </button>
               <p className="text-xs text-center text-card-foreground font-medium">
                 We DO NOT Share your Info with any other companies.
               </p>
-              <input type="text" placeholder="Full Name" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
-              <input type="text" placeholder="Zip Code" inputMode="numeric" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
-              <input type="tel" placeholder="Phone Number" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
-              <select defaultValue="" className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
-                <option value="" disabled selected>Project Type</option>
-                <option>Shower</option>
-                <option>Bathtub</option>
-                <option>Full Bathroom</option>
-                <option>Other</option>
-              </select>
+
+              <div className="relative">
+                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Full Name</label>
+                <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              </div>
+              <div className="relative">
+                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Email Address</label>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              </div>
+              <div className="relative">
+                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Zip Code</label>
+                <input type="text" inputMode="numeric" value={zipCode} onChange={(e) => setZipCode(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              </div>
+              <div className="relative">
+                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Phone Number</label>
+                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
+              </div>
+              <div className="relative">
+                <label className="absolute left-4 top-1 text-[10px] text-muted-foreground pointer-events-none">Project Type</label>
+                <select value={projectType} onChange={(e) => setProjectType(e.target.value)} className="w-full px-4 pt-4 pb-1.5 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+                  <option value="" disabled></option>
+                  <option>Shower</option>
+                  <option>Bathtub</option>
+                  <option>Full Bathroom</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                disabled={!isFormComplete}
+                className="w-full py-3 sm:py-3.5 font-semibold rounded-sm text-sm uppercase tracking-wider touch-manipulation transition-all bg-accent text-accent-foreground hover:opacity-90 active:opacity-80 disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                Submit
+              </button>
             </form>
             <p className="text-[10px] leading-tight text-muted-foreground text-center mt-3">
               By clicking Submit, I expressly consent to Solid Surface Baths contacting me at the telephone number or email address provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology, SMS/MMS messages, AI generative voice, and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. Message and data rates may apply. I understand that consent is not a condition of purchase and to be helped I can call 1-720-807-3626
