@@ -101,9 +101,6 @@ const HeroSection = () => {
                 <option>Full Bathroom</option>
                 <option>Other</option>
               </select>
-              <button type="submit" className="w-full py-3 sm:py-3.5 bg-accent text-accent-foreground font-semibold rounded-sm hover:opacity-90 active:opacity-80 transition-opacity text-sm uppercase tracking-wider touch-manipulation">
-                Get Your Free Quote
-              </button>
             </form>
           </div>
         </div>
