@@ -62,7 +62,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-10 min-h-[100svh] flex flex-col">
+      <div className="relative z-10 min-h-[70svh] lg:min-h-[80svh] flex flex-col">
         {/* Static headline */}
         <div className="flex-1 flex items-start pt-24 sm:pt-28 lg:pt-32 px-4 sm:px-6">
           <div className="w-full max-w-7xl mx-auto">
