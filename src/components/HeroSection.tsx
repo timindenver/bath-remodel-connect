@@ -43,9 +43,9 @@ const HeroSection = () => {
   }, [videoSrc]);
 
   return (
-    <section className="relative">
+    <section className="relative min-h-[100svh]">
       {/* Video background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <video
           key={videoSrc}
           ref={videoRef}
@@ -54,7 +54,7 @@ const HeroSection = () => {
           loop
           playsInline
           preload="auto"
-          className="w-full h-full object-cover md:object-contain object-center bg-hero-overlay"
+          className="w-full h-full object-cover object-top"
           aria-hidden="true"
           src={videoSrc}
         />
@@ -62,9 +62,9 @@ const HeroSection = () => {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-10 flex flex-col">
+      <div className="relative z-10 min-h-[100svh] flex flex-col">
         {/* Static headline */}
-        <div className="flex-1 flex items-start pt-24 sm:pt-28 lg:pt-32 px-4 sm:px-6">
+        <div className="flex-1 flex items-start pt-8 sm:pt-12 lg:pt-16 px-4 sm:px-6">
           <div className="w-full max-w-7xl mx-auto">
             <div className="max-w-2xl text-primary-foreground text-center lg:text-left mx-auto lg:mx-0">
               <h1 className="text-3xl sm:text-4xl lg:text-7xl font-serif font-bold leading-tight mb-4 sm:mb-6">
