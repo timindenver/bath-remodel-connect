@@ -54,7 +54,7 @@ const HeroSection = () => {
           loop
           playsInline
           preload="auto"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
           aria-hidden="true"
           src={videoSrc}
         />
