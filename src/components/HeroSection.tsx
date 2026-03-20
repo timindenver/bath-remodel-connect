@@ -43,7 +43,7 @@ const HeroSection = () => {
   }, [videoSrc]);
 
   return (
-    <section className="relative min-h-[70svh] lg:min-h-[80svh]">
+    <section className="relative">
       {/* Video background */}
       <div className="absolute inset-0 z-0">
         <video
