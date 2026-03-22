@@ -1,4 +1,6 @@
 import { Check, X, AlertTriangle } from "lucide-react";
+import comparisonSolid from "@/assets/comparison-solid-surface.png";
+import comparisonAcrylic from "@/assets/comparison-acrylic.jpeg";
 
 const rows = [
   {
