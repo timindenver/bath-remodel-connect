@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, FormEvent } from "react";
 
-const VIDEO_VERSION = "4";
+const VIDEO_VERSION = "5";
 
 function getVideoSrc() {
   const w = window.innerWidth;
