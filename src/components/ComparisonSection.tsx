@@ -53,7 +53,7 @@ const scrollToForm = () => {
 
 const ComparisonSection = () => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
+    <section className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 sm:mb-14">
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">

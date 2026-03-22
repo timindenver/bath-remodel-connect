@@ -28,7 +28,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="relative py-20 px-6 overflow-hidden">
+    <section className="relative py-12 sm:py-20 px-4 sm:px-6 overflow-hidden">
       <div
         className="absolute inset-0 hidden md:block bg-cover bg-center"
         style={{ backgroundImage: `url(${testimonialsBgDesktop})` }}
@@ -49,11 +49,11 @@ const TestimonialsSection = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-8">
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-background/60 backdrop-blur-sm rounded-lg p-8 border border-border"
+              className="bg-background/60 backdrop-blur-sm rounded-lg p-5 sm:p-8 border border-border"
             >
               <div className="flex gap-0.5 mb-3">
                 {Array.from({ length: t.stars }).map((_, j) => (

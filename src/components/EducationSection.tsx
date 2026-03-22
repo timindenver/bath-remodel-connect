@@ -19,10 +19,10 @@ const solidSurfaceReasons = [
 
 const EducationSection = () => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-secondary">
+    <section className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-secondary">
       <div className="max-w-5xl mx-auto">
         {/* What they don't tell you */}
-        <div className="mb-16">
+        <div className="mb-10 sm:mb-16">
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
             The Fine Print
           </p>
