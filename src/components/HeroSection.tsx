@@ -43,7 +43,7 @@ const HeroSection = () => {
   }, [videoSrc]);
 
   return (
-    <section className="relative min-h-[100svh]">
+    <section className="relative min-h-[75svh] lg:min-h-[80svh]">
       {/* Video background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
@@ -54,7 +54,7 @@ const HeroSection = () => {
           loop
           playsInline
           preload="auto"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-contain sm:object-cover object-top"
           aria-hidden="true"
           src={videoSrc}
         />
@@ -62,7 +62,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content overlay */}
-      <div className="relative z-10 min-h-[100svh] flex flex-col">
+      <div className="relative z-10 min-h-[75svh] lg:min-h-[80svh] flex flex-col">
         {/* Static headline */}
         <div className="flex-1 flex items-start pt-8 sm:pt-12 lg:pt-16 px-4 sm:px-6">
           <div className="w-full max-w-7xl mx-auto">
@@ -85,7 +85,7 @@ const HeroSection = () => {
         </div>
 
         {/* Form — overlaid on video on all sizes */}
-        <div className="mt-[40svh] sm:mt-[45svh] lg:mt-12 flex justify-center lg:justify-end max-w-7xl mx-auto w-full px-4 sm:px-6 pb-8 sm:pb-12 lg:pb-16">
+        <div className="mt-[30svh] sm:mt-[35svh] lg:mt-12 flex justify-center lg:justify-end max-w-7xl mx-auto w-full px-4 sm:px-6 pb-8 sm:pb-12 lg:pb-16">
           <div className="w-full max-w-md lg:max-w-xl bg-card/95 backdrop-blur-sm rounded-lg p-5 sm:p-6 lg:p-8 shadow-2xl">
             <h2 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-card-foreground mb-2">
               Lock in your price for 1 year – All Labor and Materials Included
