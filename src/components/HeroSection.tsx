@@ -64,17 +64,20 @@ const HeroSection = () => {
                 <br />
                 Quartz Countertops,
                 <br />
-                <span className="border-l-4 border-accent pl-4">You'll Want to See This Shower Option</span>
+                <span className="border-l-4 border-accent pl-4">You'll Want This Same Upgrade in Your Shower</span>
               </h1>
+              <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed mb-3">
+                Most "one-day showers" use acrylic panels. Our grout-free solid surface showers add lasting value to your home.
+              </p>
               <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed mb-6">
-                Most 'one-day' showers use acrylic panels. But there's a solid surface alternative that looks and feels more like real stone—and lasts significantly longer.
+                Installed in as little as 2–3 days—without the plastic look or feel.
               </p>
 
               <button
                 onClick={scrollToForm}
                 className="bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
               >
-                Get Your Free Quote
+                Request a Solid Surface Shower Estimate
               </button>
 
               {/* Trust indicators */}
