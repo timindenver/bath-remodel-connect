@@ -73,10 +73,10 @@ const MultiStepFormSection = () => {
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-3">
-            Check Availability in Your Area
+            Get Your Free Quote in 60 Seconds
           </h2>
           <p className="text-muted-foreground">
-            Answer a few quick questions to see if solid surface is available near you.
+            See if a certified solid surface installer is available in your area — no commitment required.
           </p>
         </div>
 
