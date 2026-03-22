@@ -1,4 +1,5 @@
 import { AlertTriangle, ArrowRight } from "lucide-react";
+import solidCloseup from "@/assets/solid-surface-closeup.png";
 
 const acylicTruths = [
   "Acrylic panels feel hollow when you tap them — because they are.",
@@ -54,16 +55,8 @@ const EducationSection = () => {
             </h3>
           </div>
 
-          {/* Placeholder for material close-up image */}
-          <div className="mb-8 rounded-lg overflow-hidden border border-border bg-muted aspect-video flex items-center justify-center">
-            <div className="text-center text-muted-foreground px-4">
-              <p className="font-serif font-semibold text-lg text-foreground mb-1">
-                [Solid Surface Close-Up Image]
-              </p>
-              <p className="text-sm">
-                Close-up shot showing stone-like texture and seamless finish
-              </p>
-            </div>
+          <div className="mb-8 rounded-lg overflow-hidden border border-border">
+            <img src={solidCloseup} alt="Close-up of calacatta solid surface material showing stone-like texture with water droplets" className="w-full aspect-video object-cover" />
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
