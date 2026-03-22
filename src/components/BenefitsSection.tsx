@@ -1,37 +1,40 @@
-import { Shield, Clock, DollarSign, Droplets } from "lucide-react";
+import { Shield, Clock, Droplets, Gem } from "lucide-react";
 
 const benefits = [
   {
+    icon: Gem,
+    title: "Stone-Like Feel",
+    description: "Made from real minerals, solid surface has the weight and texture of natural stone — not hollow plastic.",
+  },
+  {
     icon: Shield,
-    title: "Lifetime Warranty",
-    description: "Our solid surface products are backed by a lifetime warranty. Built to last, guaranteed to perform.",
-  },
-  {
-    icon: Clock,
-    title: "3-Day Installation",
-    description: "Most projects completed in just 3 days. Minimal disruption to your daily routine.",
-  },
-  {
-    icon: DollarSign,
-    title: "No Interest Financing",
-    description: "Affordable monthly payments with zero interest financing options available.",
+    title: "25–30+ Year Lifespan",
+    description: "Color goes all the way through. Scratches buff out. Built to last decades, not just a warranty period.",
   },
   {
     icon: Droplets,
-    title: "Zero Grout Lines",
-    description: "Seamless solid surface walls mean no grout to scrub, no mold to worry about.",
+    title: "Zero Grout, Zero Mold",
+    description: "Seamless walls mean no grout lines to scrub. No crevices where mold and mildew can hide.",
+  },
+  {
+    icon: Clock,
+    title: "2–3 Day Installation",
+    description: "A slightly longer install means a dramatically better result. Your contractor takes the time to do it right.",
   },
 ];
 
 const BenefitsSection = () => {
   return (
-    <section className="py-20 px-6 bg-secondary">
+    <section className="py-16 sm:py-20 lg:py-24 px-6 bg-background">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-          Why Solid Surface?
+        <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
+          The Smarter Investment
+        </p>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
+          Why Solid Surface Is Worth the Extra Day
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto mb-14">
-          Replace outdated tile and plastic surrounds with beautiful, durable solid surface walls.
+          For usually just 20% more than a one-day acrylic system, you get a shower that looks and feels completely different.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
