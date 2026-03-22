@@ -60,17 +60,14 @@ const HeroSection = () => {
           <div className="w-full max-w-7xl mx-auto">
             <div className="max-w-2xl text-primary-foreground text-center sm:text-left mx-auto sm:mx-0">
               <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight mb-4 sm:mb-6">
-                Thinking About a
+                If You Love Your
                 <br />
-                One-Day Shower?
+                Quartz Countertops,
                 <br />
-                <span className="border-l-4 border-accent pl-4">Read This First.</span>
+                <span className="border-l-4 border-accent pl-4">You'll Want to See This Shower Option</span>
               </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2">
-                Thousands of homeowners wish they had.
-              </p>
               <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed mb-6">
-                See the side-by-side comparison most contractors don't want you to see — before you sign anything.
+                Most 'one-day' showers use acrylic panels. But there's a solid surface alternative that looks and feels more like real stone—and lasts significantly longer.
               </p>
 
               <button
