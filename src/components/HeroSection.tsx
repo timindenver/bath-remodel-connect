@@ -67,17 +67,17 @@ const HeroSection = () => {
                 <span className="border-l-4 border-accent pl-4">Read This First.</span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2">
-                Compare acrylic vs solid surface showers
+                Thousands of homeowners wish they had.
               </p>
               <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed mb-6">
-                See which option actually lasts longer — and which one homeowners regret.
+                See the side-by-side comparison most contractors don't want you to see — before you sign anything.
               </p>
 
               <button
                 onClick={scrollToForm}
                 className="bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
               >
-                Check Availability in Your Area
+                Get Your Free Quote
               </button>
 
               {/* Trust indicators */}

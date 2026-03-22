@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+
 const scrollToForm = () => {
   document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
 };

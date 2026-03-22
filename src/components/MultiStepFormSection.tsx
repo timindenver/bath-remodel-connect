@@ -332,7 +332,7 @@ const MultiStepFormSection = () => {
                   disabled={!canAdvance()}
                   className="bg-accent text-accent-foreground font-semibold px-8 py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
-                  Submit — Check Availability
+                  Get My Free Quote
                 </button>
               )}
             </div>

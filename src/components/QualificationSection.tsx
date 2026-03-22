@@ -1,19 +1,23 @@
 import { Check, X } from "lucide-react";
 
 const isForItems = [
-  "Planning a remodel in the next 3–6 months",
-  "Budget of $10k+ for a quality result",
-  "Care about long-term durability over speed",
-  "Open to a 2–3 day professional installation",
-  "Want a shower that looks and feels premium",
+  "You're planning a remodel in the next 1–6 months",
+  "You want something that still looks great in 20 years",
+  "You're comparing options and want the real tradeoffs",
+  "Your budget is $10k+ and you'd rather invest once",
+  "You're open to a quick in-home visit for an exact quote",
 ];
 
 const notForItems = [
-  "Looking for the absolute cheapest option",
-  "Need it done in a single day no matter what",
-  "Just browsing with no timeline",
-  "Prefer DIY installation",
+  "You want the absolute cheapest option available",
+  "You need it installed today, no exceptions",
+  "You're just browsing with no real timeline",
+  "You prefer to DIY your shower installation",
 ];
+
+const scrollToForm = () => {
+  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+};
 
 const QualificationSection = () => {
   return (
@@ -24,7 +28,7 @@ const QualificationSection = () => {
             Is This Right for You?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            We're not for everyone — and that's by design. Here's how to know if solid surface is your best option.
+            We turn down projects that aren't a good fit. That's how we keep our ratings at 4.9 stars.
           </p>
         </div>
 
@@ -35,7 +39,7 @@ const QualificationSection = () => {
               <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
                 <Check className="w-4 h-4 text-accent" />
               </div>
-              This Is For You If…
+              You're a Great Fit If…
             </h3>
             <ul className="space-y-4">
               {isForItems.map((item, i) => (
@@ -45,6 +49,12 @@ const QualificationSection = () => {
                 </li>
               ))}
             </ul>
+            <button
+              onClick={scrollToForm}
+              className="mt-6 w-full bg-accent text-accent-foreground font-semibold py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
+            >
+              That's Me — Get My Free Quote
+            </button>
           </div>
 
           {/* Who it is NOT for */}
@@ -53,7 +63,7 @@ const QualificationSection = () => {
               <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center">
                 <X className="w-4 h-4 text-destructive" />
               </div>
-              This Is NOT For You If…
+              This Probably Isn't For You If…
             </h3>
             <ul className="space-y-4">
               {notForItems.map((item, i) => (
