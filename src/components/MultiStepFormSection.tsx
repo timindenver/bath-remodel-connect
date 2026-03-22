@@ -67,7 +67,7 @@ const MultiStepFormSection = () => {
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2 sm:mb-3">
-            Get Your Free Quote in 60 Seconds
+            Request a Solid Surface Shower Estimate
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
             No commitment. No spam. Just a real quote from a local installer.

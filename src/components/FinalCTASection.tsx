@@ -23,7 +23,7 @@ const FinalCTASection = () => {
           onClick={scrollToForm}
           className="bg-accent text-accent-foreground font-semibold px-10 py-4 rounded-sm text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
         >
-          Request My Free Quote Now
+          Request a Solid Surface Shower Estimate
         </button>
       </div>
     </section>

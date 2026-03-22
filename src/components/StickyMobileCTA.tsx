@@ -24,7 +24,7 @@ const StickyMobileCTA = () => {
         onClick={scrollToForm}
         className="w-full bg-accent text-accent-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
       >
-        Get Your Free Quote
+        Request a Solid Surface Shower Estimate
       </button>
     </div>
   );
