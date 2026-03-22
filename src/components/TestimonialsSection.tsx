@@ -28,7 +28,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="relative py-20 px-6 overflow-hidden">
+    <section className="relative py-12 sm:py-20 px-4 sm:px-6 overflow-hidden">
       <div
         className="absolute inset-0 hidden md:block bg-cover bg-center"
         style={{ backgroundImage: `url(${testimonialsBgDesktop})` }}
