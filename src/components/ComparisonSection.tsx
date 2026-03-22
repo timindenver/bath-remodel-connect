@@ -1,4 +1,6 @@
 import { Check, X, AlertTriangle } from "lucide-react";
+import comparisonSolid from "@/assets/comparison-solid-surface.png";
+import comparisonAcrylic from "@/assets/comparison-acrylic.jpeg";
 
 const rows = [
   {
@@ -66,14 +68,18 @@ const ComparisonSection = () => {
         </div>
 
         {/* Comparison image placeholder */}
-        <div className="mb-10 rounded-lg overflow-hidden border border-border bg-muted aspect-[21/9] flex items-center justify-center">
-          <div className="text-center text-muted-foreground px-4">
-            <p className="font-serif font-semibold text-lg text-foreground mb-1">
-              [Split Comparison Image]
-            </p>
-            <p className="text-sm">
-              Left: Acrylic panel shower · Right: Solid surface stone-look shower
-            </p>
+        <div className="mb-10 grid grid-cols-2 gap-1 rounded-lg overflow-hidden border border-border">
+          <div className="relative">
+            <img src={comparisonAcrylic} alt="Acrylic one-day shower install — plastic panels being caulked into place" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
+            <span className="absolute bottom-0 inset-x-0 bg-destructive/80 text-destructive-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
+              Acrylic "One-Day" Install
+            </span>
+          </div>
+          <div className="relative">
+            <img src={comparisonSolid} alt="Solid surface stone-look shower panels being professionally installed" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
+            <span className="absolute bottom-0 inset-x-0 bg-accent/80 text-accent-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
+              Solid Surface Install
+            </span>
           </div>
         </div>
 
