@@ -12,9 +12,6 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 opacity-80">Quick Links</h4>
           <ul className="space-y-2 text-sm opacity-70">
-            <li><a href="#" className="hover:opacity-100 transition-opacity">About Us</a></li>
-            <li><a href="#" className="hover:opacity-100 transition-opacity">Find an Installer</a></li>
-            <li><a href="#" className="hover:opacity-100 transition-opacity">Gallery</a></li>
             <li><a href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</a></li>
           </ul>
         </div>
