@@ -69,7 +69,7 @@ const HeroSection = () => {
               <p className="text-sm sm:text-base lg:text-xl opacity-90 leading-relaxed mb-3">
                 Most "one-day showers" use acrylic panels. Our grout-free solid surface showers add lasting value to your home.
               </p>
-              <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed mb-6">
+              <p className="text-sm sm:text-base lg:text-xl opacity-90 leading-relaxed mb-6">
                 Installed in as little as 2–3 days—without the plastic look or feel.
               </p>
 
