@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Star, Shield, CheckCircle } from "lucide-react";
+import { useGeo } from "@/contexts/GeoContext";
 
 const VIDEO_VERSION = "6";
 
@@ -17,6 +18,7 @@ const scrollToForm = () => {
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState(getVideoSrc);
+  const { geo, geoLoading } = useGeo();
 
   useEffect(() => {
     const onResize = () => {
@@ -33,6 +35,15 @@ const HeroSection = () => {
       video.play().catch(() => {});
     }
   }, [videoSrc]);
+
+  // Dynamic trust text
+  const ratingText = geo.rating ? `${geo.rating} Stars` : "4.9 Stars";
+  const reviewText = geo.review_count ? `${geo.review_count}+ Reviews` : "127+ Reviews";
+  const areaText = geo.region_name
+    ? `Serving the ${geo.region_name}`
+    : geo.city
+      ? `Serving ${geo.city} and surrounding areas`
+      : "Serving Your Area";
 
   return (
     <section className="relative min-h-[75svh] lg:min-h-[80svh]">
@@ -80,11 +91,11 @@ const HeroSection = () => {
                 Request a Solid Surface Shower Estimate
               </button>
 
-              {/* Trust indicators */}
+              {/* Trust indicators — dynamically personalized */}
               <div className="flex flex-wrap items-center gap-4 mt-6 text-xs sm:text-sm opacity-80">
                 <span className="flex items-center gap-1.5">
                   <Star className="w-4 h-4 fill-accent text-accent" />
-                  4.9 Stars · 127+ Reviews
+                  {ratingText} · {reviewText}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Shield className="w-4 h-4" />
@@ -92,7 +103,7 @@ const HeroSection = () => {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4" />
-                  Serving Your Area
+                  {areaText}
                 </span>
               </div>
             </div>
