@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState, FormEvent } from "react";
+import { useRef, useEffect, useState } from "react";
+import { Star, Shield, CheckCircle } from "lucide-react";
 
 const VIDEO_VERSION = "6";
 
@@ -9,22 +10,13 @@ function getVideoSrc() {
   return `/hero.mp4?v=${VIDEO_VERSION}`;
 }
 
+const scrollToForm = () => {
+  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+};
+
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState(getVideoSrc);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [phone, setPhone] = useState("");
-  const [projectType, setProjectType] = useState("");
-
-  const isFormComplete = firstName.trim() !== "" && lastName.trim() !== "" && email.trim() !== "" && zipCode.trim() !== "" && phone.trim() !== "" && projectType !== "";
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (!isFormComplete) return;
-  };
 
   useEffect(() => {
     const onResize = () => {
@@ -63,95 +55,47 @@ const HeroSection = () => {
 
       {/* Content overlay */}
       <div className="relative z-10 min-h-[75svh] lg:min-h-[80svh] flex flex-col">
-        {/* Static headline */}
+        {/* Headline */}
         <div className="flex-1 flex items-start pt-8 sm:pt-12 lg:pt-16 px-4 sm:px-6">
           <div className="w-full max-w-7xl mx-auto">
             <div className="max-w-2xl text-primary-foreground text-center lg:text-left mx-auto lg:mx-0">
-              <h1 className="text-3xl sm:text-4xl lg:text-7xl font-serif font-bold leading-tight mb-4 sm:mb-6">
-                The Solid Surface Shower
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight mb-4 sm:mb-6">
+                Thinking About a
                 <br />
-                <span className="border-l-4 border-accent pl-4">of Your Dreams</span>
+                One-Day Shower?
+                <br />
+                <span className="border-l-4 border-accent pl-4">Read This First.</span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl font-semibold mb-2">
-                No Grout · No Plastic Panels
+                Compare acrylic vs solid surface showers
               </p>
-              <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed">
-                Installed in just <span className="font-bold">3 Days</span> for usually just <span className="font-bold">20% more</span>
-                <br />
-                than the one day plastic systems.
+              <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed mb-6">
+                See which option actually lasts longer — and which one homeowners regret.
               </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Form — overlaid on video on all sizes */}
-        <div className="mt-[30svh] sm:mt-[35svh] lg:mt-12 flex justify-center lg:justify-end max-w-7xl mx-auto w-full px-4 sm:px-6 pb-8 sm:pb-12 lg:pb-16">
-          <div className="w-full max-w-md lg:max-w-xl bg-card/95 backdrop-blur-sm rounded-lg p-5 sm:p-6 lg:p-8 shadow-2xl">
-            <form className="space-y-2.5 sm:space-y-3" onSubmit={handleSubmit}>
-              <button type="button" className="w-full py-3 sm:py-3.5 bg-accent text-accent-foreground font-semibold rounded-sm hover:opacity-90 active:opacity-80 transition-opacity text-sm uppercase tracking-wider touch-manipulation">
-                Get Your Free Quote
-              </button>
-              <p className="text-xs text-center text-card-foreground font-medium">
-                We DO NOT Share your Info with any other companies.
-              </p>
-
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-serif font-bold text-card-foreground mb-2">
-                Lock in your price for 1 year – All Labor and Materials Included
-              </h2>
-              <p className="text-accent font-medium mb-3 sm:mb-4 lg:mb-5 text-sm sm:text-base">
-                Our Local Certified Contractors can often install real solid surface for just 20% more!
-              </p>
-
-              <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-5 lg:mb-6 text-sm text-card-foreground">
-                <li>• Full Turnkey Demo and Installation</li>
-                <li>• 3 Day Installation</li>
-                <li>• No Interest Financing</li>
-              </ul>
-
-              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
-                <div>
-                  <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">First Name</label>
-                  <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
-                </div>
-                <div>
-                  <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Last Name</label>
-                  <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
-                </div>
-              </div>
-              <div>
-                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Email Address</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
-              </div>
-              <div>
-                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Zip Code</label>
-                <input type="text" inputMode="numeric" value={zipCode} onChange={(e) => setZipCode(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
-              </div>
-              <div>
-                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Phone Number</label>
-                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent" />
-              </div>
-              <div>
-                <label className="block text-xs sm:text-sm font-semibold text-card-foreground mb-1">Project Type</label>
-                <select value={projectType} onChange={(e) => setProjectType(e.target.value)} className="w-full px-4 py-2.5 sm:py-3 border border-input rounded-sm bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
-                  <option value="" disabled>Select one...</option>
-                  <option>Shower</option>
-                  <option>Bathtub</option>
-                  <option>Full Bathroom</option>
-                  <option>Other</option>
-                </select>
-              </div>
 
               <button
-                type="submit"
-                disabled={!isFormComplete}
-                className="w-full py-3 sm:py-3.5 font-semibold rounded-sm text-sm uppercase tracking-wider touch-manipulation transition-all bg-accent text-accent-foreground hover:opacity-90 active:opacity-80 disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-70"
+                onClick={scrollToForm}
+                className="bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
               >
-                Submit
+                Check Availability in Your Area
               </button>
-            </form>
-            <p className="text-[10px] leading-tight text-muted-foreground text-center mt-3">
-              By clicking Submit, I expressly consent to Solid Surface Baths contacting me at the telephone number or email address provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology, SMS/MMS messages, AI generative voice, and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. Message and data rates may apply. I understand that consent is not a condition of purchase and to be helped I can call 1-720-807-3626
-            </p>
+
+              {/* Trust indicators */}
+              <div className="flex flex-wrap items-center gap-4 mt-6 text-xs sm:text-sm opacity-80">
+                <span className="flex items-center gap-1.5">
+                  <Star className="w-4 h-4 fill-accent text-accent" />
+                  4.9 Stars · 127+ Reviews
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Shield className="w-4 h-4" />
+                  Licensed & Insured
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4" />
+                  Serving Your Area
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
