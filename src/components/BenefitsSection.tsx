@@ -25,7 +25,7 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-6 bg-background">
+    <section className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-6xl mx-auto text-center">
         <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
           The Smarter Investment

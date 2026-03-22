@@ -53,7 +53,7 @@ const TestimonialsSection = () => {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-background/60 backdrop-blur-sm rounded-lg p-8 border border-border"
+              className="bg-background/60 backdrop-blur-sm rounded-lg p-5 sm:p-8 border border-border"
             >
               <div className="flex gap-0.5 mb-3">
                 {Array.from({ length: t.stars }).map((_, j) => (
