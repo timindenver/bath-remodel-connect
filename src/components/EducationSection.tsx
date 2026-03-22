@@ -1,4 +1,5 @@
 import { AlertTriangle, ArrowRight } from "lucide-react";
+import solidCloseup from "@/assets/solid-surface-closeup.png";
 
 const acylicTruths = [
   "Acrylic panels feel hollow when you tap them — because they are.",
