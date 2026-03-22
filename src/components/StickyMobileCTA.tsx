@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+
 const scrollToForm = () => {
   document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
 };
@@ -23,7 +24,7 @@ const StickyMobileCTA = () => {
         onClick={scrollToForm}
         className="w-full bg-accent text-accent-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
       >
-        Check Availability Now
+        Get Your Free Quote
       </button>
     </div>
   );

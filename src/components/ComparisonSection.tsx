@@ -57,13 +57,13 @@ const ComparisonSection = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 sm:mb-14">
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
-            Honest Comparison
+            The Comparison They Hope You Never See
           </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
             Acrylic "One-Day" Shower vs. Solid Surface
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Before you commit, see how the two most popular shower remodel options actually stack up.
+            Same bathroom. Vastly different outcomes. Here's what 10 years of installs have taught us.
           </p>
         </div>
 
@@ -140,7 +140,7 @@ const ComparisonSection = () => {
             onClick={scrollToForm}
             className="bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
           >
-            Check Solid Surface Options Near Me
+            See What Solid Surface Costs for Your Bathroom
           </button>
         </div>
       </div>

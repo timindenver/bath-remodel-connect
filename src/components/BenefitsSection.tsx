@@ -31,10 +31,10 @@ const BenefitsSection = () => {
           The Smarter Investment
         </p>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
-          Why Solid Surface Is Worth the Extra Day
+          For ~20% More, You Get a Shower That Lasts 2–3x Longer
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto mb-14">
-          For usually just 20% more than a one-day acrylic system, you get a shower that looks and feels completely different.
+          Most homeowners who compare both options side-by-side choose solid surface. Here's why.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

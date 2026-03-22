@@ -3,18 +3,18 @@ import { ClipboardList, Users, Calendar, Shield } from "lucide-react";
 const steps = [
   {
     icon: ClipboardList,
-    title: "Answer a Few Quick Questions",
-    description: "Tell us about your project, timeline, and what matters most to you.",
+    title: "60-Second Form",
+    description: "Tell us about your project. No login required — just 4 quick questions.",
   },
   {
     icon: Users,
-    title: "Get Matched with a Local Contractor",
-    description: "We connect you with a certified, 5-star rated installer in your area.",
+    title: "We Match You Locally",
+    description: "Within 24 hours, a certified 5-star installer in your area reaches out.",
   },
   {
     icon: Calendar,
-    title: "Schedule Your In-Home Estimate",
-    description: "Your contractor visits your home, takes measurements, and gives you an exact quote — free.",
+    title: "Free In-Home Quote",
+    description: "They measure your space and give you an exact price — no guessing, no surprises.",
   },
 ];
 
@@ -28,10 +28,10 @@ const ProcessSection = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 sm:mb-14">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
-            What Happens Next?
+            Here's Exactly What Happens Next
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Getting started is simple. Here's exactly what to expect.
+            No surprises. No hard sell. Just a clear path to your new shower.
           </p>
         </div>
 
@@ -59,13 +59,13 @@ const ProcessSection = () => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
             <Shield className="w-4 h-4 text-accent" />
-            No obligation. No pressure. No sales gimmicks.
+            100% free. Zero obligation. Walk away anytime.
           </div>
           <button
             onClick={scrollToForm}
             className="bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
           >
-            Get Started — Check Availability
+            Start My Free Quote
           </button>
         </div>
       </div>
