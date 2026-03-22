@@ -76,7 +76,7 @@ const ComparisonSection = () => {
             </span>
           </div>
           <div className="relative">
-            <img src={comparisonSolid} alt="Solid surface stone-look shower panels being professionally installed" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
+            <img src={comparisonSolid} alt="Contractor installing solid surface calacatta marble-look shower panels in a luxury bathroom" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
             <span className="absolute bottom-0 inset-x-0 bg-accent/80 text-accent-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
               Solid Surface Install
             </span>
