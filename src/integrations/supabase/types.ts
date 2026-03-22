@@ -14,7 +14,158 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contractor_regions: {
+        Row: {
+          contractor_email: string | null
+          contractor_name: string | null
+          created_at: string
+          id: string
+          is_active: boolean
+          rating: number | null
+          region_name: string
+          review_count: number | null
+          updated_at: string
+          webhook_url: string | null
+          zip_codes: string[]
+        }
+        Insert: {
+          contractor_email?: string | null
+          contractor_name?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          rating?: number | null
+          region_name: string
+          review_count?: number | null
+          updated_at?: string
+          webhook_url?: string | null
+          zip_codes?: string[]
+        }
+        Update: {
+          contractor_email?: string | null
+          contractor_name?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          rating?: number | null
+          region_name?: string
+          review_count?: number | null
+          updated_at?: string
+          webhook_url?: string | null
+          zip_codes?: string[]
+        }
+        Relationships: []
+      }
+      leads: {
+        Row: {
+          city: string | null
+          concern: string | null
+          contractor_region_id: string | null
+          created_at: string
+          email: string | null
+          id: string
+          intent_level: string | null
+          ip_address: string | null
+          is_in_service_area: boolean | null
+          name: string
+          open_to_visit: string | null
+          phone: string
+          region_name: string | null
+          state: string | null
+          timeline: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+          webhook_sent: boolean | null
+          zip_code: string
+        }
+        Insert: {
+          city?: string | null
+          concern?: string | null
+          contractor_region_id?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          intent_level?: string | null
+          ip_address?: string | null
+          is_in_service_area?: boolean | null
+          name: string
+          open_to_visit?: string | null
+          phone: string
+          region_name?: string | null
+          state?: string | null
+          timeline?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          webhook_sent?: boolean | null
+          zip_code: string
+        }
+        Update: {
+          city?: string | null
+          concern?: string | null
+          contractor_region_id?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          intent_level?: string | null
+          ip_address?: string | null
+          is_in_service_area?: boolean | null
+          name?: string
+          open_to_visit?: string | null
+          phone?: string
+          region_name?: string | null
+          state?: string | null
+          timeline?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          webhook_sent?: boolean | null
+          zip_code?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "leads_contractor_region_id_fkey"
+            columns: ["contractor_region_id"]
+            isOneToOne: false
+            referencedRelation: "contractor_regions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      waitlist: {
+        Row: {
+          city: string | null
+          created_at: string
+          email: string
+          id: string
+          state: string | null
+          zip_code: string
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          state?: string | null
+          zip_code: string
+        }
+        Update: {
+          city?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          state?: string | null
+          zip_code?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
