@@ -66,7 +66,7 @@ const HeroSection = () => {
                 <br />
                 <span className="border-l-4 border-accent pl-4">You'll Want This Same Upgrade in Your Shower</span>
               </h1>
-              <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed mb-3">
+              <p className="text-sm sm:text-base lg:text-xl opacity-90 leading-relaxed mb-3">
                 Most "one-day showers" use acrylic panels. Our grout-free solid surface showers add lasting value to your home.
               </p>
               <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed mb-6">
