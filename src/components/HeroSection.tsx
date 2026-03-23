@@ -36,9 +36,7 @@ const HeroSection = () => {
     }
   }, [videoSrc]);
 
-  // Dynamic trust text
-  const ratingText = geo.rating ? `${geo.rating} Stars` : "4.9 Stars";
-  const reviewText = geo.review_count ? `${geo.review_count}+ Reviews` : "127+ Reviews";
+  // Dynamic area text
   const areaText = geo.region_name
     ? `Serving the ${geo.region_name}`
     : geo.city
