@@ -172,7 +172,7 @@ serve(async (req) => {
                 "UTM Content": leadData.utm_content || "",
                 "UTM Term": leadData.utm_term || "",
                 "IP Address": leadData.ip_address || "",
-                "Submitted At": lead.created_at,
+                SubmittedAt: lead.created_at,
               },
             }),
           }
