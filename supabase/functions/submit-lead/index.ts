@@ -143,47 +143,99 @@ serve(async (req) => {
 
     console.log("Airtable config:", { baseId: airtableBaseId, table: airtableTable, hasPat: !!airtablePat, patLength: airtablePat?.length });
     if (airtablePat && airtableBaseId && airtableTable) {
-      try {
-        const airtableRes = await fetch(
-          `https://api.airtable.com/v0/${airtableBaseId}/${encodeURIComponent(airtableTable)}`,
-          {
+      const airtableEndpoint = `https://api.airtable.com/v0/${airtableBaseId}/${encodeURIComponent(airtableTable)}`;
+      const airtableFields: Record<string, string | boolean> = {
+        Name: leadData.name,
+        Phone: leadData.phone,
+        Email: leadData.email || "",
+        ZipCode: leadData.zip_code,
+        City: leadData.city || "",
+        State: leadData.state || "",
+        "Region Name": leadData.region_name || "",
+        Timeline: leadData.timeline || "",
+        Concern: leadData.concern || "",
+        "Open to Visit": leadData.open_to_visit || "",
+        "Intent Level": intentLevel,
+        "In Service Area": inServiceArea,
+        "UTM Source": leadData.utm_source || "",
+        "UTM Medium": leadData.utm_medium || "",
+        "UTM Campaign": leadData.utm_campaign || "",
+        "UTM Content": leadData.utm_content || "",
+        "UTM Term": leadData.utm_term || "",
+        "IP Address": leadData.ip_address || "",
+      };
+
+      const getOffendingField = (
+        errorMessage: string,
+        fields: Record<string, string | boolean>
+      ): string | null => {
+        const unknownFieldMatch = errorMessage.match(/Unknown field name: "([^"]+)"/);
+        if (unknownFieldMatch?.[1] && fields[unknownFieldMatch[1]] !== undefined) {
+          return unknownFieldMatch[1];
+        }
+
+        const invalidFieldMatch = errorMessage.match(/Field "([^"]+)"/);
+        if (invalidFieldMatch?.[1] && fields[invalidFieldMatch[1]] !== undefined) {
+          return invalidFieldMatch[1];
+        }
+
+        const optionMatch = errorMessage.match(/select option\s+"+([^"]+?)"+/i);
+        if (optionMatch?.[1]) {
+          const optionValue = optionMatch[1].trim().toLowerCase();
+          const matchingEntry = Object.entries(fields).find(([, value]) => {
+            if (typeof value !== "string") return false;
+            return value.trim().toLowerCase() === optionValue;
+          });
+          return matchingEntry?.[0] || null;
+        }
+
+        return null;
+      };
+
+      const payloadFields: Record<string, string | boolean> = { ...airtableFields };
+
+      for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+          const airtableRes = await fetch(airtableEndpoint, {
             method: "POST",
             headers: {
               Authorization: `Bearer ${airtablePat}`,
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-              fields: {
-                Name: leadData.name,
-                Phone: leadData.phone,
-                Email: leadData.email || "",
-                ZipCode: leadData.zip_code,
-                City: leadData.city || "",
-                State: leadData.state || "",
-                "Region Name": leadData.region_name || "",
-                Timeline: leadData.timeline || "",
-                Concern: leadData.concern || "",
-                "Open to Visit": leadData.open_to_visit || "",
-                "Intent Level": intentLevel,
-                "In Service Area": inServiceArea,
-                "UTM Source": leadData.utm_source || "",
-                "UTM Medium": leadData.utm_medium || "",
-                "UTM Campaign": leadData.utm_campaign || "",
-                "UTM Content": leadData.utm_content || "",
-                "UTM Term": leadData.utm_term || "",
-                "IP Address": leadData.ip_address || "",
-                // SubmittedAt is a computed field in Airtable, no need to send it
-              },
-            }),
+            body: JSON.stringify({ fields: payloadFields }),
+          });
+
+          if (airtableRes.ok) {
+            airtableSent = true;
+            break;
           }
-        );
-        airtableSent = airtableRes.ok;
-        if (!airtableRes.ok) {
+
           const errBody = await airtableRes.text();
           console.error("Airtable error:", airtableRes.status, errBody);
+
+          if (airtableRes.status !== 422) {
+            break;
+          }
+
+          let errorMessage = "";
+          try {
+            const parsed = JSON.parse(errBody);
+            errorMessage = parsed?.error?.message || "";
+          } catch {
+            errorMessage = errBody;
+          }
+
+          const offendingField = getOffendingField(errorMessage, payloadFields);
+          if (!offendingField) {
+            break;
+          }
+
+          console.warn(`Retrying Airtable insert without field: ${offendingField}`);
+          delete payloadFields[offendingField];
+        } catch (e) {
+          console.error("Airtable send error:", e);
+          break;
         }
-      } catch (e) {
-        console.error("Airtable send error:", e);
       }
     }
 
