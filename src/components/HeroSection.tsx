@@ -90,6 +90,7 @@ const HeroSection = () => {
               >
                 Request a Solid Surface Shower Estimate
               </button>
+              <p className="text-xs opacity-60 mt-2">🔒 We will never share your info</p>
 
               {/* Trust indicators — dynamically personalized */}
               <div className="flex flex-wrap items-center gap-4 mt-6 text-xs sm:text-sm opacity-80">

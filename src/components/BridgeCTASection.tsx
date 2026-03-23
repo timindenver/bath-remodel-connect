@@ -50,6 +50,7 @@ const BridgeCTASection = () => {
           <Shield className="w-3.5 h-3.5" />
           Fully licensed &amp; insured · Estimates Guaranteed for 1 Year
         </p>
+        <p className="text-xs opacity-40 mt-1">🔒 We will never share your info</p>
       </div>
     </section>
   );
