@@ -64,7 +64,7 @@ const HeroSection = () => {
                   <br />
                   Quartz Countertops,
                   <br />
-                  <span className="border-l-4 border-accent pl-4">You'll Want This Same Upgrade in Your Shower</span>
+                  <span className="border-l-4 border-accent pl-4">Let's Talk About Your Shower</span>
                 </h1>
               </div>
             </div>
