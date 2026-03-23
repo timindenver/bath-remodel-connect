@@ -25,6 +25,7 @@ const FinalCTASection = () => {
         >
           Request a Solid Surface Shower Estimate
         </button>
+        <p className="text-xs opacity-40 mt-2">🔒 We will never share your info</p>
       </div>
     </section>
   );

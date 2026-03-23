@@ -26,6 +26,7 @@ const StickyMobileCTA = () => {
       >
         Request a Solid Surface Shower Estimate
       </button>
+      <p className="text-[10px] text-muted-foreground text-center mt-1">🔒 We will never share your info</p>
     </div>
   );
 };
