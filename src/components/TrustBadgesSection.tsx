@@ -28,14 +28,6 @@ const TrustBadgesSection = () => {
   return (
     <section className="py-10 sm:py-14 px-4 sm:px-6 bg-card border-y border-border overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <p className="text-center text-sm sm:text-base text-muted-foreground mb-2 max-w-2xl mx-auto flex items-center justify-center gap-2">
-          <Star className="w-4 h-4 text-accent fill-accent flex-shrink-0" />
-          {regionText}
-        </p>
-        <p className="text-center text-xs text-muted-foreground mb-6 flex items-center justify-center gap-1.5">
-          <Shield className="w-3.5 h-3.5" />
-          Fully licensed &amp; insured · Estimates Guaranteed for 1 Year
-        </p>
 
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-card to-transparent z-10 pointer-events-none" />
