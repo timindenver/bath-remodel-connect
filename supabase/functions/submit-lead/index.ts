@@ -246,6 +246,7 @@ serve(async (req) => {
         in_service_area: inServiceArea,
         intent_level: intentLevel,
         webhook_sent: webhookSent,
+        airtable_sent: airtableSent,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
