@@ -157,7 +157,7 @@ serve(async (req) => {
                 Name: leadData.name,
                 Phone: leadData.phone,
                 Email: leadData.email || "",
-                "Zip Code": leadData.zip_code,
+                ZipCode: leadData.zip_code,
                 City: leadData.city || "",
                 State: leadData.state || "",
                 "Region Name": leadData.region_name || "",
@@ -172,7 +172,7 @@ serve(async (req) => {
                 "UTM Content": leadData.utm_content || "",
                 "UTM Term": leadData.utm_term || "",
                 "IP Address": leadData.ip_address || "",
-                "Submitted At": lead.created_at,
+                SubmittedAt: lead.created_at,
               },
             }),
           }
