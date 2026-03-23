@@ -43,13 +43,13 @@ serve(async (req) => {
       }
     }
 
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+    );
+
     // If we have a zip, look up contractor region
     if (detectedZip) {
-      const supabase = createClient(
-        Deno.env.get("SUPABASE_URL")!,
-        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
-      );
-
       const { data: regions } = await supabase
         .from("contractor_regions")
         .select("id, region_name, rating, review_count")
@@ -57,7 +57,6 @@ serve(async (req) => {
 
       if (regions) {
         for (const region of regions) {
-          // Check if zip is in this region's zip_codes array
           const { data: match } = await supabase
             .from("contractor_regions")
             .select("id, region_name, rating, review_count")
@@ -73,6 +72,23 @@ serve(async (req) => {
             break;
           }
         }
+      }
+    }
+
+    // Fallback to Bucks County region if no match found
+    if (!regionName) {
+      const { data: fallback } = await supabase
+        .from("contractor_regions")
+        .select("id, region_name, rating, review_count")
+        .ilike("region_name", "%bucks%")
+        .eq("is_active", true)
+        .maybeSingle();
+
+      if (fallback) {
+        regionName = fallback.region_name;
+        contractorRegionId = fallback.id;
+        rating = fallback.rating;
+        reviewCount = fallback.review_count;
       }
     }
 
