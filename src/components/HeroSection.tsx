@@ -36,7 +36,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <section className="relative min-h-[75svh] lg:min-h-[80svh]">
+      <section className="relative min-h-[75svh] lg:min-h-[80svh] bg-black">
         {/* Video background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
