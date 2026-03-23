@@ -59,7 +59,7 @@ const LocalContractorSection = () => {
               ].map(({ icon: Icon, text }) => (
                 <div
                   key={text}
-                  className="flex items-center gap-1.5 bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium"
+                  className="flex items-center gap-1.5 bg-secondary text-foreground px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium"
                 >
                   <Icon className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                   {text}
