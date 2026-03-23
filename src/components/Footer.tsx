@@ -21,9 +21,8 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 opacity-80">Contact</h4>
           <ul className="space-y-2 text-sm opacity-70">
+            <li>(917) 813-0137</li>
             <li>info@solidsurfacebaths.com</li>
-            <li>1500 N Grant Street, Suite R</li>
-            <li>Denver, Colorado</li>
           </ul>
         </div>
       </div>
