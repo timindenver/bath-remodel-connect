@@ -99,7 +99,7 @@ const HeroSection = () => {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Shield className="w-4 h-4" />
-                  Licensed & Insured
+                  Licensed & Insured · Estimates Guaranteed for 1 Year
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle className="w-4 h-4" />

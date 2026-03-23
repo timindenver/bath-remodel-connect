@@ -1,4 +1,5 @@
 import { ClipboardList, Users, Calendar, Shield } from "lucide-react";
+import { useGeo } from "@/contexts/GeoContext";
 
 const scrollToForm = () => {
   document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
@@ -11,6 +12,12 @@ const steps = [
 ];
 
 const BridgeCTASection = () => {
+  const { geo } = useGeo();
+
+  const areaText = geo.region_name
+    ? `Find out if a certified solid surface installer is available in the ${geo.region_name} — and get a free, no-pressure quote.`
+    : "Find out if a certified solid surface installer is available in your area — and get a free, no-pressure quote.";
+
   return (
     <section className="py-12 sm:py-20 px-4 sm:px-6 bg-primary text-primary-foreground">
       <div className="max-w-3xl mx-auto text-center">
@@ -18,10 +25,9 @@ const BridgeCTASection = () => {
           You've Done the Research. Now Get the Real Numbers.
         </h2>
         <p className="opacity-80 max-w-xl mx-auto mb-8 text-sm sm:text-base">
-          Find out if a certified solid surface installer is available in your area — and get a free, no-pressure quote.
+          {areaText}
         </p>
 
-        {/* Inline mini-process steps */}
         <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8">
           {steps.map((s, i) => (
             <div key={i} className="flex items-center gap-1.5 sm:gap-2">
@@ -42,7 +48,7 @@ const BridgeCTASection = () => {
         </button>
         <p className="mt-3 text-xs sm:text-sm opacity-50 flex items-center justify-center gap-1.5">
           <Shield className="w-3.5 h-3.5" />
-          100% free. Zero obligation.
+          Fully licensed &amp; insured · Estimates Guaranteed for 1 Year
         </p>
       </div>
     </section>
