@@ -1,6 +1,22 @@
 import { Star, Shield, MapPin, Award, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
-import serviceAreaMap from "@/assets/service-area-map.jpg";
+import mapSyracuse from "@/assets/map-syracuse.png";
+import mapBuffalo from "@/assets/map-buffalo.png";
+import mapBinghamton from "@/assets/map-binghamton.png";
+import mapAlbany from "@/assets/map-albany.png";
+import mapScranton from "@/assets/map-scranton.png";
+import mapBucksCounty from "@/assets/map-bucks-county.png";
+import mapGreenville from "@/assets/map-greenville.png";
+
+const regionMapImages: Record<string, string> = {
+  "Greater Syracuse Area and Central New York": mapSyracuse,
+  "Buffalo Area and Western New York": mapBuffalo,
+  "Binghamton and the Southern Tier": mapBinghamton,
+  "Capital Region (Albany, Saratoga Area)": mapAlbany,
+  "Wilkes-Barre / Scranton Area (NEPA)": mapScranton,
+  "Bucks County and Greater Philadelphia Area": mapBucksCounty,
+  "Greenville / Greer and Upstate South Carolina": mapGreenville,
+};
 
 const scrollToForm = () => {
   document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
