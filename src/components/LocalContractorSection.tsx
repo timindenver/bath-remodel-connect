@@ -1,5 +1,6 @@
-import { Star, Shield, MapPin, Award, CheckCircle, ImageIcon } from "lucide-react";
+import { Star, Shield, MapPin, Award, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
+import serviceAreaMap from "@/assets/service-area-map.jpg";
 
 const scrollToForm = () => {
   document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
