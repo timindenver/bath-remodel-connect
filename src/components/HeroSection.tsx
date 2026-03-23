@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { Star, Shield, CheckCircle } from "lucide-react";
+import { Shield, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 
 const VIDEO_VERSION = "6";
@@ -36,9 +36,7 @@ const HeroSection = () => {
     }
   }, [videoSrc]);
 
-  // Dynamic trust text
-  const ratingText = geo.rating ? `${geo.rating} Stars` : "4.9 Stars";
-  const reviewText = geo.review_count ? `${geo.review_count}+ Reviews` : "127+ Reviews";
+  // Dynamic area text
   const areaText = geo.region_name
     ? `Serving the ${geo.region_name}`
     : geo.city
@@ -92,12 +90,8 @@ const HeroSection = () => {
               </button>
               <p className="text-xs opacity-60 mt-2">🔒 We will never share your info</p>
 
-              {/* Trust indicators — dynamically personalized */}
+              {/* Trust indicators */}
               <div className="flex flex-wrap items-center gap-4 mt-6 text-xs sm:text-sm opacity-80">
-                <span className="flex items-center gap-1.5">
-                  <Star className="w-4 h-4 fill-accent text-accent" />
-                  {ratingText} · {reviewText}
-                </span>
                 <span className="flex items-center gap-1.5">
                   <Shield className="w-4 h-4" />
                   Licensed & Insured · Estimates Guaranteed for 1 Year
