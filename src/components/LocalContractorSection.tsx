@@ -94,13 +94,11 @@ const LocalContractorSection = () => {
             </span>
           </div>
           <div className="px-6 pb-6">
-            <div className="w-full aspect-[16/9] bg-secondary rounded-lg border border-border flex flex-col items-center justify-center text-muted-foreground">
-              <ImageIcon className="w-10 h-10 mb-2 opacity-40" />
-              <span className="text-sm font-medium opacity-60">Service Area Map</span>
-              <span className="text-xs opacity-40 mt-1">
-                {regionName || "Region map coming soon"}
-              </span>
-            </div>
+            <img
+              src={serviceAreaMap}
+              alt={regionName ? `${regionName} service area map` : "Service area map"}
+              className="w-full rounded-lg border border-border"
+            />
           </div>
         </div>
       </div>
