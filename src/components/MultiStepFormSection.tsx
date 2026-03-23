@@ -378,7 +378,7 @@ const MultiStepFormSection = () => {
           </form>
 
           <p className="text-[10px] leading-tight text-muted-foreground text-center mt-5">
-            By submitting, I consent to Solid Surface Baths contacting me at the number provided, including via automated calls/texts, even if listed on a Do Not Call list. Consent is not required for purchase. Call 1-720-807-3626 for help.
+            By submitting, I consent to Solid Surface Baths contacting me at the number provided, including via automated calls/texts, even if listed on a Do Not Call list. Consent is not required for purchase. Call (917) 813-0137 for help.
           </p>
         </div>
       </div>
