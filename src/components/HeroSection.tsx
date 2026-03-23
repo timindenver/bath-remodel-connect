@@ -62,7 +62,8 @@ const HeroSection = () => {
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight">
                   If You Love Your
                   <br />
-                  Quartz Countertops,
+                  Quartz Countertops…
+                  <br />
                   <br />
                   <span className="border-l-4 border-accent pl-4">Let's Talk About Your Shower</span>
                 </h1>
