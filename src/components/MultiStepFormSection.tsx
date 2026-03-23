@@ -225,7 +225,7 @@ const MultiStepFormSection = () => {
                     When are you looking to remodel?
                   </h3>
                   <div className="grid grid-cols-2 gap-2">
-                    {["Within 30 days", "1–3 months", "3–6 months", "Just researching"].map(
+                    {["Within 30 days", "1-3 months", "3-6 months", "Just researching"].map(
                       (option) => (
                         <button
                           key={option}
