@@ -43,7 +43,7 @@ const LocalContractorSection = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
               <Award className="w-3.5 h-3.5" />
-              Your Local Installer
+              Our Local Installer
             </div>
 
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-foreground mb-3">
