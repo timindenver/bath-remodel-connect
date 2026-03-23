@@ -32,7 +32,7 @@ const LocalContractorSection = () => {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-foreground mb-3">
               {regionName
                 ? `Serving Homeowners in the ${regionName}`
-                : "A Certified Installer Near You"}
+                : "Our Nearest Certified Installer Serves Your Area"}
             </h2>
 
             {/* Stars row — Google-style */}
