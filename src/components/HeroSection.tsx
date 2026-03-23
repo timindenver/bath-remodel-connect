@@ -1,5 +1,4 @@
 import { useRef, useEffect, useState } from "react";
-import { Shield, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 
 const VIDEO_VERSION = "6";
@@ -18,7 +17,6 @@ const scrollToForm = () => {
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoSrc, setVideoSrc] = useState(getVideoSrc);
-  const { geo, geoLoading } = useGeo();
 
   useEffect(() => {
     const onResize = () => {
@@ -36,76 +34,62 @@ const HeroSection = () => {
     }
   }, [videoSrc]);
 
-  // Dynamic area text
-  const areaText = geo.region_name
-    ? `Serving the ${geo.region_name}`
-    : geo.city
-      ? `Serving ${geo.city} and surrounding areas`
-      : "Serving Your Area";
-
   return (
-    <section className="relative min-h-[75svh] lg:min-h-[80svh]">
-      {/* Video background */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <video
-          key={videoSrc}
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="w-full h-full object-contain sm:object-contain object-top"
-          aria-hidden="true"
-          src={videoSrc}
-        />
-        <div className="absolute inset-0 bg-hero-overlay/10" />
-      </div>
+    <>
+      <section className="relative min-h-[75svh] lg:min-h-[80svh]">
+        {/* Video background */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            key={videoSrc}
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="w-full h-full object-contain sm:object-contain object-top"
+            aria-hidden="true"
+            src={videoSrc}
+          />
+          <div className="absolute inset-0 bg-hero-overlay/10" />
+        </div>
 
-      {/* Content overlay */}
-      <div className="relative z-10 min-h-[75svh] lg:min-h-[80svh] flex flex-col">
-        {/* Headline */}
-        <div className="flex-1 flex items-start pt-8 sm:pt-12 lg:pt-16 px-8 sm:px-12 lg:px-24 xl:px-32">
-          <div className="w-full max-w-7xl mx-auto">
-            <div className="max-w-2xl text-primary-foreground text-center sm:text-left mx-auto sm:mx-0">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight mb-4 sm:mb-6">
-                If You Love Your
-                <br />
-                Quartz Countertops,
-                <br />
-                <span className="border-l-4 border-accent pl-4">You'll Want This Same Upgrade in Your Shower</span>
-              </h1>
-              <p className="text-sm sm:text-base lg:text-xl opacity-90 leading-relaxed mb-3">
-                Most "one-day showers" use acrylic panels. Our grout-free solid surface showers add lasting value to your home.
-              </p>
-              <p className="text-sm sm:text-base lg:text-xl opacity-90 leading-relaxed mb-6">
-                Installed in as little as 2–3 days—without the plastic look or feel.
-              </p>
-
-              <button
-                onClick={scrollToForm}
-                className="bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
-              >
-                Request a Solid Surface Shower Estimate
-              </button>
-              <p className="text-xs opacity-60 mt-2">🔒 We will never share your info</p>
-
-              {/* Trust indicators */}
-              <div className="flex flex-wrap items-center gap-4 mt-6 text-xs sm:text-sm opacity-80">
-                <span className="flex items-center gap-1.5">
-                  <Shield className="w-4 h-4" />
-                  Licensed & Insured · Estimates Guaranteed for 1 Year
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle className="w-4 h-4" />
-                  {areaText}
-                </span>
+        {/* Content overlay */}
+        <div className="relative z-10 min-h-[75svh] lg:min-h-[80svh] flex flex-col">
+          <div className="flex-1 flex items-start pt-8 sm:pt-12 lg:pt-16 px-8 sm:px-12 lg:px-24 xl:px-32">
+            <div className="w-full max-w-7xl mx-auto">
+              <div className="max-w-2xl text-primary-foreground text-center sm:text-left mx-auto sm:mx-0">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight">
+                  If You Love Your
+                  <br />
+                  Quartz Countertops,
+                  <br />
+                  <span className="border-l-4 border-accent pl-4">You'll Want This Same Upgrade in Your Shower</span>
+                </h1>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* CTA section below hero */}
+      <section className="bg-foreground text-primary-foreground py-8 sm:py-10 px-6 sm:px-12 lg:px-24">
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed">
+            Most "one-day showers" use acrylic panels. Our grout-free solid surface showers add lasting value to your home.
+            Installed in as little as 2–3 days—without the plastic look or feel.
+          </p>
+
+          <button
+            onClick={scrollToForm}
+            className="bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
+          >
+            Request a Solid Surface Shower Estimate
+          </button>
+          <p className="text-xs opacity-60">🔒 We will never share your info</p>
+        </div>
+      </section>
+    </>
   );
 };
 
