@@ -172,7 +172,7 @@ serve(async (req) => {
                 "UTM Content": leadData.utm_content || "",
                 "UTM Term": leadData.utm_term || "",
                 "IP Address": leadData.ip_address || "",
-                SubmittedAt: lead.created_at,
+                // SubmittedAt is a computed field in Airtable, no need to send it
               },
             }),
           }
