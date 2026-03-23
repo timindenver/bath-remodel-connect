@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { Star, Shield, CheckCircle } from "lucide-react";
+import { Shield, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 
 const VIDEO_VERSION = "6";
