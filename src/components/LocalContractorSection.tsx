@@ -111,7 +111,7 @@ const LocalContractorSection = () => {
           </div>
           <div className="px-6 pb-6">
             <img
-              src={serviceAreaMap}
+              src={regionMapImages[regionName || ""] || mapBucksCounty}
               alt={regionName ? `${regionName} service area map` : "Service area map"}
               className="w-full rounded-lg border border-border"
             />
