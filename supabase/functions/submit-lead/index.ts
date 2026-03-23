@@ -141,6 +141,7 @@ serve(async (req) => {
     const airtableBaseId = Deno.env.get("AIRTABLE_BASE_ID");
     const airtableTable = Deno.env.get("AIRTABLE_TABLE_NAME");
 
+    console.log("Airtable config:", { baseId: airtableBaseId, table: airtableTable, hasPat: !!airtablePat, patLength: airtablePat?.length });
     if (airtablePat && airtableBaseId && airtableTable) {
       try {
         const airtableRes = await fetch(
