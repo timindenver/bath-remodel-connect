@@ -135,6 +135,57 @@ serve(async (req) => {
       }
     }
 
+    // Send to Airtable
+    let airtableSent = false;
+    const airtablePat = Deno.env.get("AIRTABLE_PAT");
+    const airtableBaseId = Deno.env.get("AIRTABLE_BASE_ID");
+    const airtableTable = Deno.env.get("AIRTABLE_TABLE_NAME");
+
+    if (airtablePat && airtableBaseId && airtableTable) {
+      try {
+        const airtableRes = await fetch(
+          `https://api.airtable.com/v0/${airtableBaseId}/${encodeURIComponent(airtableTable)}`,
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${airtablePat}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              fields: {
+                Name: leadData.name,
+                Phone: leadData.phone,
+                Email: leadData.email || "",
+                "Zip Code": leadData.zip_code,
+                City: leadData.city || "",
+                State: leadData.state || "",
+                "Region Name": leadData.region_name || "",
+                Timeline: leadData.timeline || "",
+                Concern: leadData.concern || "",
+                "Open to Visit": leadData.open_to_visit || "",
+                "Intent Level": intentLevel,
+                "In Service Area": inServiceArea,
+                "UTM Source": leadData.utm_source || "",
+                "UTM Medium": leadData.utm_medium || "",
+                "UTM Campaign": leadData.utm_campaign || "",
+                "UTM Content": leadData.utm_content || "",
+                "UTM Term": leadData.utm_term || "",
+                "IP Address": leadData.ip_address || "",
+                "Submitted At": lead.created_at,
+              },
+            }),
+          }
+        );
+        airtableSent = airtableRes.ok;
+        if (!airtableRes.ok) {
+          const errBody = await airtableRes.text();
+          console.error("Airtable error:", airtableRes.status, errBody);
+        }
+      } catch (e) {
+        console.error("Airtable send error:", e);
+      }
+    }
+
     return new Response(
       JSON.stringify({
         success: true,
