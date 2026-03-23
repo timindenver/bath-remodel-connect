@@ -85,9 +85,8 @@ const LocalContractorSection = () => {
 
             {/* Personalized message */}
             <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-              {regionName
-                ? `You'll be matched with a top-rated contractor serving the ${regionName}, with hundreds of 5-star reviews from local homeowners. No obligation — just a real quote.`
-                : "You'll be matched with a top-rated local contractor with hundreds of 5-star reviews from homeowners like you. No obligation — just a real quote."}
+              Our certified local contractor serves your area.<br /><br />
+              Get your 1 YR Price Guarantee
             </p>
 
             {/* CTA */}
