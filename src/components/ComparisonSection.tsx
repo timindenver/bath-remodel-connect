@@ -1,49 +1,42 @@
-import { Check, X, AlertTriangle } from "lucide-react";
+import { Check } from "lucide-react";
 import comparisonSolid from "@/assets/comparison-solid-surface.png";
-import comparisonAcrylic from "@/assets/comparison-acrylic.jpeg";
+import comparisonAcrylic from "@/assets/comparison-acrylic.png";
 
 const rows = [
   {
     feature: "Material Feel",
-    acrylic: "Hollow, plastic-like",
-    solid: "Stone-like, substantial",
-    acrylicBad: true,
+    acrylic: "Lightweight, smooth finish",
+    solid: "Heavier, solid, stone-like feel",
   },
   {
     feature: "Durability",
-    acrylic: "Scratches & yellows over time",
-    solid: "Scratch-resistant, color-through",
-    acrylicBad: true,
+    acrylic: "Durable for everyday use",
+    solid: "Enhanced durability and impact resistance",
   },
   {
     feature: "Lifespan",
-    acrylic: "10–15 years typical",
-    solid: "25–30+ years",
-    acrylicBad: true,
+    acrylic: "10-15 years typical",
+    solid: "25-30+ years with proper care",
   },
   {
     feature: "Appearance",
-    acrylic: "Looks like plastic panels",
-    solid: "Looks like natural stone or porcelain",
-    acrylicBad: true,
+    acrylic: "Clean, simple panel look",
+    solid: "High-end look similar to stone or tile",
   },
   {
     feature: "Installation Time",
-    acrylic: "1 day",
-    solid: "2–3 days",
-    acrylicBad: false,
+    acrylic: "Fast installation (often 1 day)",
+    solid: "Typically installed in 2-3 days",
   },
   {
     feature: "Long-Term Value",
-    acrylic: "Replace sooner, costs more over time",
-    solid: "Lasts decades, one-time investment",
-    acrylicBad: true,
+    acrylic: "Great for quick upgrades and budget-conscious projects",
+    solid: "Ideal for long-term investment and premium finishes",
   },
   {
     feature: "Maintenance",
-    acrylic: "No grout, but stains easily",
-    solid: "No grout, easy to clean",
-    acrylicBad: true,
+    acrylic: "Low maintenance, easy to wipe clean",
+    solid: "Low maintenance, non-porous and easy to clean",
   },
 ];
 
@@ -57,13 +50,13 @@ const ComparisonSection = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 sm:mb-14">
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
-            The Comparison They Hope You Never See
+            Compare Your Options
           </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
-            Acrylic "One-Day" Shower vs. Solid Surface
+            Acrylic (One-Day Systems) vs. Solid Surface Panels
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Same bathroom. Vastly different outcomes. Here's what 10 years of installs have taught us.
+            Both are great alternatives to tile. Here's how they compare so you can choose the right fit for your home.
           </p>
         </div>
 
