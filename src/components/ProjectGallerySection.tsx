@@ -21,10 +21,10 @@ const ProjectGallerySection = () => {
     <section className="py-16 sm:py-20 lg:py-24 bg-muted/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-14">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground text-balance">
             The Perfect Look to Fit Your Space
           </h2>
-          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
+          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
             Every project is completed by 5 Star Rated remodelers in your area.
           </p>
         </div>

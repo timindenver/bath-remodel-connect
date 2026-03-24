@@ -9,14 +9,14 @@ const FinalCTASection = () => {
         <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
           Limited Availability
         </p>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-4 text-balance">
           Spring Remodel Season Is Here — Schedules Are Filling Up
         </h2>
-        <p className="opacity-80 max-w-xl mx-auto mb-3 text-sm sm:text-base">
+        <p className="opacity-80 max-w-xl mx-auto mb-3 text-base sm:text-lg lg:text-xl text-balance">
           Our contractors are currently booking 3–5 weeks out in most areas.
           Homeowners who request a quote now get priority scheduling.
         </p>
-        <p className="opacity-60 text-sm mb-8">
+        <p className="opacity-60 text-base sm:text-lg mb-8 text-balance">
           There's zero cost and zero obligation — but the calendar won't stay open forever.
         </p>
         <button

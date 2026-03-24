@@ -27,10 +27,10 @@ const ProcessSection = () => {
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-secondary">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 sm:mb-14">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 text-balance">
             Here's Exactly What Happens Next
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
             No surprises. No hard sell. Just a clear path to your new shower.
           </p>
         </div>
