@@ -24,6 +24,27 @@ const testimonials = [
     location: "Charlotte, NC",
     stars: 5,
   },
+  {
+    quote: "Better than tile and half the hassle.",
+    text: "We renovated two bathrooms and chose solid surface for both. No grout lines to scrub, no sealing to worry about — and the marble look is absolutely gorgeous. It was surprisingly affordable too.",
+    author: "Michael T.",
+    location: "Bucks County, PA",
+    stars: 5,
+  },
+  {
+    quote: "Our contractor said it's the best value upgrade.",
+    text: "We were torn between tile and solid surface. Our contractor recommended solid surface for the natural look without the maintenance headaches. He was right — it's beautiful and effortless to keep clean.",
+    author: "Angela D.",
+    location: "Montgomery County, PA",
+    stars: 5,
+  },
+  {
+    quote: "Feels like a spa every single day.",
+    text: "Walking into our bathroom now feels like stepping into a high-end hotel. The solid surface panels have this beautiful warmth and depth that photos don't do justice. Worth every penny.",
+    author: "Robert & Karen W.",
+    location: "Cherry Hill, NJ",
+    stars: 5,
+  },
 ];
 
 const TestimonialsSection = () => {
