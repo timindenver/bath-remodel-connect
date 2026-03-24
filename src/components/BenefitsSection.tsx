@@ -30,10 +30,10 @@ const BenefitsSection = () => {
         <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
           Upgrade to a More Refined Shower Experience
         </p>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 text-balance">
           The Shower You'll Love for Life
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto mb-14">
+        <p className="text-muted-foreground max-w-2xl mx-auto mb-14 text-base sm:text-lg lg:text-xl text-balance">
           With a modest investment, you can enjoy a more substantial, high-end look built for long-term performance. It's a popular choice for homeowners who want both style and staying power.
         </p>
 

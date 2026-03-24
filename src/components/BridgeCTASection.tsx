@@ -17,10 +17,10 @@ const BridgeCTASection = () => {
   return (
     <section className="py-14 sm:py-24 px-4 sm:px-6 bg-primary text-primary-foreground">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-6">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-6 text-balance">
           You've Done the Research. Now Get the Real Numbers.
         </h2>
-        <p className="opacity-90 max-w-2xl mx-auto mb-10 text-lg sm:text-xl lg:text-2xl">
+        <p className="opacity-90 max-w-2xl mx-auto mb-10 text-base sm:text-lg lg:text-xl text-balance">
           Get your free, no-pressure quote that's guaranteed for one year.
         </p>
 

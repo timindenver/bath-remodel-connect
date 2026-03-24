@@ -65,7 +65,7 @@ const TestimonialsSection = () => {
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
             Real Homeowners, Real Results
           </p>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground text-balance">
             Why Homeowners Choose Solid Surface
           </h2>
         </div>
