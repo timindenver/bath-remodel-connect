@@ -14,18 +14,14 @@ const steps = [
 const BridgeCTASection = () => {
   const { geo } = useGeo();
 
-  const areaText = geo.region_name
-    ? `Find out if a certified solid surface installer is available in the ${geo.region_name} — and get a free, no-pressure quote.`
-    : "Find out if a certified solid surface installer is available in your area — and get a free, no-pressure quote.";
-
   return (
     <section className="py-12 sm:py-20 px-4 sm:px-6 bg-primary text-primary-foreground">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold mb-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-5xl font-serif font-bold mb-4">
           You've Done the Research. Now Get the Real Numbers.
         </h2>
-        <p className="opacity-80 max-w-xl mx-auto mb-8 text-sm sm:text-base">
-          {areaText}
+        <p className="opacity-90 max-w-xl mx-auto mb-8 text-base sm:text-lg lg:text-xl">
+          Get your free, no-pressure quote that's guaranteed for one year.
         </p>
 
         <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8">
@@ -34,7 +30,7 @@ const BridgeCTASection = () => {
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent/20 flex items-center justify-center">
                 <s.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
               </div>
-              <span className="text-xs sm:text-sm font-medium opacity-90">{s.label}</span>
+              <span className="text-sm sm:text-base font-medium opacity-90">{s.label}</span>
               {i < steps.length - 1 && <span className="text-accent/50 ml-1 sm:ml-2">→</span>}
             </div>
           ))}
@@ -46,11 +42,11 @@ const BridgeCTASection = () => {
         >
           Request a Solid Surface Shower Estimate
         </button>
-        <p className="mt-3 text-xs sm:text-sm opacity-50 flex items-center justify-center gap-1.5">
-          <Shield className="w-3.5 h-3.5" />
+        <p className="mt-4 text-sm sm:text-base lg:text-lg opacity-70 flex items-center justify-center gap-1.5">
+          <Shield className="w-4 h-4 sm:w-5 sm:h-5" />
           Fully licensed &amp; insured · Estimates Guaranteed for 1 Year
         </p>
-        <p className="text-xs opacity-40 mt-1">🔒 We will never share your info</p>
+        <p className="text-sm sm:text-base opacity-50 mt-2">🔒 We will never share your info</p>
       </div>
     </section>
   );
