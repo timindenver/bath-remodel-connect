@@ -4,22 +4,22 @@ import testimonialsBgMobile from "@/assets/testimonials-bg-mobile.png";
 
 const testimonials = [
   {
-    quote: "We almost went with a one-day shower — so glad we didn't.",
-    text: "The acrylic felt cheap when we saw it in person. Our solid surface shower looks like natural stone and the installer was done in 2 days. Worth every penny.",
+    quote: "It feels like real stone — I can't stop touching the walls.",
+    text: "We wanted something that looked and felt luxurious without the price tag of natural marble. Our solid surface shower exceeded every expectation. Guests think it cost twice what we paid.",
     author: "Sarah M.",
     location: "Philadelphia, PA",
     stars: 5,
   },
   {
-    quote: "Night and day compared to acrylic.",
-    text: "Our neighbors got an acrylic system and it already shows scratches after a year. Ours still looks brand new after three years. No grout, no mold, no regrets.",
+    quote: "Luxury look without the luxury price.",
+    text: "We got the high-end bathroom we always dreamed of at a price that actually fit our budget. Three years in and it still looks brand new — no grout, no mold, no regrets.",
     author: "James R.",
     location: "Brooklyn, NY",
     stars: 5,
   },
   {
     quote: "The quality speaks for itself.",
-    text: "I was comparing quotes and the solid surface option was only 20% more than the plastic panels. For something that lasts 3x longer? Easy decision.",
+    text: "The natural stone feel is incredible. It's warm to the touch, easy to clean, and looks absolutely stunning. Best home investment we've made — and it was more affordable than we expected.",
     author: "Linda K.",
     location: "Charlotte, NC",
     stars: 5,
@@ -45,7 +45,7 @@ const TestimonialsSection = () => {
             Real Homeowners, Real Results
           </p>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
-            Why Homeowners Choose Solid Surface Over Acrylic
+            Why Homeowners Choose Solid Surface
           </h2>
         </div>
 
