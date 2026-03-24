@@ -28,13 +28,13 @@ const BenefitsSection = () => {
     <section className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-6xl mx-auto text-center">
         <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
-          The Smarter Investment
+          Upgrade to a More Refined Shower Experience
         </p>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
-          For ~20% More, You Get a Shower That Lasts 2–3x Longer
+          The Shower You'll Love for Life
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto mb-14">
-          Most homeowners who compare both options side-by-side choose solid surface. Here's why.
+          With a modest investment, you can enjoy a more substantial, high-end look built for long-term performance. It's a popular choice for homeowners who want both style and staying power.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
