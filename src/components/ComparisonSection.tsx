@@ -64,12 +64,12 @@ const ComparisonSection = () => {
         <div className="mb-10 grid grid-cols-2 gap-1 rounded-lg overflow-hidden border border-border">
           <div className="relative">
             <img src={comparisonAcrylic} alt="Acrylic one-day shower install — plastic panels being caulked into place" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
-            <span className="absolute bottom-0 inset-x-0 bg-destructive/80 text-destructive-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
-              Acrylic "One-Day" Install
+            <span className="absolute bottom-0 inset-x-0 bg-muted/80 text-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
+              Acrylic (One-Day Systems)
             </span>
           </div>
           <div className="relative">
-            <img src={comparisonSolid} alt="Contractor installing solid surface calacatta marble-look shower panels in a luxury bathroom" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
+            <img src={comparisonSolid} alt="Solid surface shower panel installation showing stone-like finish" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
             <span className="absolute bottom-0 inset-x-0 bg-accent/80 text-accent-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
               Solid Surface Install
             </span>
