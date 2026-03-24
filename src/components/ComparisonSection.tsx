@@ -1,49 +1,42 @@
-import { Check, X, AlertTriangle } from "lucide-react";
+import { Check } from "lucide-react";
 import comparisonSolid from "@/assets/comparison-solid-surface.png";
-import comparisonAcrylic from "@/assets/comparison-acrylic.jpeg";
+import comparisonAcrylic from "@/assets/comparison-acrylic.png";
 
 const rows = [
   {
     feature: "Material Feel",
-    acrylic: "Hollow, plastic-like",
-    solid: "Stone-like, substantial",
-    acrylicBad: true,
+    acrylic: "Lightweight, smooth finish",
+    solid: "Heavier, solid, stone-like feel",
   },
   {
     feature: "Durability",
-    acrylic: "Scratches & yellows over time",
-    solid: "Scratch-resistant, color-through",
-    acrylicBad: true,
+    acrylic: "Durable for everyday use",
+    solid: "Enhanced durability and impact resistance",
   },
   {
     feature: "Lifespan",
-    acrylic: "10–15 years typical",
-    solid: "25–30+ years",
-    acrylicBad: true,
+    acrylic: "10-15 years typical",
+    solid: "25-30+ years with proper care",
   },
   {
     feature: "Appearance",
-    acrylic: "Looks like plastic panels",
-    solid: "Looks like natural stone or porcelain",
-    acrylicBad: true,
+    acrylic: "Clean, simple panel look",
+    solid: "High-end look similar to stone or tile",
   },
   {
     feature: "Installation Time",
-    acrylic: "1 day",
-    solid: "2–3 days",
-    acrylicBad: false,
+    acrylic: "Fast installation (often 1 day)",
+    solid: "Typically installed in 2-3 days",
   },
   {
     feature: "Long-Term Value",
-    acrylic: "Replace sooner, costs more over time",
-    solid: "Lasts decades, one-time investment",
-    acrylicBad: true,
+    acrylic: "Great for quick upgrades and budget-conscious projects",
+    solid: "Ideal for long-term investment and premium finishes",
   },
   {
     feature: "Maintenance",
-    acrylic: "No grout, but stains easily",
-    solid: "No grout, easy to clean",
-    acrylicBad: true,
+    acrylic: "Low maintenance, easy to wipe clean",
+    solid: "Low maintenance, non-porous and easy to clean",
   },
 ];
 
@@ -57,13 +50,13 @@ const ComparisonSection = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 sm:mb-14">
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
-            The Comparison They Hope You Never See
+            Compare Your Options
           </p>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
-            Acrylic "One-Day" Shower vs. Solid Surface
+            Acrylic (One-Day Systems) vs. Solid Surface Panels
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Same bathroom. Vastly different outcomes. Here's what 10 years of installs have taught us.
+            Both are great alternatives to tile. Here's how they compare so you can choose the right fit for your home.
           </p>
         </div>
 
@@ -71,12 +64,12 @@ const ComparisonSection = () => {
         <div className="mb-10 grid grid-cols-2 gap-1 rounded-lg overflow-hidden border border-border">
           <div className="relative">
             <img src={comparisonAcrylic} alt="Acrylic one-day shower install — plastic panels being caulked into place" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
-            <span className="absolute bottom-0 inset-x-0 bg-destructive/80 text-destructive-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
-              Acrylic "One-Day" Install
+            <span className="absolute bottom-0 inset-x-0 bg-muted/80 text-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
+              Acrylic (One-Day Systems)
             </span>
           </div>
           <div className="relative">
-            <img src={comparisonSolid} alt="Contractor installing solid surface calacatta marble-look shower panels in a luxury bathroom" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
+            <img src={comparisonSolid} alt="Solid surface shower panel installation showing stone-like finish" className="w-full h-64 sm:h-80 lg:h-96 object-cover" />
             <span className="absolute bottom-0 inset-x-0 bg-accent/80 text-accent-foreground text-xs sm:text-sm font-semibold text-center py-2 px-2">
               Solid Surface Install
             </span>
@@ -92,16 +85,10 @@ const ComparisonSection = () => {
                   Feature
                 </th>
                 <th className="py-4 px-4 text-sm font-semibold text-muted-foreground uppercase tracking-wider w-[37.5%]">
-                  <span className="flex items-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-destructive" />
-                    Acrylic (One-Day)
-                  </span>
+                  Acrylic (One-Day Systems)
                 </th>
                 <th className="py-4 pl-4 text-sm font-semibold text-accent uppercase tracking-wider w-[37.5%]">
-                  <span className="flex items-center gap-2">
-                    <Check className="w-4 h-4" />
-                    Solid Surface
-                  </span>
+                  Solid Surface Panels
                 </th>
               </tr>
             </thead>
@@ -111,17 +98,8 @@ const ComparisonSection = () => {
                   <td className="py-4 pr-4 font-semibold text-foreground text-sm">
                     {row.feature}
                   </td>
-                  <td className="py-4 px-4 text-sm">
-                    <span className="flex items-start gap-2">
-                      {row.acrylicBad ? (
-                        <X className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
-                      ) : (
-                        <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                      )}
-                      <span className={row.acrylicBad ? "text-muted-foreground" : "text-foreground"}>
-                        {row.acrylic}
-                      </span>
-                    </span>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">
+                    {row.acrylic}
                   </td>
                   <td className="py-4 pl-4 text-sm">
                     <span className="flex items-start gap-2">
