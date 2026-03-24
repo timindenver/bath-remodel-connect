@@ -85,16 +85,10 @@ const ComparisonSection = () => {
                   Feature
                 </th>
                 <th className="py-4 px-4 text-sm font-semibold text-muted-foreground uppercase tracking-wider w-[37.5%]">
-                  <span className="flex items-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-destructive" />
-                    Acrylic (One-Day)
-                  </span>
+                  Acrylic (One-Day Systems)
                 </th>
                 <th className="py-4 pl-4 text-sm font-semibold text-accent uppercase tracking-wider w-[37.5%]">
-                  <span className="flex items-center gap-2">
-                    <Check className="w-4 h-4" />
-                    Solid Surface
-                  </span>
+                  Solid Surface Panels
                 </th>
               </tr>
             </thead>
@@ -104,17 +98,8 @@ const ComparisonSection = () => {
                   <td className="py-4 pr-4 font-semibold text-foreground text-sm">
                     {row.feature}
                   </td>
-                  <td className="py-4 px-4 text-sm">
-                    <span className="flex items-start gap-2">
-                      {row.acrylicBad ? (
-                        <X className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
-                      ) : (
-                        <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                      )}
-                      <span className={row.acrylicBad ? "text-muted-foreground" : "text-foreground"}>
-                        {row.acrylic}
-                      </span>
-                    </span>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">
+                    {row.acrylic}
                   </td>
                   <td className="py-4 pl-4 text-sm">
                     <span className="flex items-start gap-2">
