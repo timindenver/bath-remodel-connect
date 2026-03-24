@@ -54,7 +54,7 @@ const ComparisonSection = () => {
             Acrylic (One-Day Systems) vs. Solid Surface Panels
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Both are great alternatives to tile. <BR></BR>Here's how they compare so you can choose the right fit for
+            Both are great alternatives to tile. <br />Here's how they compare so you can choose the right fit for
             your home.
           </p>
         </div>
