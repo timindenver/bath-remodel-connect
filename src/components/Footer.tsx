@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-16 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
         <div>
-          <h3 className="font-serif text-xl font-bold mb-4">SolidSurfaceBaths.com</h3>
+          <img src={logo} alt="SolidSurface Baths logo" className="h-16 w-auto mb-4" />
           <p className="text-sm opacity-70 leading-relaxed">
             Connecting homeowners with certified solid surface bathroom installers across the country.
           </p>
