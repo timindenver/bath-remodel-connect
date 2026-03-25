@@ -9,7 +9,7 @@ const Footer = () => {
           <img
             src={logo}
             alt="SolidSurface Baths logo"
-            className="h-44 md:h-52 w-auto max-w-[260px] md:max-w-[340px] opacity-90 self-start"
+            className="h-48 md:h-56 w-auto max-w-[280px] md:max-w-[360px] self-start"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 text-left w-full md:w-auto md:ml-auto">
