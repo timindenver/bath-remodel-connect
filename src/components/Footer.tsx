@@ -8,9 +8,8 @@ const Footer = () => {
         {/* Logo and columns layout */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-10">
           <img src={logo} alt="SolidSurface Baths logo" className="h-40 w-auto brightness-0 invert opacity-90 md:mr-auto" />
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-2xl mx-auto text-center">
+          <div className="grid grid-cols-2 gap-12 text-center md:text-left">
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 opacity-80">Quick Links</h4>
             <ul className="space-y-2 text-sm opacity-70">
