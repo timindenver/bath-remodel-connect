@@ -5,9 +5,9 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* Logo centered above columns */}
-        <div className="flex justify-center mb-10">
-          <img src={logo} alt="SolidSurface Baths logo" className="h-24 w-auto brightness-0 invert opacity-90" />
+        {/* Logo and columns layout */}
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-10">
+          <img src={logo} alt="SolidSurface Baths logo" className="h-40 w-auto brightness-0 invert opacity-90 md:mr-auto" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-2xl mx-auto text-center">
