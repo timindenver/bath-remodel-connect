@@ -1,23 +1,7 @@
 import { Star, Shield, MapPin, Award, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
-import mapSyracuse from "@/assets/map-syracuse.png";
-import mapBuffalo from "@/assets/map-buffalo.png";
-import mapBinghamton from "@/assets/map-binghamton.png";
-import mapAlbany from "@/assets/map-albany.png";
-import mapScranton from "@/assets/map-scranton.png";
-import mapBucksCounty from "@/assets/map-bucks-county.png";
-import mapGreenville from "@/assets/map-greenville.png";
 
-const regionMapImages: Record<string, string> = {
-  "Greater Syracuse Area and Central New York": mapSyracuse,
-  "Buffalo Area and Western New York": mapBuffalo,
-  "Binghamton and the Southern Tier": mapBinghamton,
-  "Capital Region (Albany, Saratoga Area)": mapAlbany,
-  "Wilkes-Barre / Scranton Area (NEPA)": mapScranton,
-  "Bucks County": mapBucksCounty,
-  "Greater Philadelphia Area": mapBucksCounty,
-  "Greenville / Greer and Upstate South Carolina": mapGreenville,
-};
+
 
 const scrollToForm = () => {
   document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
@@ -101,22 +85,7 @@ const LocalContractorSection = () => {
           </div>
         </div>
 
-        {/* Service Area Map Placeholder */}
-        <div className="bg-white border border-border rounded-xl overflow-hidden shadow-md">
-          <div className="flex items-center gap-2 px-6 pt-5 pb-2">
-            <MapPin className="w-4 h-4 text-accent" />
-            <span className="text-sm font-semibold text-foreground">
-              {regionName ? `${regionName} Service Area` : "Serving Your Area"}
-            </span>
-          </div>
-          <div className="px-6 pb-6">
-            <img
-              src={regionMapImages[regionName || ""] || mapBucksCounty}
-              alt={regionName ? `${regionName} service area map` : "Service area map"}
-              className="w-full rounded-lg border border-border"
-            />
-          </div>
-        </div>
+
       </div>
     </section>
   );
