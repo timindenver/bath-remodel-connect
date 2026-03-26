@@ -14,7 +14,8 @@ const regionMapImages: Record<string, string> = {
   "Binghamton and the Southern Tier": mapBinghamton,
   "Capital Region (Albany, Saratoga Area)": mapAlbany,
   "Wilkes-Barre / Scranton Area (NEPA)": mapScranton,
-  "Bucks County and Greater Philadelphia Area": mapBucksCounty,
+  "Bucks County": mapBucksCounty,
+  "Greater Philadelphia Area": mapBucksCounty,
   "Greenville / Greer and Upstate South Carolina": mapGreenville,
 };
 
