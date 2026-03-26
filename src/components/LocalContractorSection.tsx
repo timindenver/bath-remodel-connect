@@ -72,7 +72,7 @@ const LocalContractorSection = () => {
               {[
                 { icon: Shield, text: "Licensed & Insured" },
                 { icon: CheckCircle, text: "1-Year Estimate Guarantee" },
-                { icon: MapPin, text: regionName ? `${regionName}` : "Local to Your Area" },
+                { icon: MapPin, text: regionName ? `${regionName}` : "Serving Your Area" },
               ].map(({ icon: Icon, text }) => (
                 <div
                   key={text}
@@ -106,7 +106,7 @@ const LocalContractorSection = () => {
           <div className="flex items-center gap-2 px-6 pt-5 pb-2">
             <MapPin className="w-4 h-4 text-accent" />
             <span className="text-sm font-semibold text-foreground">
-              {regionName ? `${regionName} Service Area` : "Our Service Area"}
+              {regionName ? `${regionName} Service Area` : "Serving Your Area"}
             </span>
           </div>
           <div className="px-6 pb-6">
