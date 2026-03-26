@@ -1,8 +1,6 @@
 import { Star, Shield, MapPin, Award, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 
-
-
 const scrollToForm = () => {
   document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
 };
@@ -34,7 +32,7 @@ const LocalContractorSection = () => {
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-foreground mb-3">
               {regionName
                 ? `Serving Homeowners in the ${regionName}`
-                : "Serving Your Area"}
+                : "We have an outstanding contractor that serves your area!"}
             </h2>
 
             {/* Stars row — Google-style */}
@@ -70,7 +68,9 @@ const LocalContractorSection = () => {
 
             {/* Personalized message */}
             <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-              Our certified local contractor serves your area.<br /><br />
+              Our certified local contractor serves your area.
+              <br />
+              <br />
               Get your 1 YR Price Guarantee
             </p>
 
@@ -84,8 +84,6 @@ const LocalContractorSection = () => {
             <p className="text-xs text-muted-foreground mt-2">🔒 We will never share your info</p>
           </div>
         </div>
-
-
       </div>
     </section>
   );
