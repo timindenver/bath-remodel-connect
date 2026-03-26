@@ -75,23 +75,6 @@ serve(async (req) => {
       }
     }
 
-    // Fallback to Bucks County region if no match found
-    if (!regionName) {
-      const { data: fallback } = await supabase
-        .from("contractor_regions")
-        .select("id, region_name, rating, review_count")
-        .ilike("region_name", "%bucks%")
-        .eq("is_active", true)
-        .maybeSingle();
-
-      if (fallback) {
-        regionName = fallback.region_name;
-        contractorRegionId = fallback.id;
-        rating = fallback.rating;
-        reviewCount = fallback.review_count;
-      }
-    }
-
     return new Response(
       JSON.stringify({
         zip_code: detectedZip,
