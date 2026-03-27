@@ -12,8 +12,12 @@ function getVideoSrc() {
   return `/hero.mp4?v=${VIDEO_VERSION}`;
 }
 
-function getPreloadStrategy(): "auto" | "metadata" | "none" {
-  if (typeof window === "undefined") return "metadata";
+function getPoster() {
+  if (typeof window === "undefined") return heroPoster;
+  return window.innerWidth < 768 ? heroPosterMobile : heroPoster;
+}
+
+const scrollToForm = () => {
   return window.innerWidth < 768 ? "metadata" : "auto";
 }
 
