@@ -1,10 +1,10 @@
-import bath1 from "@/assets/projects/bath1.jpeg";
-import bath3 from "@/assets/projects/bath3.jpeg";
-import bath4 from "@/assets/projects/bath4.jpeg";
-import blue from "@/assets/projects/blue.jpeg";
-import shower1 from "@/assets/projects/shower1.jpeg";
-import shower2 from "@/assets/projects/shower2.png";
-import shower3 from "@/assets/projects/shower3.jpeg";
+import bath1 from "@/assets/projects/bath1.webp";
+import bath3 from "@/assets/projects/bath3.webp";
+import bath4 from "@/assets/projects/bath4.webp";
+import blue from "@/assets/projects/blue.webp";
+import shower1 from "@/assets/projects/shower1.webp";
+import shower2 from "@/assets/projects/shower2.webp";
+import shower3 from "@/assets/projects/shower3.webp";
 
 const PROJECTS = [
   { src: shower2, label: "Silver Shimmer w/ Matte Black" },

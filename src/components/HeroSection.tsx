@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { useGeo } from "@/contexts/GeoContext";
+import heroPoster from "@/assets/hero-poster.jpg";
+import heroPosterMobile from "@/assets/hero-poster-mobile.jpg";
 
 const VIDEO_VERSION = "6";
 
@@ -8,6 +10,11 @@ function getVideoSrc() {
   if (w < 768) return `/hero-mobile.mp4?v=${VIDEO_VERSION}`;
   if (w < 1024) return `/hero-tablet.mp4?v=${VIDEO_VERSION}`;
   return `/hero.mp4?v=${VIDEO_VERSION}`;
+}
+
+function getPoster() {
+  if (typeof window === "undefined") return heroPoster;
+  return window.innerWidth < 768 ? heroPosterMobile : heroPoster;
 }
 
 function getPreloadStrategy(): "auto" | "metadata" | "none" {
@@ -51,6 +58,7 @@ const HeroSection = () => {
             muted
             loop
             playsInline
+            poster={getPoster()}
             preload={getPreloadStrategy()}
             className="w-full h-full object-contain sm:object-contain object-top"
             aria-hidden="true"
