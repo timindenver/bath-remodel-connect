@@ -10,6 +10,11 @@ function getVideoSrc() {
   return `/hero.mp4?v=${VIDEO_VERSION}`;
 }
 
+function getPreloadStrategy(): "auto" | "metadata" | "none" {
+  if (typeof window === "undefined") return "metadata";
+  return window.innerWidth < 768 ? "metadata" : "auto";
+}
+
 const scrollToForm = () => {
   document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
 };
@@ -46,7 +51,7 @@ const HeroSection = () => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload={getPreloadStrategy()}
             className="w-full h-full object-contain sm:object-contain object-top"
             aria-hidden="true"
             src={videoSrc}
