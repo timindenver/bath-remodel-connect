@@ -17,7 +17,8 @@ function getPoster() {
   return window.innerWidth < 768 ? heroPosterMobile : heroPoster;
 }
 
-const scrollToForm = () => {
+function getPreloadStrategy(): "auto" | "metadata" | "none" {
+  if (typeof window === "undefined") return "metadata";
   return window.innerWidth < 768 ? "metadata" : "auto";
 }
 
