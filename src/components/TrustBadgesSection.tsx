@@ -1,11 +1,11 @@
 import { useGeo } from "@/contexts/GeoContext";
 import { Star, Shield } from "lucide-react";
-import guildQuality from "@/assets/trust-guildquality.png";
-import greenguard from "@/assets/trust-greenguard.png";
+import guildQuality from "@/assets/trust-guildquality.webp";
+import greenguard from "@/assets/trust-greenguard.webp";
 import houzz from "@/assets/trust-houzz.jpg";
 import nari from "@/assets/trust-nari.jpg";
-import google5star from "@/assets/trust-google5star.png";
-import bbb from "@/assets/trust-bbb.png";
+import google5star from "@/assets/trust-google5star.webp";
+import bbb from "@/assets/trust-bbb.webp";
 import ntca from "@/assets/trust-ntca.jpg";
 
 const badges = [

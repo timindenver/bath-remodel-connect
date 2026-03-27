@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
-import comparisonSolid from "@/assets/comparison-solid-surface.png";
-import comparisonAcrylic from "@/assets/comparison-acrylic.png";
+import comparisonSolid from "@/assets/comparison-solid-surface.webp";
+import comparisonAcrylic from "@/assets/comparison-acrylic.webp";
 
 const rows = [
   {

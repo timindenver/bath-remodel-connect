@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import solidCloseup from "@/assets/solid-surface-closeup.png";
+import solidCloseup from "@/assets/solid-surface-closeup.webp";
 
 const solidSurfaceReasons = [
   "Feels like natural stone — because it's made from real minerals.",

@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
-import testimonialsBgDesktop from "@/assets/testimonials-bg-desktop.png";
-import testimonialsBgMobile from "@/assets/testimonials-bg-mobile.png";
+import testimonialsBgDesktop from "@/assets/testimonials-bg-desktop.webp";
+import testimonialsBgMobile from "@/assets/testimonials-bg-mobile.webp";
 
 const testimonials = [
   {

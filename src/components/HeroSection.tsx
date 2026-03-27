@@ -1,5 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { useGeo } from "@/contexts/GeoContext";
+import heroPoster from "@/assets/hero-poster.jpg";
+import heroPosterMobile from "@/assets/hero-poster-mobile.jpg";
 
 const VIDEO_VERSION = "6";
 
