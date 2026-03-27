@@ -58,6 +58,7 @@ const HeroSection = () => {
             muted
             loop
             playsInline
+            poster={getPoster()}
             preload={getPreloadStrategy()}
             className="w-full h-full object-contain sm:object-contain object-top"
             aria-hidden="true"
