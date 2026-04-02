@@ -59,6 +59,8 @@ const MultiStepFormSection = () => {
           timeline,
           concern,
           open_to_visit: openToVisit,
+          preferred_day: preferredDay,
+          preferred_time: preferredTime,
           utm_source: utm.utm_source,
           utm_medium: utm.utm_medium,
           utm_campaign: utm.utm_campaign,
