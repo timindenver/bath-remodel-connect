@@ -1,5 +1,5 @@
 import { useState, FormEvent, useCallback } from "react";
-import { ChevronRight, ChevronLeft, Shield, Lock, MapPin } from "lucide-react";
+import { ChevronRight, ChevronLeft, Shield, Lock, MapPin, Timer } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 import { supabase } from "@/integrations/supabase/client";
 
