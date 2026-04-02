@@ -320,12 +320,17 @@ const MultiStepFormSection = () => {
             {/* Step 3: Day/Time Preference */}
             {step === 2 && (
               <div className="space-y-5">
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Our certified local contractor will call within the next <span className="font-semibold text-foreground">60 minutes</span> to schedule an in-home visit to measure the space, show you samples, and answer any questions you have.
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  They will provide a <span className="font-semibold text-foreground">no-pressure, guaranteed 1-year locked-in price</span> for your bath remodel project.
-                </p>
+                <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
+                  <Timer className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                  <div className="space-y-2">
+                    <p className="text-sm text-foreground leading-relaxed">
+                      Our certified local contractor will call within the next <span className="font-bold text-accent">60 minutes</span> to schedule an in-home visit to measure the space, show you samples, and answer any questions you have.
+                    </p>
+                    <p className="text-sm text-foreground leading-relaxed">
+                      They will provide a <span className="font-bold text-accent">no-pressure, guaranteed 1-year locked-in price</span> for your bath remodel project.
+                    </p>
+                  </div>
+                </div>
 
                 <div>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
