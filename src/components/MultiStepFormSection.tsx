@@ -204,7 +204,7 @@ const MultiStepFormSection = () => {
         <div className="mb-6 sm:mb-8">
           <div className="flex justify-between text-xs text-muted-foreground mb-2">
             <span className={`font-medium ${step >= 0 ? "text-accent" : ""}`}>1. Project</span>
-            <span className={`font-medium ${step >= 1 ? "text-accent" : ""}`}>2. Contact</span>
+            <span className={`font-medium ${step >= 1 ? "text-accent" : ""}`}>2. Almost Done</span>
             <span className={`font-medium ${step >= 2 ? "text-accent" : ""}`}>3. Confirm</span>
           </div>
           <div className="h-2 bg-muted rounded-full overflow-hidden">
