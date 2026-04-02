@@ -84,6 +84,8 @@ serve(async (req) => {
       timeline: body.timeline || null,
       concern: body.concern || null,
       open_to_visit: body.open_to_visit || null,
+      preferred_day: body.preferred_day || null,
+      preferred_time: body.preferred_time || null,
       intent_level: intentLevel,
       utm_source: body.utm_source || null,
       utm_medium: body.utm_medium || null,
