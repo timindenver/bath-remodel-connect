@@ -1,16 +1,10 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-transparent.webp";
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-start gap-10">
-          <img
-            src={logo}
-            alt="SolidSurface Baths logo"
-            className="h-48 md:h-56 w-auto max-w-[280px] md:max-w-[360px] self-start"
-          />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 text-left w-full md:w-auto md:ml-auto">
             <div>
