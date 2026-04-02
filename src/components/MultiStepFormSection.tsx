@@ -27,7 +27,7 @@ const MultiStepFormSection = () => {
   const canAdvance = () => {
     if (step === 0) return timeline !== "" && concern !== "";
     if (step === 1) return effectiveZip.trim().length >= 5 && name.trim() !== "" && phone.trim() !== "";
-    if (step === 2) return openToVisit !== "";
+    if (step === 2) return preferredDay !== "" && preferredTime !== "";
     return false;
   };
 
