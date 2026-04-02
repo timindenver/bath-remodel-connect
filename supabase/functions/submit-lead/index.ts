@@ -157,6 +157,8 @@ serve(async (req) => {
         Timeline: leadData.timeline || "",
         Concern: leadData.concern || "",
         "Open to Visit": leadData.open_to_visit || "",
+        "Preferred Day": leadData.preferred_day || "",
+        "Preferred Time": leadData.preferred_time || "",
         "Intent Level": intentLevel,
         "In Service Area": inServiceArea,
         "UTM Source": leadData.utm_source || "",
