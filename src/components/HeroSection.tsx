@@ -23,7 +23,11 @@ function getPreloadStrategy(): "auto" | "metadata" | "none" {
 }
 
 const scrollToForm = () => {
-  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
+  const el = document.getElementById("lead-form");
+  if (el) {
+    const y = el.getBoundingClientRect().top + window.scrollY - 20;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
 };
 
 const HeroSection = () => {
