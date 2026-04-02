@@ -12,7 +12,9 @@ const MultiStepFormSection = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [openToVisit, setOpenToVisit] = useState("");
+  const [openToVisit, setOpenToVisit] = useState("Yes");
+  const [preferredDay, setPreferredDay] = useState("");
+  const [preferredTime, setPreferredTime] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [outOfArea, setOutOfArea] = useState(false);
@@ -25,7 +27,7 @@ const MultiStepFormSection = () => {
   const canAdvance = () => {
     if (step === 0) return timeline !== "" && concern !== "";
     if (step === 1) return effectiveZip.trim().length >= 5 && name.trim() !== "" && phone.trim() !== "";
-    if (step === 2) return openToVisit !== "";
+    if (step === 2) return preferredDay !== "" && preferredTime !== "";
     return false;
   };
 
@@ -57,6 +59,8 @@ const MultiStepFormSection = () => {
           timeline,
           concern,
           open_to_visit: openToVisit,
+          preferred_day: preferredDay,
+          preferred_time: preferredTime,
           utm_source: utm.utm_source,
           utm_medium: utm.utm_medium,
           utm_campaign: utm.utm_campaign,
@@ -313,27 +317,55 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 3: Qualification */}
+            {/* Step 3: Day/Time Preference */}
             {step === 2 && (
-              <div className="space-y-4">
-                <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                  Are you open to having a contractor visit your home for an exact quote?
-                </h3>
-                <div className="grid grid-cols-1 gap-2">
-                  {["Yes", "Maybe", "No"].map((option) => (
-                    <button
-                      key={option}
-                      type="button"
-                      onClick={() => setOpenToVisit(option)}
-                      className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
-                        openToVisit === option
-                          ? "border-accent bg-accent/10 text-foreground"
-                          : "border-border hover:border-accent/50 text-muted-foreground"
-                      }`}
-                    >
-                      {option}
-                    </button>
-                  ))}
+              <div className="space-y-5">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Our certified local contractor will call within the next <span className="font-semibold text-foreground">60 minutes</span> to schedule an in-home visit to measure the space, show you samples, and answer any questions you have. They will provide a <span className="font-semibold text-foreground">no-pressure, guaranteed 1-year locked-in price</span> for your bath remodel project.
+                </p>
+
+                <div>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
+                    What day works best for you?
+                  </h3>
+                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                    {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+                      <button
+                        key={day}
+                        type="button"
+                        onClick={() => setPreferredDay(day)}
+                        className={`p-3 rounded-lg border text-sm font-medium transition-colors ${
+                          preferredDay === day
+                            ? "border-accent bg-accent/10 text-foreground"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {day}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className={preferredDay ? "opacity-100" : "opacity-40 pointer-events-none"}>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
+                    What time works best?
+                  </h3>
+                  <div className="grid grid-cols-3 gap-2">
+                    {["Early AM", "Mid Day", "Evenings"].map((time) => (
+                      <button
+                        key={time}
+                        type="button"
+                        onClick={() => setPreferredTime(time)}
+                        className={`p-3 rounded-lg border text-sm font-medium transition-colors ${
+                          preferredTime === time
+                            ? "border-accent bg-accent/10 text-foreground"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {time}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
