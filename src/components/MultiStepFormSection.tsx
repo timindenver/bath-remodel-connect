@@ -379,21 +379,38 @@ const MultiStepFormSection = () => {
             )}
 
             {/* Navigation */}
-            <div className="flex items-center justify-between mt-6 sm:mt-8">
-              {step > 0 ? (
+            {step === 2 ? (
+              <div className="mt-6 sm:mt-8 space-y-3">
+                <button
+                  type="submit"
+                  disabled={!canAdvance() || submitting}
+                  className="w-full bg-accent text-accent-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
+                >
+                  {submitting ? "Submitting..." : "Get My Free Quote"}
+                </button>
                 <button
                   type="button"
                   onClick={back}
-                  className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="w-full flex items-center justify-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Back
                 </button>
-              ) : (
-                <div />
-              )}
-
-              {step < 2 ? (
+              </div>
+            ) : (
+              <div className="flex items-center justify-between mt-6 sm:mt-8">
+                {step > 0 ? (
+                  <button
+                    type="button"
+                    onClick={back}
+                    className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    Back
+                  </button>
+                ) : (
+                  <div />
+                )}
                 <button
                   type="button"
                   onClick={next}
@@ -403,16 +420,8 @@ const MultiStepFormSection = () => {
                   Next
                   <ChevronRight className="w-4 h-4" />
                 </button>
-              ) : (
-                <button
-                  type="submit"
-                  disabled={!canAdvance() || submitting}
-                  className="w-full bg-accent text-accent-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
-                >
-                  {submitting ? "Submitting..." : "Get My Free Quote"}
-                </button>
-              )}
-            </div>
+              </div>
+            )}
           </form>
 
           <p className="text-[10px] leading-tight text-muted-foreground text-center mt-5">
