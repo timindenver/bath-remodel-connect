@@ -271,9 +271,6 @@ const MultiStepFormSection = () => {
             {/* Step 2: Contact Info */}
             {step === 1 && (
               <div className="space-y-4">
-                <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
-                  Almost done — where should we send your quote?
-                </h3>
                 <p className="text-xs text-muted-foreground mb-3 flex items-center gap-1">
                   <Lock className="w-3 h-3" /> Your info is never shared or sold.
                 </p>
