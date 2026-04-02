@@ -1,5 +1,5 @@
 import { useState, FormEvent, useCallback } from "react";
-import { ChevronRight, ChevronLeft, Shield, Lock, MapPin } from "lucide-react";
+import { ChevronRight, ChevronLeft, Shield, Lock, MapPin, Timer } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -320,12 +320,17 @@ const MultiStepFormSection = () => {
             {/* Step 3: Day/Time Preference */}
             {step === 2 && (
               <div className="space-y-5">
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Our certified local contractor will call within the next <span className="font-semibold text-foreground">60 minutes</span> to schedule an in-home visit to measure the space, show you samples, and answer any questions you have.
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  They will provide a <span className="font-semibold text-foreground">no-pressure, guaranteed 1-year locked-in price</span> for your bath remodel project.
-                </p>
+                <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
+                  <Timer className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                  <div className="space-y-2">
+                    <p className="text-sm text-foreground leading-relaxed">
+                      Our certified local contractor will call within the next <span className="font-bold text-accent">60 minutes</span> to schedule an in-home visit to measure the space, show you samples, and answer any questions you have.
+                    </p>
+                    <p className="text-sm text-foreground leading-relaxed">
+                      They will provide a <span className="font-bold text-accent">no-pressure, guaranteed 1-year locked-in price</span> for your bath remodel project.
+                    </p>
+                  </div>
+                </div>
 
                 <div>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
@@ -374,21 +379,38 @@ const MultiStepFormSection = () => {
             )}
 
             {/* Navigation */}
-            <div className="flex items-center justify-between mt-6 sm:mt-8">
-              {step > 0 ? (
+            {step === 2 ? (
+              <div className="mt-6 sm:mt-8 space-y-3">
+                <button
+                  type="submit"
+                  disabled={!canAdvance() || submitting}
+                  className="w-full bg-accent text-accent-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
+                >
+                  {submitting ? "Submitting..." : "Get My Free Quote"}
+                </button>
                 <button
                   type="button"
                   onClick={back}
-                  className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="w-full flex items-center justify-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Back
                 </button>
-              ) : (
-                <div />
-              )}
-
-              {step < 2 ? (
+              </div>
+            ) : (
+              <div className="flex items-center justify-between mt-6 sm:mt-8">
+                {step > 0 ? (
+                  <button
+                    type="button"
+                    onClick={back}
+                    className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    Back
+                  </button>
+                ) : (
+                  <div />
+                )}
                 <button
                   type="button"
                   onClick={next}
@@ -398,16 +420,8 @@ const MultiStepFormSection = () => {
                   Next
                   <ChevronRight className="w-4 h-4" />
                 </button>
-              ) : (
-                <button
-                  type="submit"
-                  disabled={!canAdvance() || submitting}
-                  className="w-full bg-accent text-accent-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
-                >
-                  {submitting ? "Submitting..." : "Get My Free Quote"}
-                </button>
-              )}
-            </div>
+              </div>
+            )}
           </form>
 
           <p className="text-[10px] leading-tight text-muted-foreground text-center mt-5">
