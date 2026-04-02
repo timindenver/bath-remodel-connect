@@ -271,9 +271,6 @@ const MultiStepFormSection = () => {
             {/* Step 2: Contact Info */}
             {step === 1 && (
               <div className="space-y-4">
-                <p className="text-xs text-muted-foreground mb-3 flex items-center gap-1">
-                  <Lock className="w-3 h-3" /> Your info is never shared or sold.
-                </p>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -309,6 +306,10 @@ const MultiStepFormSection = () => {
                   placeholder="Email (optional)"
                   className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
                 />
+                <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-2">
+                  By clicking Submit, I expressly consent to Solid Surface Baths contacting me at the telephone number or email address provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology, SMS/MMS messages, AI generative voice, and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. Message and data rates may apply. I understand that consent is not a condition of purchase and to be helped I can call{" "}
+                  <a href="tel:9178130137" className="underline text-accent">917-813-0137</a>.
+                </p>
               </div>
             )}
 
