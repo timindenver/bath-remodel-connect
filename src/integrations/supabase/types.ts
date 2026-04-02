@@ -70,6 +70,8 @@ export type Database = {
           name: string
           open_to_visit: string | null
           phone: string
+          preferred_day: string | null
+          preferred_time: string | null
           region_name: string | null
           state: string | null
           timeline: string | null
@@ -94,6 +96,8 @@ export type Database = {
           name: string
           open_to_visit?: string | null
           phone: string
+          preferred_day?: string | null
+          preferred_time?: string | null
           region_name?: string | null
           state?: string | null
           timeline?: string | null
@@ -118,6 +122,8 @@ export type Database = {
           name?: string
           open_to_visit?: string | null
           phone?: string
+          preferred_day?: string | null
+          preferred_time?: string | null
           region_name?: string | null
           state?: string | null
           timeline?: string | null
