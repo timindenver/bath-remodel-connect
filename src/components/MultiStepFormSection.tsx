@@ -172,8 +172,8 @@ const MultiStepFormSection = () => {
           </h2>
           <p className="text-muted-foreground mb-2">
             {geo.region_name
-              ? `We're matching you with a top-rated contractor serving the ${geo.region_name}. Expect a call within 24 hours.`
-              : "We're matching you with a certified local contractor. Expect a call within 24 hours."}
+              ? `We're matching you with a top-rated contractor serving the ${geo.region_name}. Expect a call within 60 minutes during business hours, or first thing in the morning if submitted after hours.`
+              : "We're matching you with a certified local contractor. Expect a call within 60 minutes during business hours, or first thing in the morning if submitted after hours."}
           </p>
           <p className="text-sm text-muted-foreground">
             No obligation. No pressure.
