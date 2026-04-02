@@ -12,7 +12,9 @@ const MultiStepFormSection = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [openToVisit, setOpenToVisit] = useState("");
+  const [openToVisit, setOpenToVisit] = useState("Yes");
+  const [preferredDay, setPreferredDay] = useState("");
+  const [preferredTime, setPreferredTime] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [outOfArea, setOutOfArea] = useState(false);
