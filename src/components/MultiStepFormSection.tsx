@@ -324,7 +324,7 @@ const MultiStepFormSection = () => {
                   <Timer className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
                   <div className="space-y-2">
                     <p className="text-sm text-foreground leading-relaxed">
-                      Our certified local contractor will call within the next <span className="font-bold text-accent">60 minutes</span> to schedule an in-home visit to measure the space, show you samples, and answer any questions you have.
+                      Our certified local contractor will call within the next <span className="font-bold text-accent">60 minutes</span> during business hours to schedule an in-home visit to measure the space, show you samples, and answer any questions you have. <span className="text-muted-foreground">If submitted after hours, expect a call first thing in the morning.</span>
                     </p>
                     <p className="text-sm text-foreground leading-relaxed">
                       They will provide a <span className="font-bold text-accent">no-pressure, guaranteed 1-year locked-in price</span> for your bath remodel project.
