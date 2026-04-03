@@ -11,6 +11,27 @@ const MultiStepFormSection = () => {
   const [zipCode, setZipCode] = useState(geo.zip_code || "");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 10);
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  };
+
+  const handlePhoneChange = (value: string) => {
+    const formatted = formatPhone(value);
+    setPhone(formatted);
+    const digits = formatted.replace(/\D/g, "");
+    if (digits.length > 0 && digits.length < 10) {
+      setPhoneError("Please enter a valid 10-digit phone number");
+    } else {
+      setPhoneError("");
+    }
+  };
+
+  const isPhoneValid = () => phone.replace(/\D/g, "").length === 10;
   const [email, setEmail] = useState("");
   const [openToVisit, setOpenToVisit] = useState("Yes");
   const [preferredDay, setPreferredDay] = useState("");
