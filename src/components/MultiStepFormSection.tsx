@@ -11,6 +11,27 @@ const MultiStepFormSection = () => {
   const [zipCode, setZipCode] = useState(geo.zip_code || "");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 10);
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  };
+
+  const handlePhoneChange = (value: string) => {
+    const formatted = formatPhone(value);
+    setPhone(formatted);
+    const digits = formatted.replace(/\D/g, "");
+    if (digits.length > 0 && digits.length < 10) {
+      setPhoneError("Please enter a valid 10-digit phone number");
+    } else {
+      setPhoneError("");
+    }
+  };
+
+  const isPhoneValid = () => phone.replace(/\D/g, "").length === 10;
   const [email, setEmail] = useState("");
   const [openToVisit, setOpenToVisit] = useState("Yes");
   const [preferredDay, setPreferredDay] = useState("");
@@ -26,7 +47,7 @@ const MultiStepFormSection = () => {
 
   const canAdvance = () => {
     if (step === 0) return timeline !== "" && concern !== "";
-    if (step === 1) return effectiveZip.trim().length >= 5 && name.trim() !== "" && phone.trim() !== "";
+    if (step === 1) return effectiveZip.trim().length >= 5 && name.trim() !== "" && isPhoneValid();
     if (step === 2) return preferredDay !== "" && preferredTime !== "";
     return false;
   };
@@ -296,13 +317,16 @@ const MultiStepFormSection = () => {
                   placeholder="Your name"
                   className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
                 />
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Phone number"
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                />
+                <div>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    placeholder="(555) 555-5555"
+                    className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent ${phoneError ? "border-destructive" : "border-input"}`}
+                  />
+                  {phoneError && <p className="text-xs text-destructive mt-1">{phoneError}</p>}
+                </div>
                 <input
                   type="email"
                   value={email}
