@@ -317,13 +317,16 @@ const MultiStepFormSection = () => {
                   placeholder="Your name"
                   className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
                 />
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="Phone number"
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                />
+                <div>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    placeholder="(555) 555-5555"
+                    className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent ${phoneError ? "border-destructive" : "border-input"}`}
+                  />
+                  {phoneError && <p className="text-xs text-destructive mt-1">{phoneError}</p>}
+                </div>
                 <input
                   type="email"
                   value={email}
