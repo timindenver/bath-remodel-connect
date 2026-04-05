@@ -3,6 +3,7 @@ import LocalContractorSection from "@/components/LocalContractorSection";
 import TrustBadgesSection from "@/components/TrustBadgesSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import EducationSection from "@/components/EducationSection";
+import ShowerDesignToolSection from "@/components/ShowerDesignToolSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ProjectGallerySection from "@/components/ProjectGallerySection";
 import BridgeCTASection from "@/components/BridgeCTASection";
