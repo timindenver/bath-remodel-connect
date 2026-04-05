@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import solidCloseup from "@/assets/solid-surface-closeup.webp";
+import solidImg1 from "@/assets/solid-surface-1.webp";
+import solidImg2 from "@/assets/solid-surface-2.webp";
+import solidImg3 from "@/assets/solid-surface-3.webp";
 
 const solidSurfaceReasons = [
   "Feels like natural stone — because it's made from real minerals.",
@@ -23,8 +25,16 @@ const EducationSection = () => {
             </h3>
           </div>
 
-          <div className="mb-8 rounded-lg overflow-hidden border border-border">
-            <img src={solidCloseup} alt="Close-up of calacatta solid surface material showing stone-like texture with water droplets" className="w-full aspect-video object-cover" />
+          <div className="mb-8 grid grid-cols-3 gap-3 sm:gap-4">
+            <div className="rounded-lg overflow-hidden border border-border">
+              <img src={solidImg1} alt="Modern solid surface shower with glass panel and wooden bath mat" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div className="rounded-lg overflow-hidden border border-border">
+              <img src={solidImg2} alt="Blue marble solid surface shower wall with brushed nickel fixtures" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div className="rounded-lg overflow-hidden border border-border">
+              <img src={solidImg3} alt="Craftsman polishing white calacatta solid surface panel" className="w-full h-full object-cover" loading="lazy" />
+            </div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
