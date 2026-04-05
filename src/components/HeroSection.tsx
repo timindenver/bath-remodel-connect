@@ -65,7 +65,7 @@ const HeroSection = () => {
             poster={getPoster()}
             preload={getPreloadStrategy()}
             className="w-full h-full object-contain sm:object-contain object-top"
-            aria-hidden="true"
+            style={{ contentVisibility: "auto" }}
             src={videoSrc}
           />
           <div className="absolute inset-0 bg-hero-overlay/10" />
