@@ -1,10 +1,10 @@
-import guildQuality from "@/assets/trust-guildquality.png";
-import greenguard from "@/assets/trust-greenguard.png";
-import houzz from "@/assets/trust-houzz.png";
-import nari from "@/assets/trust-nari.png";
-import google5star from "@/assets/trust-google5star.png";
-import bbb from "@/assets/trust-bbb.jpg";
-import ntca from "@/assets/trust-ntca.png";
+import guildQuality from "@/assets/trust-guildquality.webp";
+import greenguard from "@/assets/trust-greenguard.webp";
+import houzz from "@/assets/trust-houzz.webp";
+import nari from "@/assets/trust-nari.webp";
+import google5star from "@/assets/trust-google5star.webp";
+import bbb from "@/assets/trust-bbb.webp";
+import ntca from "@/assets/trust-ntca.webp";
 
 const badges = [
   { src: google5star, alt: "Google 5-Star Rating" },

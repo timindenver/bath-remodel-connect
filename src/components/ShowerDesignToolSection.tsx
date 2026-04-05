@@ -1,6 +1,6 @@
 import { Monitor, Smartphone } from "lucide-react";
-import showerDesktop from "@/assets/shower-design-desktop.jpg";
-import showerMobile from "@/assets/shower-design-mobile.png";
+import showerDesktop from "@/assets/shower-design-desktop.webp";
+import showerMobile from "@/assets/shower-design-mobile.webp";
 
 const ShowerDesignToolSection = () => {
   return (
