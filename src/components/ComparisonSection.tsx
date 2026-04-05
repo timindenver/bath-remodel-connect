@@ -94,7 +94,7 @@ const ComparisonSection = () => {
                   Acrylic (One-Day Systems)
                 </th>
                 <th className="py-4 pl-4 text-sm font-semibold text-accent uppercase tracking-wider w-[37.5%]">
-                  Solid Surface Panels
+                  Solid Surface Walls
                 </th>
               </tr>
             </thead>
