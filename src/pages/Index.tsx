@@ -23,6 +23,7 @@ const Index = () => {
       <TrustBadgesSection />
       <ComparisonSection />
       <EducationSection />
+      <ShowerDesignToolSection />
       <BenefitsSection />
       <ProjectGallerySection />
       <BridgeCTASection />
