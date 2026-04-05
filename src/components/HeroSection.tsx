@@ -77,12 +77,12 @@ const HeroSection = () => {
             <div className="w-full max-w-7xl mx-auto">
               <div className="max-w-2xl text-primary-foreground text-center sm:text-left mx-auto sm:mx-0">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight">
-                  If You Love Your
+                  Solid Surface Shower Luxury
                   <br />
-                  Solid Surface Countertops…
+                  No Grout. No Plastic.
                   <br />
                   <br />
-                  <span>You'll Love Our Showers</span>
+                  <span></span>
                 </h1>
               </div>
             </div>
