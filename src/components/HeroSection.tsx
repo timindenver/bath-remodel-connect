@@ -82,7 +82,6 @@ const HeroSection = () => {
                   No Grout. No Plastic.
                   <br />
                   <br />
-                  <span></span>
                 </h1>
               </div>
             </div>
