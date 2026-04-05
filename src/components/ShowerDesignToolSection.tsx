@@ -7,13 +7,14 @@ const ShowerDesignToolSection = () => {
     <section className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-card">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-4">
-          Use Our Free & Easy Shower Design Tool
+          Use Our Complimentary Design Tool While You Wait
         </h2>
         <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-4">
           No download required — design your dream shower right from your browser while you wait for your quote.
         </p>
         <p className="text-muted-foreground text-sm sm:text-base mb-10">
-          Works beautifully on both <span className="font-semibold text-foreground">mobile</span> and <span className="font-semibold text-foreground">desktop</span>.
+          Works beautifully on both <span className="font-semibold text-foreground">mobile</span> and{" "}
+          <span className="font-semibold text-foreground">desktop</span>.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8 items-center">
