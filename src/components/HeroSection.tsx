@@ -79,6 +79,7 @@ const HeroSection = () => {
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight">
                   Solid Surface Shower Luxury
                   <br />
+                  <br />
                   No Grout. No Plastic.
                   <br />
                   <br />
