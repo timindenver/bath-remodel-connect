@@ -77,7 +77,7 @@ const HeroSection = () => {
             <div className="w-full max-w-7xl mx-auto">
               <div className="max-w-2xl text-primary-foreground text-center sm:text-left mx-auto sm:mx-0">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight">
-                  Solid Surface Shower Luxury
+                  Solid Surface Showers Installed in 3 Days
                   <br />
                   <br />
                   No Grout. No Plastic.
