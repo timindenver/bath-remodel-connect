@@ -29,7 +29,7 @@ const TrustBadgesSection = () => {
                 key={`${badge.alt}-${i}`}
                 src={badge.src}
                 alt={badge.alt}
-                className="h-16 sm:h-20 w-auto max-w-[140px] sm:max-w-[180px] object-contain flex-shrink-0"
+                className="h-16 sm:h-20 w-auto max-w-[140px] sm:max-w-[180px] object-contain flex-shrink-0 mix-blend-multiply"
               />
             ))}
           </div>
