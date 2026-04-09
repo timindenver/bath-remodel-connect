@@ -1,26 +1,4 @@
-import { useRef, useEffect, useState } from "react";
-import { useGeo } from "@/contexts/GeoContext";
-import heroPoster from "@/assets/hero-poster.jpg";
-import heroPosterMobile from "@/assets/hero-poster-mobile.jpg";
-
-const VIDEO_VERSION = "6";
-
-function getVideoSrc() {
-  const w = window.innerWidth;
-  if (w < 768) return `/hero-mobile.mp4?v=${VIDEO_VERSION}`;
-  if (w < 1024) return `/hero-tablet.mp4?v=${VIDEO_VERSION}`;
-  return `/hero.mp4?v=${VIDEO_VERSION}`;
-}
-
-function getPoster() {
-  if (typeof window === "undefined") return heroPoster;
-  return window.innerWidth < 768 ? heroPosterMobile : heroPoster;
-}
-
-function getPreloadStrategy(): "auto" | "metadata" | "none" {
-  if (typeof window === "undefined") return "metadata";
-  return window.innerWidth < 768 ? "metadata" : "auto";
-}
+import heroImage from "@/assets/hero-static.webp";
 
 const scrollToForm = () => {
   const el = document.getElementById("lead-form");
@@ -31,42 +9,18 @@ const scrollToForm = () => {
 };
 
 const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoSrc, setVideoSrc] = useState(getVideoSrc);
-
-  useEffect(() => {
-    const onResize = () => {
-      const newSrc = getVideoSrc();
-      setVideoSrc((prev) => (prev !== newSrc ? newSrc : prev));
-    };
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.play().catch(() => {});
-    }
-  }, [videoSrc]);
-
   return (
     <>
       <section className="relative min-h-[75svh] lg:min-h-[80svh] bg-black">
-        {/* Video background */}
+        {/* Static image background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            key={videoSrc}
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={getPoster()}
-            preload={getPreloadStrategy()}
-            className="w-full h-full object-contain sm:object-contain object-top"
-            style={{ contentVisibility: "auto" }}
-            src={videoSrc}
+          <img
+            src={heroImage}
+            alt="Woman enjoying a solid surface shower"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-hero-overlay/10" />
         </div>
