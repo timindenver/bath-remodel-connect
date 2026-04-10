@@ -170,7 +170,7 @@ const MultiStepFormSection = () => {
               />
               <button
                 onClick={handleWaitlist}
-                className="bg-accent text-accent-foreground font-semibold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90"
+                className="bg-cta text-cta-foreground font-semibold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90"
               >
                 Notify Me
               </button>
@@ -408,7 +408,7 @@ const MultiStepFormSection = () => {
                 <button
                   type="submit"
                   disabled={!canAdvance() || submitting}
-                  className="w-full bg-accent text-accent-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
+                  className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
                   {submitting ? "Submitting..." : "Get My Free Quote"}
                 </button>
@@ -439,7 +439,7 @@ const MultiStepFormSection = () => {
                   type="button"
                   onClick={next}
                   disabled={!canAdvance()}
-                  className="flex items-center gap-1 bg-accent text-accent-foreground font-semibold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 bg-cta text-cta-foreground font-semibold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
                   Next
                   <ChevronRight className="w-4 h-4" />

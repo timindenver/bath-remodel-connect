@@ -77,7 +77,7 @@ const LocalContractorSection = () => {
             {/* CTA */}
             <button
               onClick={scrollToForm}
-              className="w-full sm:w-auto bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-sm sm:text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
+              className="w-full sm:w-auto bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-sm sm:text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
             >
               Request a Solid Surface Shower Estimate
             </button>

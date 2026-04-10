@@ -38,7 +38,7 @@ const BridgeCTASection = () => {
 
         <button
           onClick={scrollToForm}
-          className="bg-accent text-accent-foreground font-semibold px-12 py-5 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
+          className="bg-cta text-cta-foreground font-semibold px-12 py-5 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
         >
           Request a Solid Surface Shower Estimate
         </button>
