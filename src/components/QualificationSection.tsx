@@ -51,7 +51,7 @@ const QualificationSection = () => {
             </ul>
             <button
               onClick={scrollToForm}
-              className="mt-6 w-full bg-accent text-accent-foreground font-semibold py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
+              className="mt-6 w-full bg-cta text-cta-foreground font-semibold py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
             >
               That's Me — Get My Free Quote
             </button>

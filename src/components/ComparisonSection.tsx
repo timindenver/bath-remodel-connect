@@ -118,7 +118,7 @@ const ComparisonSection = () => {
         <div className="text-center mt-10">
           <button
             onClick={scrollToForm}
-            className="bg-accent text-accent-foreground font-semibold px-8 py-4 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
+            className="bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
           >
             See What Solid Surface Costs for Your Bathroom
           </button>
