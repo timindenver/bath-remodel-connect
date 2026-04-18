@@ -318,9 +318,6 @@ const TestimonialsSection = () => {
                 ))}
               </div>
             </div>
-            <span className="text-xs text-[#5f6368]">
-              ({totalReviews}+ reviews)
-            </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground text-balance">
             What Homeowners Are Saying
