@@ -26,11 +26,11 @@ const Index = () => {
       <Suspense fallback={null}>
         <ComparisonSection />
         <EducationSection />
+        <TestimonialsSection />
         <ShowerDesignToolSection />
         <BenefitsSection />
         <ProjectGallerySection />
         <BridgeCTASection />
-        <TestimonialsSection />
         <MultiStepFormSection />
         <FinalCTASection />
         <Footer />
