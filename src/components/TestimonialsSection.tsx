@@ -41,7 +41,7 @@ const reviews: Review[] = [
     author: "Linda Kemmerer",
     meta: "12 reviews",
     timeAgo: "5 months ago",
-    text: "I just had my bathroom redone with removing a tub and shower and just replacing it with a shower. Chad & Shawn were great workers. They laid down tarps from my doorway through my living room, up the stairs and right into the bath.",
+    text: "I just had my bathroom redone with removing a tub and shower and just replacing it with a shower. Owen Chad & Shawn Dennis were great workers. They laid down tarps from my doorway through my living room, up the stairs and right into the bath.",
   },
   {
     author: "Barry Miller",
