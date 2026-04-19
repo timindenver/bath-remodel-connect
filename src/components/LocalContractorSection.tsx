@@ -68,9 +68,6 @@ const LocalContractorSection = () => {
 
             {/* Personalized message */}
             <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-              Our certified local contractor serves your area.
-              <br />
-              <br />
               Get your 1 YR Price Guarantee
             </p>
 
