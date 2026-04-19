@@ -100,11 +100,7 @@ const MultiStepFormSection = () => {
         });
       }
 
-      if (data?.in_service_area) {
-        setSubmitted(true);
-      } else {
-        setOutOfArea(true);
-      }
+      setSubmitted(true);
     } catch (err) {
       console.error("Submit error:", err);
       // Still show success to user — lead was likely saved

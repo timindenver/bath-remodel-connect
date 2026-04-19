@@ -35,10 +35,11 @@ serve(async (req) => {
     else if (body.open_to_visit === "Maybe") intentLevel = "medium";
     else if (body.open_to_visit === "No") intentLevel = "low";
 
-    // Look up contractor region by zip
+    // Paid traffic only — every submission is treated as in-service-area.
+    // Still try to match a contractor region by zip for routing/webhook purposes.
     let contractorRegionId = body.contractor_region_id || null;
     let regionName = body.region_name || null;
-    let inServiceArea = body.in_service_area || false;
+    const inServiceArea = true;
     let webhookUrl = null;
 
     if (!contractorRegionId && zip_code) {
@@ -53,7 +54,6 @@ serve(async (req) => {
             contractorRegionId = region.id;
             regionName = region.region_name;
             webhookUrl = region.webhook_url;
-            inServiceArea = true;
             break;
           }
         }
