@@ -412,6 +412,30 @@ const MultiStepFormSection = () => {
                   )}
                 </div>
                 <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">
+                    Preferred follow-up
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {["Call", "Text", "Either"].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setFollowUpPref(option)}
+                        className={`py-2.5 rounded-lg border-2 text-sm font-medium transition-all ${
+                          followUpPref === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-muted-foreground mt-1.5">
+                    You decide how we reach out. No pressure.
+                  </p>
+                </div>
+                <div>
                   <label className="block text-[11px] font-normal text-muted-foreground mb-1.5">
                     Email <span className="opacity-70">(optional)</span>
                   </label>
