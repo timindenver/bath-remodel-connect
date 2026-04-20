@@ -9,7 +9,7 @@ const steps = [
   {
     icon: Users,
     title: "Get Matched With a Vetted Local Installer",
-    description: "We connect you with a top-rated, licensed installer who serves your zip code.",
+    description: "We connect you with a top-rated local installer who serves your zip code and can provide real project pricing.",
   },
   {
     icon: Calendar,
@@ -31,7 +31,7 @@ const ProcessSection = () => {
             How It Works
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 text-balance">
-            Get Matched in 60 Seconds. See Real Pricing in Days.
+            Get Matched in 60 Seconds. Get Real Pricing Fast.
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
             No obligation. No spam. You decide whether to move forward.
