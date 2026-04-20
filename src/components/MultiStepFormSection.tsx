@@ -464,7 +464,7 @@ const MultiStepFormSection = () => {
                   disabled={!canAdvance() || submitting}
                   className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Checking availability..." : "Get My Quote"}
+                  {submitting ? "Submitting..." : "See My Local Installer Options"}
                 </button>
                 <button
                   type="button"
@@ -495,11 +495,7 @@ const MultiStepFormSection = () => {
                   disabled={!canAdvance()}
                   className="flex items-center gap-1 bg-cta text-cta-foreground font-semibold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
-                  {step === 0
-                    ? "See My Local Installer Options"
-                    : step === 1
-                    ? "Check Local Availability"
-                    : "Review My Options"}
+                  See My Local Installer Options
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
