@@ -245,7 +245,7 @@ const MultiStepFormSection = () => {
 
         <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit}>
-            {/* Step 1: Project (zip + timeline + concern) */}
+            {/* Step 0: Project (zip + project type only) */}
             {step === 0 && (
               <div className="space-y-6">
                 <div>
@@ -270,6 +270,37 @@ const MultiStepFormSection = () => {
 
                 <div className={effectiveZip.length >= 5 ? "opacity-100" : "opacity-40 pointer-events-none"}>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
+                    What type of project?
+                  </h3>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      "Tub Replacement",
+                      "Shower Replacement",
+                      "Tub/Shower Combo Replacement"
+                    ].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setProjectType(option)}
+                        className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
+                          projectType === option
+                            ? "border-accent bg-accent/10 text-foreground"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Step 1: Timeline + Scheduling */}
+            {step === 1 && (
+              <div className="space-y-5">
+                <div>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
                     When are you looking to remodel?
                   </h3>
                   <div className="grid grid-cols-2 gap-2">
@@ -278,7 +309,7 @@ const MultiStepFormSection = () => {
                         <button
                           key={option}
                           type="button"
-                          onClick={() => handleTimelineSelect(option)}
+                          onClick={() => setTimeline(option)}
                           className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
                             timeline === option
                               ? "border-accent bg-accent/10 text-foreground"
@@ -292,41 +323,7 @@ const MultiStepFormSection = () => {
                   </div>
                 </div>
 
-                <div id="concern-section" className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    What matters most to you?
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {["No mold or mildew", "Quality & durability", "Best value", "Premium look"].map((option) => (
-                      <button
-                        key={option}
-                        type="button"
-                        onClick={() => setConcern(option)}
-                        className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
-                          concern === option
-                            ? "border-accent bg-accent/10 text-foreground"
-                            : "border-border hover:border-accent/50 text-muted-foreground"
-                        }`}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Step 2: Scheduling (day + time) */}
-            {step === 1 && (
-              <div className="space-y-5">
-                <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
-                  <Timer className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-foreground leading-relaxed">
-                    Share your preferred timing so we can <span className="font-bold text-accent">check local availability</span>. You'll only book a no-obligation in-home consultation if you decide to move forward.
-                  </p>
-                </div>
-
-                <div>
+                <div className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
                     What day works best for you?
                   </h3>
