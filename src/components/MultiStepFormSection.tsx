@@ -303,9 +303,9 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 1: Timing */}
+            {/* Step 1: Timing + Priority */}
             {step === 1 && (
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
                     When are you looking to remodel?
@@ -328,11 +328,46 @@ const MultiStepFormSection = () => {
                       )
                     )}
                   </div>
+                  {timeline === "Just researching" && (
+                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                      Just researching is okay — we can still show you your local options.
+                    </p>
+                  )}
+                </div>
+
+                <div className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What matters most to you?
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Helps us match you to the right local installer.
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      "No mold / easy cleaning",
+                      "Better long-term value",
+                      "Faster installation",
+                      "Premium look",
+                    ].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setPriority(option)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
+                          priority === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
 
-            {/* Step 3: Contact Info — phone-primary */}
+            {/* Step 2: Contact Info — phone-primary */}
             {step === 2 && (
               <div className="space-y-4">
                 <h3 className="font-serif font-bold text-foreground text-base sm:text-lg">
