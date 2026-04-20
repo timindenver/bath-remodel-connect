@@ -138,9 +138,6 @@ const MultiStepFormSection = () => {
 
   const handleTimelineSelect = useCallback((value: string) => {
     setTimeline(value);
-    setTimeout(() => {
-      document.getElementById("concern-section")?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 150);
   }, []);
 
   // Out of area screen
@@ -429,16 +426,16 @@ const MultiStepFormSection = () => {
                     </div>
                   )}
                   <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Project</span>
+                    <span className="text-foreground font-medium text-right">{projectType}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Zip Code</span>
                     <span className="text-foreground font-medium">{effectiveZip}</span>
                   </div>
                   <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Timeline</span>
                     <span className="text-foreground font-medium text-right">{timeline}</span>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Priority</span>
-                    <span className="text-foreground font-medium text-right">{concern}</span>
                   </div>
                   <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Preferred Visit</span>
