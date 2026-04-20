@@ -22,7 +22,7 @@ const FinalCTASection = () => {
           onClick={scrollToForm}
           className="bg-cta text-cta-foreground font-semibold px-10 py-4 rounded-sm text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
         >
-          Check Local Availability
+          See My Local Installer Options
         </button>
         <p className="text-xs opacity-40 mt-2">🔒 Takes 60 seconds · We will never share your info</p>
       </div>

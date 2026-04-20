@@ -6,8 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 const MultiStepFormSection = () => {
   const { geo, lookupByZip, utm } = useGeo();
   const [step, setStep] = useState(0);
+  const [projectType, setProjectType] = useState("");
   const [timeline, setTimeline] = useState("");
-  const [concern, setConcern] = useState("");
   const [zipCode, setZipCode] = useState(geo.zip_code || "");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -33,7 +33,6 @@ const MultiStepFormSection = () => {
 
   const isPhoneValid = () => phone.replace(/\D/g, "").length === 10;
   const [email, setEmail] = useState("");
-  const [openToVisit, setOpenToVisit] = useState("Yes");
   const [preferredDay, setPreferredDay] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -46,13 +45,13 @@ const MultiStepFormSection = () => {
   const effectiveZip = zipCode || geo.zip_code || "";
 
   // 4-step flow:
-  // 0: Project (zip + timeline + concern)
-  // 1: Scheduling (preferred day + time)
+  // 0: Project (zip + project type)
+  // 1: Timeline + Schedule (timeline + preferred day + time)
   // 2: Contact (name + phone + email)
   // 3: Confirm (review + submit)
   const canAdvance = () => {
-    if (step === 0) return effectiveZip.trim().length >= 5 && timeline !== "" && concern !== "";
-    if (step === 1) return preferredDay !== "" && preferredTime !== "";
+    if (step === 0) return effectiveZip.trim().length >= 5 && projectType !== "";
+    if (step === 1) return timeline !== "" && preferredDay !== "" && preferredTime !== "";
     if (step === 2) return name.trim() !== "" && isPhoneValid();
     if (step === 3) return true;
     return false;
@@ -83,9 +82,8 @@ const MultiStepFormSection = () => {
           region_name: geo.region_name,
           contractor_region_id: geo.contractor_region_id,
           in_service_area: geo.in_service_area,
+          project_type: projectType,
           timeline,
-          concern,
-          open_to_visit: openToVisit,
           preferred_day: preferredDay,
           preferred_time: preferredTime,
           utm_source: utm.utm_source,
@@ -140,9 +138,6 @@ const MultiStepFormSection = () => {
 
   const handleTimelineSelect = useCallback((value: string) => {
     setTimeline(value);
-    setTimeout(() => {
-      document.getElementById("concern-section")?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 150);
   }, []);
 
   // Out of area screen
@@ -247,7 +242,7 @@ const MultiStepFormSection = () => {
 
         <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit}>
-            {/* Step 1: Project (zip + timeline + concern) */}
+            {/* Step 0: Project (zip + project type only) */}
             {step === 0 && (
               <div className="space-y-6">
                 <div>
@@ -272,6 +267,37 @@ const MultiStepFormSection = () => {
 
                 <div className={effectiveZip.length >= 5 ? "opacity-100" : "opacity-40 pointer-events-none"}>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
+                    What type of project?
+                  </h3>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      "Tub Replacement",
+                      "Shower Replacement",
+                      "Tub/Shower Combo Replacement"
+                    ].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setProjectType(option)}
+                        className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
+                          projectType === option
+                            ? "border-accent bg-accent/10 text-foreground"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Step 1: Timeline + Scheduling */}
+            {step === 1 && (
+              <div className="space-y-5">
+                <div>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
                     When are you looking to remodel?
                   </h3>
                   <div className="grid grid-cols-2 gap-2">
@@ -280,7 +306,7 @@ const MultiStepFormSection = () => {
                         <button
                           key={option}
                           type="button"
-                          onClick={() => handleTimelineSelect(option)}
+                          onClick={() => setTimeline(option)}
                           className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
                             timeline === option
                               ? "border-accent bg-accent/10 text-foreground"
@@ -294,41 +320,7 @@ const MultiStepFormSection = () => {
                   </div>
                 </div>
 
-                <div id="concern-section" className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    What matters most to you?
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {["No mold or mildew", "Quality & durability", "Best value", "Premium look"].map((option) => (
-                      <button
-                        key={option}
-                        type="button"
-                        onClick={() => setConcern(option)}
-                        className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
-                          concern === option
-                            ? "border-accent bg-accent/10 text-foreground"
-                            : "border-border hover:border-accent/50 text-muted-foreground"
-                        }`}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Step 2: Scheduling (day + time) */}
-            {step === 1 && (
-              <div className="space-y-5">
-                <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
-                  <Timer className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-foreground leading-relaxed">
-                    Share your preferred timing so we can <span className="font-bold text-accent">check local availability</span>. You'll only book a no-obligation in-home consultation if you decide to move forward.
-                  </p>
-                </div>
-
-                <div>
+                <div className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
                     What day works best for you?
                   </h3>
@@ -434,16 +426,16 @@ const MultiStepFormSection = () => {
                     </div>
                   )}
                   <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Project</span>
+                    <span className="text-foreground font-medium text-right">{projectType}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Zip Code</span>
                     <span className="text-foreground font-medium">{effectiveZip}</span>
                   </div>
                   <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Timeline</span>
                     <span className="text-foreground font-medium text-right">{timeline}</span>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Priority</span>
-                    <span className="text-foreground font-medium text-right">{concern}</span>
                   </div>
                   <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Preferred Visit</span>
