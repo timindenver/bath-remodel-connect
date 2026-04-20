@@ -5,7 +5,8 @@ const PAIRS = [
   {
     before: before1,
     after: after1,
-    caption: "Dated Tub & Tile → Modern Marble Walk-In Shower",
+    caption: "From Hard-to-Clean Tile to a Modern Grout-Free Shower",
+    tag: "2–3 day install",
   },
 ];
 
@@ -18,7 +19,7 @@ const BeforeAfterSection = () => {
             Real Before & After Transformations
           </h2>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
-            See how local installers transform tired bathrooms into spa-quality showers — typically in just 2–3 days.
+            See how local installers turn dated bathrooms into clean, modern, grout-free showers — often in just 2–3 days.
           </p>
         </div>
 
@@ -57,9 +58,16 @@ const BeforeAfterSection = () => {
                 </figure>
               </div>
               {pair.caption && (
-                <p className="mt-4 text-center text-sm sm:text-base text-muted-foreground font-medium">
-                  {pair.caption}
-                </p>
+                <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+                  <p className="text-center text-sm sm:text-base text-muted-foreground font-medium">
+                    {pair.caption}
+                  </p>
+                  {pair.tag && (
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-medium">
+                      {pair.tag}
+                    </span>
+                  )}
+                </div>
               )}
             </div>
           ))}
