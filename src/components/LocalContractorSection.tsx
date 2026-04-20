@@ -1,10 +1,6 @@
 import { Star, Shield, MapPin, Award, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 
-const scrollToForm = () => {
-  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
-};
-
 const LocalContractorSection = () => {
   const { geo } = useGeo();
 
@@ -67,18 +63,9 @@ const LocalContractorSection = () => {
             </div>
 
             {/* Soft message */}
-            <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               Check availability, compare your options, and request real pricing — no obligation.
             </p>
-
-            {/* CTA */}
-            <button
-              onClick={scrollToForm}
-              className="w-full sm:w-auto bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-sm sm:text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
-            >
-              See My Local Installer Options
-            </button>
-            <p className="text-xs text-muted-foreground mt-2">🔒 60 seconds · No obligation · No spam</p>
           </div>
         </div>
       </div>
