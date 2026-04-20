@@ -26,6 +26,7 @@ const Index = () => {
       <Suspense fallback={null}>
         <ProcessSection />
         <TestimonialsSection />
+        <WhyMatchingMattersSection />
         <MultiStepFormSection />
         <ComparisonSection />
         <EducationSection />
