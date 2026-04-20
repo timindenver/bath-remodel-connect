@@ -35,6 +35,8 @@ const MultiStepFormSection = () => {
   const [email, setEmail] = useState("");
   const [preferredDay, setPreferredDay] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
+  const [priority, setPriority] = useState("");
+  const [followUpPref, setFollowUpPref] = useState("Either");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [outOfArea, setOutOfArea] = useState(false);
