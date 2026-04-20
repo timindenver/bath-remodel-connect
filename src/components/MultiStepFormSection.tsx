@@ -215,15 +215,15 @@ const MultiStepFormSection = () => {
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2 sm:mb-3">
-            Get Matched With a Local Installer
+            See My Local Installer Options
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            60 seconds. No obligation. Lock in a 1-year price guarantee.
+            About 60 seconds. No obligation. No spam.
           </p>
           {geo.region_name && (
             <p className="text-xs sm:text-sm text-accent mt-2 flex items-center justify-center gap-1.5">
               <MapPin className="w-3.5 h-3.5" />
-              You'll be matched with a top-rated installer serving the {geo.region_name}
+              Trusted local installers serve the {geo.region_name}
             </p>
           )}
         </div>
@@ -324,7 +324,7 @@ const MultiStepFormSection = () => {
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
                   <Timer className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-foreground leading-relaxed">
-                    Pick your preferred time for your <span className="font-bold text-accent">free in-home visit</span>. Your local installer will measure the space, show samples, and lock in a <span className="font-bold text-accent">1-year price guarantee</span> — no pressure.
+                    Share your preferred timing so we can <span className="font-bold text-accent">check local availability</span>. You'll only book a no-obligation in-home consultation if you decide to move forward.
                   </p>
                 </div>
 
@@ -419,10 +419,10 @@ const MultiStepFormSection = () => {
                     <CheckCircle2 className="w-6 h-6 text-accent" />
                   </div>
                   <h3 className="font-serif font-bold text-foreground text-lg sm:text-xl mb-2">
-                    Confirm Your Match
+                    Choose Your Next Step
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Review your details, then we'll connect you with your local installer.
+                    See availability and decide whether you'd like to book a no-obligation in-home consultation.
                   </p>
                 </div>
 
@@ -458,7 +458,7 @@ const MultiStepFormSection = () => {
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
                   <Shield className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <p className="text-xs sm:text-sm text-foreground leading-relaxed">
-                    Your installer will call within <span className="font-bold text-accent">60 minutes</span> during business hours to confirm your visit. Free, no obligation, 1-year price guarantee.
+                    A trusted local installer will reach out within <span className="font-bold text-accent">60 minutes</span> during business hours. No obligation — you decide whether to move forward.
                   </p>
                 </div>
               </div>
@@ -472,7 +472,7 @@ const MultiStepFormSection = () => {
                   disabled={!canAdvance() || submitting}
                   className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Matching you..." : "Confirm My Match"}
+                  {submitting ? "Checking availability..." : "Get My Quote"}
                 </button>
                 <button
                   type="button"
@@ -506,8 +506,8 @@ const MultiStepFormSection = () => {
                   {step === 0
                     ? "See My Local Installer Options"
                     : step === 1
-                    ? "Check Available Appointment Times"
-                    : "Review My Match"}
+                    ? "Check Local Availability"
+                    : "Review My Options"}
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -515,7 +515,7 @@ const MultiStepFormSection = () => {
           </form>
 
           <p className="text-[10px] leading-tight text-muted-foreground text-center mt-5">
-            By submitting, I consent to Solid Surface Baths contacting me at the number provided, including via automated calls/texts, even if listed on a Do Not Call list. Consent is not required for purchase. Call (917) 813-0137 for help.
+            No spam. Your information is only used to connect you with up to three local installers about your shower project.
           </p>
         </div>
       </div>

@@ -24,9 +24,9 @@ const StickyMobileCTA = () => {
         onClick={scrollToForm}
         className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
       >
-        Get Matched With a Local Installer
+        See My Local Installer Options
       </button>
-      <p className="text-[10px] text-muted-foreground text-center mt-1">🔒 Free · 60 seconds · No obligation</p>
+      <p className="text-[10px] text-muted-foreground text-center mt-1">🔒 60 seconds · No obligation · No spam</p>
     </div>
   );
 };
