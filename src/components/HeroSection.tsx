@@ -36,7 +36,7 @@ const HeroSection = () => {
                 </h1>
                 
                 {/* Offer line - prominent but premium */}
-                <p className="mt-4 text-lg sm:text-xl lg:text-2xl font-medium text-accent">
+                <p className="mt-4 text-xl sm:text-2xl lg:text-3xl font-semibold text-accent drop-shadow-sm">
                   Free Quote + 1-Year Price Guarantee
                 </p>
                 
