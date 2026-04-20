@@ -203,14 +203,14 @@ const MultiStepFormSection = () => {
 
   const totalSteps = 4;
   const progressPercent = ((step + 1) / totalSteps) * 100;
-  const stepLabels = ["Project", "Schedule", "Contact", "Confirm"];
+  const stepLabels = ["Project", "Timing", "Contact", "Confirm"];
 
   return (
     <section id="lead-form" className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2 sm:mb-3">
-            See My Local Installer Options
+            Start Your Local Match
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
             About 60 seconds. No obligation. No spam.
@@ -279,9 +279,9 @@ const MultiStepFormSection = () => {
                         key={option}
                         type="button"
                         onClick={() => setProjectType(option)}
-                        className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
                           projectType === option
-                            ? "border-accent bg-accent/10 text-foreground"
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
                             : "border-border hover:border-accent/50 text-muted-foreground"
                         }`}
                       >
@@ -493,7 +493,11 @@ const MultiStepFormSection = () => {
                   type="button"
                   onClick={next}
                   disabled={!canAdvance()}
-                  className="flex items-center gap-1 bg-cta text-cta-foreground font-semibold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
+                  className={`flex items-center gap-1 font-semibold px-6 py-3 rounded-sm text-sm uppercase tracking-wider transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:shadow-none ${
+                    canAdvance()
+                      ? "bg-cta text-cta-foreground hover:opacity-90 active:opacity-80 shadow-lg shadow-cta/30 ring-2 ring-cta/20"
+                      : "bg-cta text-cta-foreground"
+                  }`}
                 >
                   See My Local Installer Options
                   <ChevronRight className="w-4 h-4" />
@@ -503,7 +507,7 @@ const MultiStepFormSection = () => {
           </form>
 
           <p className="text-[10px] leading-tight text-muted-foreground text-center mt-5">
-            No spam. Your information is only used to connect you with up to three local installers about your shower project.
+            No spam. Your information is only used to connect you with local installer options for your shower project.
           </p>
         </div>
       </div>
