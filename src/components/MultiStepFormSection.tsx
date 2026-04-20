@@ -6,8 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 const MultiStepFormSection = () => {
   const { geo, lookupByZip, utm } = useGeo();
   const [step, setStep] = useState(0);
+  const [projectType, setProjectType] = useState("");
   const [timeline, setTimeline] = useState("");
-  const [concern, setConcern] = useState("");
   const [zipCode, setZipCode] = useState(geo.zip_code || "");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -33,7 +33,6 @@ const MultiStepFormSection = () => {
 
   const isPhoneValid = () => phone.replace(/\D/g, "").length === 10;
   const [email, setEmail] = useState("");
-  const [openToVisit, setOpenToVisit] = useState("Yes");
   const [preferredDay, setPreferredDay] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -46,13 +45,13 @@ const MultiStepFormSection = () => {
   const effectiveZip = zipCode || geo.zip_code || "";
 
   // 4-step flow:
-  // 0: Project (zip + timeline + concern)
-  // 1: Scheduling (preferred day + time)
+  // 0: Project (zip + project type)
+  // 1: Timeline + Schedule (timeline + preferred day + time)
   // 2: Contact (name + phone + email)
   // 3: Confirm (review + submit)
   const canAdvance = () => {
-    if (step === 0) return effectiveZip.trim().length >= 5 && timeline !== "" && concern !== "";
-    if (step === 1) return preferredDay !== "" && preferredTime !== "";
+    if (step === 0) return effectiveZip.trim().length >= 5 && projectType !== "";
+    if (step === 1) return timeline !== "" && preferredDay !== "" && preferredTime !== "";
     if (step === 2) return name.trim() !== "" && isPhoneValid();
     if (step === 3) return true;
     return false;
@@ -83,9 +82,8 @@ const MultiStepFormSection = () => {
           region_name: geo.region_name,
           contractor_region_id: geo.contractor_region_id,
           in_service_area: geo.in_service_area,
+          project_type: projectType,
           timeline,
-          concern,
-          open_to_visit: openToVisit,
           preferred_day: preferredDay,
           preferred_time: preferredTime,
           utm_source: utm.utm_source,

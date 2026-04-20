@@ -10,7 +10,6 @@ const MultiStepFormSection = lazy(() => import("@/components/MultiStepFormSectio
 const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
 const EducationSection = lazy(() => import("@/components/EducationSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
-const ProjectGallerySection = lazy(() => import("@/components/ProjectGallerySection"));
 const BridgeCTASection = lazy(() => import("@/components/BridgeCTASection"));
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -30,7 +29,6 @@ const Index = () => {
         <ComparisonSection />
         <EducationSection />
         <BenefitsSection />
-        <ProjectGallerySection />
         <BridgeCTASection />
         <FinalCTASection />
         <Footer />
