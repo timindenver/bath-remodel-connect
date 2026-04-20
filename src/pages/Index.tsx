@@ -14,6 +14,7 @@ const EducationSection = lazy(() => import("@/components/EducationSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
 const BridgeCTASection = lazy(() => import("@/components/BridgeCTASection"));
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
 
@@ -35,6 +36,7 @@ const Index = () => {
         <BenefitsSection />
         <BridgeCTASection />
         <FinalCTASection />
+        <FAQSection />
         <Footer />
         <StickyMobileCTA />
       </Suspense>
