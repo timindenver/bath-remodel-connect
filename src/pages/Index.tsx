@@ -31,6 +31,7 @@ const Index = () => {
         <BenefitsSection />
         <ProjectGallerySection />
         <BridgeCTASection />
+        <ProcessSection />
         <MultiStepFormSection />
         <FinalCTASection />
         <Footer />
