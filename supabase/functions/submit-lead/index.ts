@@ -82,7 +82,7 @@ serve(async (req) => {
       region_name: regionName,
       contractor_region_id: contractorRegionId,
       timeline: body.timeline || null,
-      concern: body.concern || null,
+      concern: body.priority || body.concern || null,
       open_to_visit: body.open_to_visit || null,
       preferred_day: body.preferred_day || null,
       preferred_time: body.preferred_time || null,
