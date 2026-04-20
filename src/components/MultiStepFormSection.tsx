@@ -35,6 +35,8 @@ const MultiStepFormSection = () => {
   const [email, setEmail] = useState("");
   const [preferredDay, setPreferredDay] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
+  const [priority, setPriority] = useState("");
+  const [followUpPref, setFollowUpPref] = useState("Either");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [outOfArea, setOutOfArea] = useState(false);
@@ -51,7 +53,7 @@ const MultiStepFormSection = () => {
   // 3: Confirm (review + submit)
   const canAdvance = () => {
     if (step === 0) return effectiveZip.trim().length >= 5 && projectType !== "";
-    if (step === 1) return timeline !== "";
+    if (step === 1) return timeline !== "" && priority !== "";
     if (step === 2) return name.trim() !== "" && isPhoneValid();
     if (step === 3) return true;
     return false;
@@ -84,6 +86,8 @@ const MultiStepFormSection = () => {
           in_service_area: geo.in_service_area,
           project_type: projectType,
           timeline,
+          priority,
+          follow_up_preference: followUpPref,
           preferred_day: preferredDay,
           preferred_time: preferredTime,
           utm_source: utm.utm_source,
@@ -210,10 +214,10 @@ const MultiStepFormSection = () => {
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2 sm:mb-3">
-            Start Your Local Match
+            Find Your Local Shower Match
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            About 60 seconds. No obligation. No spam.
+            Answer a few quick questions so we can match your project to the right local installer. About 60 seconds. No obligation. No spam.
           </p>
           {geo.region_name && (
             <p className="text-xs sm:text-sm text-accent mt-2 flex items-center justify-center gap-1.5">
@@ -238,6 +242,12 @@ const MultiStepFormSection = () => {
               style={{ width: `${progressPercent}%` }}
             />
           </div>
+          <p className="text-[11px] sm:text-xs text-muted-foreground text-center mt-2">
+            {step === 0 && "Just getting started — takes about 60 seconds."}
+            {step === 1 && "You're halfway there — almost matched."}
+            {step === 2 && "Almost done — one more step to see your local options."}
+            {step === 3 && "You're 100% complete — just confirm to send."}
+          </p>
         </div>
 
         <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
@@ -293,9 +303,9 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 1: Timing */}
+            {/* Step 1: Timing + Priority */}
             {step === 1 && (
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
                     When are you looking to remodel?
@@ -318,13 +328,54 @@ const MultiStepFormSection = () => {
                       )
                     )}
                   </div>
+                  {timeline === "Just researching" && (
+                    <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                      Just researching is okay — we can still show you your local options.
+                    </p>
+                  )}
+                </div>
+
+                <div className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What matters most to you?
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Helps us match you to the right local installer.
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      "No mold / easy cleaning",
+                      "Better long-term value",
+                      "Faster installation",
+                      "Premium look",
+                    ].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setPriority(option)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
+                          priority === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
 
-            {/* Step 3: Contact Info — phone-primary */}
+            {/* Step 2: Contact Info — phone-primary */}
             {step === 2 && (
               <div className="space-y-4">
+                <div className="bg-accent/10 border border-accent/30 rounded-lg p-3 flex gap-2.5 items-start">
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                  <p className="text-xs sm:text-sm text-foreground leading-relaxed">
+                    Based on your answers, we're ready to help identify the best local next step for your project.
+                  </p>
+                </div>
                 <h3 className="font-serif font-bold text-foreground text-base sm:text-lg">
                   What's the best number for your local match?
                 </h3>
@@ -359,6 +410,30 @@ const MultiStepFormSection = () => {
                       We'll use this to follow up about your local installer options and project pricing.
                     </p>
                   )}
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">
+                    Preferred follow-up
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {["Call", "Text", "Either"].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setFollowUpPref(option)}
+                        className={`py-2.5 rounded-lg border-2 text-sm font-medium transition-all ${
+                          followUpPref === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-muted-foreground mt-1.5">
+                    You decide how we reach out. No pressure.
+                  </p>
                 </div>
                 <div>
                   <label className="block text-[11px] font-normal text-muted-foreground mb-1.5">
@@ -414,9 +489,19 @@ const MultiStepFormSection = () => {
                     <span className="text-muted-foreground">Timeline</span>
                     <span className="text-foreground font-medium text-right">{timeline}</span>
                   </div>
+                  {priority && (
+                    <div className="flex justify-between gap-3">
+                      <span className="text-muted-foreground">Top Priority</span>
+                      <span className="text-foreground font-medium text-right">{priority}</span>
+                    </div>
+                  )}
                   <div className="border-t border-border pt-2.5 mt-2.5 flex justify-between gap-3">
                     <span className="text-muted-foreground">Contact</span>
                     <span className="text-foreground font-medium text-right">{name}<br />{phone}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Follow-up</span>
+                    <span className="text-foreground font-medium text-right">{followUpPref}</span>
                   </div>
                 </div>
 
