@@ -388,10 +388,10 @@ const MultiStepFormSection = () => {
                     <CheckCircle2 className="w-6 h-6 text-accent" />
                   </div>
                   <h3 className="font-serif font-bold text-foreground text-lg sm:text-xl mb-2">
-                    Choose Your Next Step
+                    Confirm Your Local Match
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    See availability and decide whether you'd like to book a no-obligation in-home consultation.
+                    Review your details below and confirm to connect with your local installer.
                   </p>
                 </div>
 
@@ -423,7 +423,7 @@ const MultiStepFormSection = () => {
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
                   <Shield className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                   <p className="text-xs sm:text-sm text-foreground leading-relaxed">
-                    A trusted local installer will reach out within <span className="font-bold text-accent">60 minutes</span> during business hours. No obligation — you decide whether to move forward.
+                    A trusted local installer will follow up during business hours to discuss your project and next steps.
                   </p>
                 </div>
               </div>
@@ -437,7 +437,7 @@ const MultiStepFormSection = () => {
                   disabled={!canAdvance() || submitting}
                   className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Submitting..." : "See My Local Installer Options"}
+                  {submitting ? "Submitting..." : "Confirm My Local Match"}
                 </button>
                 <button
                   type="button"
