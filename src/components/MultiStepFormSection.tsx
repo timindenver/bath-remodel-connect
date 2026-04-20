@@ -322,36 +322,57 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 3: Contact Info */}
+            {/* Step 3: Contact Info — phone-primary */}
             {step === 2 && (
               <div className="space-y-4">
                 <h3 className="font-serif font-bold text-foreground text-base sm:text-lg">
-                  Where should we send your match?
+                  What's the best number for your local match?
                 </h3>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                />
                 <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    maxLength={100}
+                    placeholder="First and last name"
+                    className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-foreground mb-1.5">
+                    Mobile number
+                  </label>
                   <input
                     type="tel"
                     value={phone}
                     onChange={(e) => handlePhoneChange(e.target.value)}
                     placeholder="(555) 555-5555"
-                    className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent ${phoneError ? "border-destructive" : "border-input"}`}
+                    className={`w-full px-4 py-3 border-2 rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent ${phoneError ? "border-destructive" : "border-accent/40"}`}
                   />
-                  {phoneError && <p className="text-xs text-destructive mt-1">{phoneError}</p>}
+                  {phoneError ? (
+                    <p className="text-xs text-destructive mt-1">{phoneError}</p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+                      We'll use this to follow up about your local installer options and project pricing.
+                    </p>
+                  )}
                 </div>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email (optional)"
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                />
+                <div>
+                  <label className="block text-[11px] font-normal text-muted-foreground mb-1.5">
+                    Email <span className="opacity-70">(optional)</span>
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    maxLength={255}
+                    placeholder="you@example.com"
+                    className="w-full px-4 py-2.5 border border-input rounded-lg bg-muted/30 text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:text-foreground focus:bg-background"
+                  />
+                </div>
                 <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-2">
                   By clicking Confirm, I expressly consent to Solid Surface Baths contacting me at the telephone number or email address provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology, SMS/MMS messages, AI generative voice, and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. Message and data rates may apply. I understand that consent is not a condition of purchase and to be helped I can call{" "}
                   <a href="tel:9178130137" className="underline text-accent">917-813-0137</a>.
@@ -459,7 +480,7 @@ const MultiStepFormSection = () => {
           </form>
 
           <p className="text-[10px] leading-tight text-muted-foreground text-center mt-5">
-            No spam. Your information is only used to connect you with local installer options for your shower project.
+            No spam. Only used for your shower quote request and local installer follow-up.
           </p>
         </div>
       </div>
