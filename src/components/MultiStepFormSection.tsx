@@ -214,10 +214,10 @@ const MultiStepFormSection = () => {
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2 sm:mb-3">
-            Start Your Local Match
+            Find Your Local Shower Match
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            About 60 seconds. No obligation. No spam.
+            Answer a few quick questions so we can match your project to the right local installer. About 60 seconds. No obligation. No spam.
           </p>
           {geo.region_name && (
             <p className="text-xs sm:text-sm text-accent mt-2 flex items-center justify-center gap-1.5">
