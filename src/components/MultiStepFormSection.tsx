@@ -51,7 +51,7 @@ const MultiStepFormSection = () => {
   // 3: Confirm (review + submit)
   const canAdvance = () => {
     if (step === 0) return effectiveZip.trim().length >= 5 && projectType !== "";
-    if (step === 1) return timeline !== "" && preferredDay !== "" && preferredTime !== "";
+    if (step === 1) return timeline !== "";
     if (step === 2) return name.trim() !== "" && isPhoneValid();
     if (step === 3) return true;
     return false;
@@ -293,7 +293,7 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 1: Timeline + Scheduling */}
+            {/* Step 1: Timing */}
             {step === 1 && (
               <div className="space-y-5">
                 <div>
@@ -307,9 +307,9 @@ const MultiStepFormSection = () => {
                           key={option}
                           type="button"
                           onClick={() => setTimeline(option)}
-                          className={`p-3 rounded-lg border text-sm font-medium transition-colors text-left ${
+                          className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
                             timeline === option
-                              ? "border-accent bg-accent/10 text-foreground"
+                              ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
                               : "border-border hover:border-accent/50 text-muted-foreground"
                           }`}
                         >
@@ -317,50 +317,6 @@ const MultiStepFormSection = () => {
                         </button>
                       )
                     )}
-                  </div>
-                </div>
-
-                <div className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    What day works best for you?
-                  </h3>
-                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-                    {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-                      <button
-                        key={day}
-                        type="button"
-                        onClick={() => setPreferredDay(day)}
-                        className={`p-3 rounded-lg border text-sm font-medium transition-colors ${
-                          preferredDay === day
-                            ? "border-accent bg-accent/10 text-foreground"
-                            : "border-border hover:border-accent/50 text-muted-foreground"
-                        }`}
-                      >
-                        {day}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className={preferredDay ? "opacity-100" : "opacity-40 pointer-events-none"}>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    What time works best?
-                  </h3>
-                  <div className="grid grid-cols-3 gap-2">
-                    {["Early AM", "Mid Day", "Evenings"].map((time) => (
-                      <button
-                        key={time}
-                        type="button"
-                        onClick={() => setPreferredTime(time)}
-                        className={`p-3 rounded-lg border text-sm font-medium transition-colors ${
-                          preferredTime === time
-                            ? "border-accent bg-accent/10 text-foreground"
-                            : "border-border hover:border-accent/50 text-muted-foreground"
-                        }`}
-                      >
-                        {time}
-                      </button>
-                    ))}
                   </div>
                 </div>
               </div>
@@ -436,10 +392,6 @@ const MultiStepFormSection = () => {
                   <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Timeline</span>
                     <span className="text-foreground font-medium text-right">{timeline}</span>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Preferred Visit</span>
-                    <span className="text-foreground font-medium text-right">{preferredDay} · {preferredTime}</span>
                   </div>
                   <div className="border-t border-border pt-2.5 mt-2.5 flex justify-between gap-3">
                     <span className="text-muted-foreground">Contact</span>
