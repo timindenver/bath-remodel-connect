@@ -1,10 +1,6 @@
 import { Star, Shield, MapPin, Award, CheckCircle } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 
-const scrollToForm = () => {
-  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
-};
-
 const LocalContractorSection = () => {
   const { geo } = useGeo();
 
