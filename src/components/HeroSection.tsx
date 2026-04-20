@@ -32,13 +32,16 @@ const HeroSection = () => {
               <div className="max-w-2xl text-primary-foreground text-center sm:text-left mx-auto sm:mx-0">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight">
                   Get Matched With a Trusted Local Shower Installer
-                  <br />
-                  <br />
-                  In Just 60 Seconds.
                 </h1>
                 <p className="mt-6 text-base sm:text-lg lg:text-xl opacity-90 leading-relaxed text-balance">
-                  Solid surface showers installed in 2–3 days. No grout, no mold, no scrubbing. See your local installer's availability today.
+                  Check local availability, compare your options, and request real pricing in about 60 seconds. No obligation.
                 </p>
+                <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 justify-center sm:justify-start text-sm sm:text-base opacity-90">
+                  <li>✓ Installed in 2–3 days</li>
+                  <li>✓ No grout</li>
+                  <li>✓ No mold</li>
+                  <li>✓ No scrubbing</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -49,16 +52,16 @@ const HeroSection = () => {
       <section className="bg-foreground text-primary-foreground py-8 sm:py-10 px-6 sm:px-12 lg:px-24">
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <p className="text-sm sm:text-base lg:text-lg opacity-90 leading-relaxed max-w-xl mx-auto text-balance">
-            Check your area, see installer availability, and lock in a 1-year price guarantee.
+            Trusted local installers serve your area. Check availability in about 60 seconds.
           </p>
 
           <button
             onClick={scrollToForm}
             className="bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
           >
-            Get Matched With a Local Installer
+            See My Local Installer Options
           </button>
-          <p className="text-xs opacity-60">🔒 Free · No obligation · Takes 60 seconds</p>
+          <p className="text-xs opacity-60">🔒 No obligation · 60 seconds · No spam</p>
         </div>
       </section>
     </>

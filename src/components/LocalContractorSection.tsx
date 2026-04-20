@@ -17,7 +17,7 @@ const LocalContractorSection = () => {
   return (
     <section className="py-10 sm:py-14 px-4 sm:px-6 bg-background">
       <div className="max-w-3xl mx-auto space-y-6">
-        {/* Contractor Card — Google Maps-inspired */}
+        {/* Trust card — installer kept anonymous before submit */}
         <div className="bg-white border border-border rounded-xl overflow-hidden shadow-md">
           {/* Top accent bar */}
           <div className="h-1.5 bg-accent" />
@@ -26,13 +26,13 @@ const LocalContractorSection = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
               <Award className="w-3.5 h-3.5" />
-              Your Matched Local Installer
+              Trusted Local Installers
             </div>
 
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-foreground mb-3">
               {regionName
-                ? `Top-Rated Installer Serving the ${regionName}`
-                : "We've Got a Top-Rated Installer Ready in Your Area"}
+                ? `Trusted Local Installers Serve the ${regionName}`
+                : "Trusted Local Installers Serve Your Area"}
             </h2>
 
             {/* Stars row — Google-style */}
@@ -46,14 +46,14 @@ const LocalContractorSection = () => {
                   <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" style={{ clipPath: "inset(0 50% 0 0)" }} />
                 )}
               </div>
-              <span className="text-sm text-muted-foreground">({reviewCount}+ Google Reviews)</span>
+              <span className="text-sm text-muted-foreground">({reviewCount}+ verified reviews in your area)</span>
             </div>
 
             {/* Trust chips */}
             <div className="flex flex-wrap gap-2 mb-5">
               {[
                 { icon: Shield, text: "Licensed & Insured" },
-                { icon: CheckCircle, text: "1-Year Price Guarantee" },
+                { icon: CheckCircle, text: "Vetted & Background-Checked" },
                 { icon: MapPin, text: regionName ? `${regionName}` : "Serving Your Area" },
               ].map(({ icon: Icon, text }) => (
                 <div
@@ -66,9 +66,9 @@ const LocalContractorSection = () => {
               ))}
             </div>
 
-            {/* Personalized message */}
+            {/* Soft message */}
             <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-              Reserve a no-obligation in-home consultation and lock in a 1-year price guarantee.
+              Check availability, compare your options, and request real pricing — no obligation.
             </p>
 
             {/* CTA */}
@@ -76,9 +76,9 @@ const LocalContractorSection = () => {
               onClick={scrollToForm}
               className="w-full sm:w-auto bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-sm sm:text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
             >
-              Check My Installer's Availability
+              Check Local Availability
             </button>
-            <p className="text-xs text-muted-foreground mt-2">🔒 Takes 60 seconds · No obligation</p>
+            <p className="text-xs text-muted-foreground mt-2">🔒 60 seconds · No obligation · No spam</p>
           </div>
         </div>
       </div>

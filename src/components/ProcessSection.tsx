@@ -4,17 +4,17 @@ const steps = [
   {
     icon: ClipboardList,
     title: "Tell Us About Your Project",
-    description: "Answer a few quick questions about your bathroom — takes 60 seconds.",
+    description: "Answer a few quick questions about your bathroom — takes about 60 seconds.",
   },
   {
     icon: Users,
-    title: "Get Matched Instantly",
-    description: "We connect you with a top-rated, vetted installer who actively serves your zip code.",
+    title: "Get Matched With a Vetted Local Installer",
+    description: "We connect you with a top-rated, licensed installer who serves your zip code.",
   },
   {
     icon: Calendar,
-    title: "Reserve Your In-Home Visit",
-    description: "Pick a day and time that works for you. Get a 1-year locked-in price — no pressure, no surprises.",
+    title: "Choose Your Next Step",
+    description: "See availability and decide whether you'd like to book a no-obligation in-home consultation.",
   },
 ];
 
@@ -34,7 +34,7 @@ const ProcessSection = () => {
             Get Matched in 60 Seconds. See Real Pricing in Days.
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
-            No high-pressure sales calls. No mystery quotes. Just a clear path to your new shower.
+            No obligation. No spam. You decide whether to move forward.
           </p>
         </div>
 
@@ -62,13 +62,13 @@ const ProcessSection = () => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
             <Shield className="w-4 h-4 text-accent" />
-            100% free · No obligation · 1-year price guarantee
+            Free · No obligation · No spam
           </div>
           <button
             onClick={scrollToForm}
             className="bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
           >
-            Get Matched With a Local Installer
+            See My Local Installer Options
           </button>
         </div>
       </div>
