@@ -1,5 +1,5 @@
-import before1 from "@/assets/before-after/before-1.png";
-import after1 from "@/assets/before-after/after-1.png";
+import before1 from "@/assets/before-after/before-1.webp";
+import after1 from "@/assets/before-after/after-1.webp";
 
 const PAIRS = [
   {
