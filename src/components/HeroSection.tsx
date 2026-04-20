@@ -35,6 +35,11 @@ const HeroSection = () => {
                   Get Matched With a Trusted Local Shower Installer
                 </h1>
                 
+                {/* Offer line - prominent but premium */}
+                <p className="mt-4 text-lg sm:text-xl lg:text-2xl font-medium text-accent">
+                  Free Quote + 1-Year Price Guarantee
+                </p>
+                
                 {/* Subheadline */}
                 <p className="mt-5 text-base sm:text-lg lg:text-xl opacity-90 leading-relaxed text-balance">
                   Check local availability, compare your options, and request real pricing in about 60 seconds. No obligation.
@@ -58,7 +63,7 @@ const HeroSection = () => {
                   </button>
                   {/* Trust line */}
                   <p className="mt-3 text-sm opacity-80">
-                    No obligation • No spam • Takes about 60 seconds
+                    Free quote • 1-year price guarantee • No obligation
                   </p>
                 </div>
               </div>
