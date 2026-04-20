@@ -5,6 +5,7 @@ import TrustBadgesSection from "@/components/TrustBadgesSection";
 
 // Lazy load below-fold sections to reduce initial bundle size
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
+const BeforeAfterSection = lazy(() => import("@/components/BeforeAfterSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const MultiStepFormSection = lazy(() => import("@/components/MultiStepFormSection"));
 const WhyMatchingMattersSection = lazy(() => import("@/components/WhyMatchingMattersSection"));
@@ -25,6 +26,7 @@ const Index = () => {
       <TrustBadgesSection />
       <Suspense fallback={null}>
         <ProcessSection />
+        <BeforeAfterSection />
         <TestimonialsSection />
         <WhyMatchingMattersSection />
         <MultiStepFormSection />
