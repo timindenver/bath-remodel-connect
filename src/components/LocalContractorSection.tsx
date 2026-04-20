@@ -76,7 +76,7 @@ const LocalContractorSection = () => {
               onClick={scrollToForm}
               className="w-full sm:w-auto bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-sm sm:text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
             >
-              Check Local Availability
+              See My Local Installer Options
             </button>
             <p className="text-xs text-muted-foreground mt-2">🔒 60 seconds · No obligation · No spam</p>
           </div>
