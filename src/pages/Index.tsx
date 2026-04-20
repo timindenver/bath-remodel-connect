@@ -7,6 +7,7 @@ import TrustBadgesSection from "@/components/TrustBadgesSection";
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const MultiStepFormSection = lazy(() => import("@/components/MultiStepFormSection"));
+const WhyMatchingMattersSection = lazy(() => import("@/components/WhyMatchingMattersSection"));
 const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
 const EducationSection = lazy(() => import("@/components/EducationSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
@@ -25,6 +26,7 @@ const Index = () => {
       <Suspense fallback={null}>
         <ProcessSection />
         <TestimonialsSection />
+        <WhyMatchingMattersSection />
         <MultiStepFormSection />
         <ComparisonSection />
         <EducationSection />
