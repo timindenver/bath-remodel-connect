@@ -7,10 +7,10 @@ const FinalCTASection = () => {
     <section className="py-16 sm:py-20 px-4 sm:px-6 bg-primary text-primary-foreground">
       <div className="max-w-3xl mx-auto text-center">
         <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-          Limited Local Availability
+          1-Year Price Guarantee
         </p>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-4 text-balance">
-          See If a Trusted Local Installer Is Available in Your Area
+          Request Your Free Quote Now to Lock In Your Price for 1 Year
         </h2>
         <p className="opacity-80 max-w-xl mx-auto mb-3 text-base sm:text-lg lg:text-xl text-balance">
           Local installers are booking 3–5 weeks out in most areas. Check availability in about 60 seconds.
@@ -24,7 +24,7 @@ const FinalCTASection = () => {
         >
           See My Local Installer Options
         </button>
-        <p className="text-xs opacity-40 mt-2">🔒 Takes 60 seconds · We will never share your info</p>
+        <p className="text-xs opacity-40 mt-2">🔒 Takes 60 seconds • 1-year price guarantee included</p>
       </div>
     </section>
   );

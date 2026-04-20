@@ -212,7 +212,11 @@ const MultiStepFormSection = () => {
   return (
     <section id="lead-form" className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-xl mx-auto">
+        {/* Value header */}
         <div className="text-center mb-6 sm:mb-8">
+          <p className="text-accent font-semibold text-sm sm:text-base uppercase tracking-wider mb-2">
+            Free Quote + 1-Year Price Guarantee
+          </p>
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2 sm:mb-3">
             Find Your Local Shower Match
           </h2>
