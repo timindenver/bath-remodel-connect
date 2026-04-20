@@ -156,6 +156,8 @@ serve(async (req) => {
         "Region Name": leadData.region_name || "",
         Timeline: leadData.timeline || "",
         Concern: leadData.concern || "",
+        Priority: body.priority || "",
+        "Follow-up Preference": body.follow_up_preference || "",
         "Open to Visit": leadData.open_to_visit || "",
         "Preferred Day": leadData.preferred_day || "",
         "Preferred Time": leadData.preferred_time || "",
