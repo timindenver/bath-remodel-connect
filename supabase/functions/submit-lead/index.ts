@@ -146,30 +146,36 @@ serve(async (req) => {
     console.log("Airtable config:", { baseId: airtableBaseId, table: airtableTable, hasPat: !!airtablePat, patLength: airtablePat?.length });
     if (airtablePat && airtableBaseId && airtableTable) {
       const airtableEndpoint = `https://api.airtable.com/v0/${airtableBaseId}/${encodeURIComponent(airtableTable)}`;
-      const airtableFields: Record<string, string | boolean> = {
+      const rawAirtableFields: Record<string, string | boolean | null | undefined> = {
         Name: leadData.name,
         Phone: leadData.phone,
-        Email: leadData.email || "",
+        Email: leadData.email,
         ZipCode: leadData.zip_code,
-        City: leadData.city || "",
-        State: leadData.state || "",
-        "Region Name": leadData.region_name || "",
-        Timeline: leadData.timeline || "",
-        Concern: leadData.concern || "",
-        Priority: body.priority || "",
-        "Follow-up Preference": body.follow_up_preference || "",
-        "Open to Visit": leadData.open_to_visit || "",
-        "Preferred Day": leadData.preferred_day || "",
-        "Preferred Time": leadData.preferred_time || "",
+        City: leadData.city,
+        State: leadData.state,
+        "Region Name": leadData.region_name,
+        Timeline: leadData.timeline,
+        Concern: leadData.concern,
+        "Open to Visit": leadData.open_to_visit,
+        "Preferred Day": leadData.preferred_day,
+        "Preferred Time": leadData.preferred_time,
         "Intent Level": intentLevel,
         "In Service Area": inServiceArea,
-        "UTM Source": leadData.utm_source || "",
-        "UTM Medium": leadData.utm_medium || "",
-        "UTM Campaign": leadData.utm_campaign || "",
-        "UTM Content": leadData.utm_content || "",
-        "UTM Term": leadData.utm_term || "",
-        "IP Address": leadData.ip_address || "",
+        "UTM Source": leadData.utm_source,
+        "UTM Medium": leadData.utm_medium,
+        "UTM Campaign": leadData.utm_campaign,
+        "UTM Content": leadData.utm_content,
+        "UTM Term": leadData.utm_term,
+        "IP Address": leadData.ip_address,
       };
+
+      const payloadFields: Record<string, string | boolean> = Object.fromEntries(
+        Object.entries(rawAirtableFields).filter(([, value]) => {
+          if (typeof value === "boolean") return true;
+          if (typeof value !== "string") return false;
+          return value.trim().length > 0;
+        })
+      ) as Record<string, string | boolean>;
 
       const getOffendingField = (
         errorMessage: string,
@@ -185,8 +191,8 @@ serve(async (req) => {
           return invalidFieldMatch[1];
         }
 
-        const optionMatch = errorMessage.match(/select option\s+"+([^"]+?)"+/i);
-        if (optionMatch?.[1]) {
+        const optionMatch = errorMessage.match(/select option\s+"+([^"]*?)"+/i);
+        if (optionMatch) {
           const optionValue = optionMatch[1].trim().toLowerCase();
           const matchingEntry = Object.entries(fields).find(([, value]) => {
             if (typeof value !== "string") return false;
@@ -198,9 +204,7 @@ serve(async (req) => {
         return null;
       };
 
-      const payloadFields: Record<string, string | boolean> = { ...airtableFields };
-
-      for (let attempt = 0; attempt < 3; attempt++) {
+      for (let attempt = 0; attempt < 10; attempt++) {
         try {
           const airtableRes = await fetch(airtableEndpoint, {
             method: "POST",
