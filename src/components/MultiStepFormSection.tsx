@@ -489,9 +489,19 @@ const MultiStepFormSection = () => {
                     <span className="text-muted-foreground">Timeline</span>
                     <span className="text-foreground font-medium text-right">{timeline}</span>
                   </div>
+                  {priority && (
+                    <div className="flex justify-between gap-3">
+                      <span className="text-muted-foreground">Top Priority</span>
+                      <span className="text-foreground font-medium text-right">{priority}</span>
+                    </div>
+                  )}
                   <div className="border-t border-border pt-2.5 mt-2.5 flex justify-between gap-3">
                     <span className="text-muted-foreground">Contact</span>
                     <span className="text-foreground font-medium text-right">{name}<br />{phone}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Follow-up</span>
+                    <span className="text-foreground font-medium text-right">{followUpPref}</span>
                   </div>
                 </div>
 
