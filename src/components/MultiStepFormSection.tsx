@@ -388,10 +388,10 @@ const MultiStepFormSection = () => {
                     <CheckCircle2 className="w-6 h-6 text-accent" />
                   </div>
                   <h3 className="font-serif font-bold text-foreground text-lg sm:text-xl mb-2">
-                    Choose Your Next Step
+                    Confirm Your Local Match
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    See availability and decide whether you'd like to book a no-obligation in-home consultation.
+                    Review your details below and confirm to connect with your local installer.
                   </p>
                 </div>
 
