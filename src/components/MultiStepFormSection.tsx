@@ -480,7 +480,7 @@ const MultiStepFormSection = () => {
           </form>
 
           <p className="text-[10px] leading-tight text-muted-foreground text-center mt-5">
-            No spam. Your information is only used to connect you with local installer options for your shower project.
+            No spam. Only used for your shower quote request and local installer follow-up.
           </p>
         </div>
       </div>
