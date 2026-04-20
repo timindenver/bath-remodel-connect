@@ -86,6 +86,8 @@ const MultiStepFormSection = () => {
           in_service_area: geo.in_service_area,
           project_type: projectType,
           timeline,
+          priority,
+          follow_up_preference: followUpPref,
           preferred_day: preferredDay,
           preferred_time: preferredTime,
           utm_source: utm.utm_source,
