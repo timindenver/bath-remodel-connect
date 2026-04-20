@@ -242,6 +242,12 @@ const MultiStepFormSection = () => {
               style={{ width: `${progressPercent}%` }}
             />
           </div>
+          <p className="text-[11px] sm:text-xs text-muted-foreground text-center mt-2">
+            {step === 0 && "Just getting started — takes about 60 seconds."}
+            {step === 1 && "You're halfway there — almost matched."}
+            {step === 2 && "Almost done — one more step to see your local options."}
+            {step === 3 && "You're 100% complete — just confirm to send."}
+          </p>
         </div>
 
         <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
