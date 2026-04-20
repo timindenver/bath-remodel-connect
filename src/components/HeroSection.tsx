@@ -76,7 +76,7 @@ const HeroSection = () => {
           </div>
           <div className="hidden sm:block w-px h-6 bg-primary-foreground/20" />
           <div className="flex items-center gap-2 text-sm sm:text-base opacity-90">
-            <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
+            <span className="inline-block w-2 h-2 rounded-full bg-accent" />
             <span>Installers available in your area</span>
           </div>
         </div>
