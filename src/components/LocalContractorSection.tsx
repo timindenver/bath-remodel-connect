@@ -26,13 +26,13 @@ const LocalContractorSection = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
               <Award className="w-3.5 h-3.5" />
-              Our Local Installer
+              Your Matched Local Installer
             </div>
 
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-foreground mb-3">
               {regionName
-                ? `Serving Homeowners in the ${regionName}`
-                : "We have an outstanding contractor that serves your area!"}
+                ? `Top-Rated Installer Serving the ${regionName}`
+                : "We've Got a Top-Rated Installer Ready in Your Area"}
             </h2>
 
             {/* Stars row — Google-style */}
@@ -53,7 +53,7 @@ const LocalContractorSection = () => {
             <div className="flex flex-wrap gap-2 mb-5">
               {[
                 { icon: Shield, text: "Licensed & Insured" },
-                { icon: CheckCircle, text: "1-Year Estimate Guarantee" },
+                { icon: CheckCircle, text: "1-Year Price Guarantee" },
                 { icon: MapPin, text: regionName ? `${regionName}` : "Serving Your Area" },
               ].map(({ icon: Icon, text }) => (
                 <div
@@ -68,7 +68,7 @@ const LocalContractorSection = () => {
 
             {/* Personalized message */}
             <p className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
-              Get your 1 YR Price Guarantee
+              Reserve a no-obligation in-home consultation and lock in a 1-year price guarantee.
             </p>
 
             {/* CTA */}
@@ -76,9 +76,9 @@ const LocalContractorSection = () => {
               onClick={scrollToForm}
               className="w-full sm:w-auto bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-sm sm:text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
             >
-              Request a Solid Surface Shower Estimate
+              Check My Installer's Availability
             </button>
-            <p className="text-xs text-muted-foreground mt-2">🔒 We will never share your info</p>
+            <p className="text-xs text-muted-foreground mt-2">🔒 Takes 60 seconds · No obligation</p>
           </div>
         </div>
       </div>

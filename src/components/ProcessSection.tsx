@@ -3,18 +3,18 @@ import { ClipboardList, Users, Calendar, Shield } from "lucide-react";
 const steps = [
   {
     icon: ClipboardList,
-    title: "60-Second Form",
-    description: "Tell us about your project. No login required — just 4 quick questions.",
+    title: "Tell Us About Your Project",
+    description: "Answer a few quick questions about your bathroom — takes 60 seconds.",
   },
   {
     icon: Users,
-    title: "We Match You Locally",
-    description: "Within 24 hours, a certified 5-star installer in your area reaches out.",
+    title: "Get Matched Instantly",
+    description: "We connect you with a top-rated, vetted installer who actively serves your zip code.",
   },
   {
     icon: Calendar,
-    title: "Free In-Home Quote",
-    description: "They measure your space and give you an exact price — no guessing, no surprises.",
+    title: "Reserve Your In-Home Visit",
+    description: "Pick a day and time that works for you. Get a 1-year locked-in price — no pressure, no surprises.",
   },
 ];
 
@@ -27,11 +27,14 @@ const ProcessSection = () => {
     <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 bg-secondary">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10 sm:mb-14">
+          <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-3">
+            How It Works
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 text-balance">
-            Here's Exactly What Happens Next
+            Get Matched in 60 Seconds. See Real Pricing in Days.
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
-            No surprises. No hard sell. Just a clear path to your new shower.
+            No high-pressure sales calls. No mystery quotes. Just a clear path to your new shower.
           </p>
         </div>
 
@@ -59,13 +62,13 @@ const ProcessSection = () => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
             <Shield className="w-4 h-4 text-accent" />
-            100% free. Zero obligation. Walk away anytime.
+            100% free · No obligation · 1-year price guarantee
           </div>
           <button
             onClick={scrollToForm}
             className="bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
           >
-            Start My Free Quote
+            Get Matched With a Local Installer
           </button>
         </div>
       </div>

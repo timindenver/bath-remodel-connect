@@ -1,5 +1,5 @@
 import { useState, FormEvent, useCallback } from "react";
-import { ChevronRight, ChevronLeft, Shield, Lock, MapPin, Timer } from "lucide-react";
+import { ChevronRight, ChevronLeft, Shield, MapPin, Timer, CheckCircle2 } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -45,10 +45,16 @@ const MultiStepFormSection = () => {
   // Sync zip from geo detection
   const effectiveZip = zipCode || geo.zip_code || "";
 
+  // 4-step flow:
+  // 0: Project (zip + timeline + concern)
+  // 1: Scheduling (preferred day + time)
+  // 2: Contact (name + phone + email)
+  // 3: Confirm (review + submit)
   const canAdvance = () => {
-    if (step === 0) return timeline !== "" && concern !== "";
-    if (step === 1) return effectiveZip.trim().length >= 5 && name.trim() !== "" && isPhoneValid();
-    if (step === 2) return preferredDay !== "" && preferredTime !== "";
+    if (step === 0) return effectiveZip.trim().length >= 5 && timeline !== "" && concern !== "";
+    if (step === 1) return preferredDay !== "" && preferredTime !== "";
+    if (step === 2) return name.trim() !== "" && isPhoneValid();
+    if (step === 3) return true;
     return false;
   };
 
@@ -95,7 +101,7 @@ const MultiStepFormSection = () => {
       // Fire Meta Pixel event if available
       if (typeof window !== "undefined" && (window as any).fbq) {
         (window as any).fbq("track", "Lead", {
-          content_name: "Solid Surface Shower Estimate",
+          content_name: "Solid Surface Shower — Local Installer Match",
           content_category: geo.region_name || "Unknown Region",
         });
       }
@@ -126,7 +132,7 @@ const MultiStepFormSection = () => {
   };
 
   const next = () => {
-    if (canAdvance() && step < 2) setStep(step + 1);
+    if (canAdvance() && step < 3) setStep(step + 1);
   };
   const back = () => {
     if (step > 0) setStep(step - 1);
@@ -185,63 +191,86 @@ const MultiStepFormSection = () => {
             <Shield className="w-8 h-8 text-accent" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-4">
-            You're All Set!
+            You're Matched!
           </h2>
           <p className="text-muted-foreground mb-2">
             {geo.region_name
-              ? `We're matching you with a top-rated contractor serving the ${geo.region_name}. Expect a call within 60 minutes during business hours, or first thing in the morning if submitted after hours.`
-              : "We're matching you with a certified local contractor. Expect a call within 60 minutes during business hours, or first thing in the morning if submitted after hours."}
+              ? `Your local installer for the ${geo.region_name} will call within 60 minutes (during business hours) to confirm your in-home visit.`
+              : "Your matched local installer will call within 60 minutes during business hours to confirm your in-home visit."}
           </p>
           <p className="text-sm text-muted-foreground">
-            No obligation. No pressure.
+            No obligation. No pressure. Walk away anytime.
           </p>
         </div>
       </section>
     );
   }
 
-  const totalSteps = 3;
+  const totalSteps = 4;
   const progressPercent = ((step + 1) / totalSteps) * 100;
+  const stepLabels = ["Project", "Schedule", "Contact", "Confirm"];
 
   return (
     <section id="lead-form" className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-xl mx-auto">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2 sm:mb-3">
-            Request a Solid Surface Shower Estimate
+            Get Matched With a Local Installer
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
-            No commitment. No spam. Just a real quote from a local installer.
+            60 seconds. No obligation. Lock in a 1-year price guarantee.
           </p>
           {geo.region_name && (
             <p className="text-xs sm:text-sm text-accent mt-2 flex items-center justify-center gap-1.5">
               <MapPin className="w-3.5 h-3.5" />
-              You'll be matched with a top-rated contractor serving the {geo.region_name}
+              You'll be matched with a top-rated installer serving the {geo.region_name}
             </p>
           )}
         </div>
 
         {/* Progress bar */}
         <div className="mb-6 sm:mb-8">
-          <div className="flex justify-between text-xs text-muted-foreground mb-2">
-            <span className={`font-medium ${step >= 0 ? "text-accent" : ""}`}>1. Project</span>
-            <span className={`font-medium ${step >= 1 ? "text-accent" : ""}`}>2. Almost Done</span>
-            <span className={`font-medium ${step >= 2 ? "text-accent" : ""}`}>3. Confirm</span>
+          <div className="flex justify-between text-[11px] sm:text-xs text-muted-foreground mb-2">
+            {stepLabels.map((label, i) => (
+              <span key={label} className={`font-medium ${step >= i ? "text-accent" : ""}`}>
+                {i + 1}. {label}
+              </span>
+            ))}
           </div>
           <div className="h-2 bg-muted rounded-full overflow-hidden">
             <div
               className="h-full bg-accent rounded-full transition-all duration-300"
-              style={{ width: `${submitted ? 100 : progressPercent}%` }}
+              style={{ width: `${progressPercent}%` }}
             />
           </div>
         </div>
 
         <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit}>
-            {/* Step 1: Timeline + Concern */}
+            {/* Step 1: Project (zip + timeline + concern) */}
             {step === 0 && (
               <div className="space-y-6">
                 <div>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
+                    What's your zip code?
+                  </h3>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={5}
+                    value={effectiveZip}
+                    onChange={(e) => handleZipChange(e.target.value)}
+                    placeholder="Zip code"
+                    className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                  {geo.in_service_area && geo.region_name && (
+                    <p className="text-xs text-accent mt-2 flex items-center gap-1">
+                      <MapPin className="w-3 h-3" /> Great — we have an installer in the {geo.region_name}!
+                    </p>
+                  )}
+                </div>
+
+                <div className={effectiveZip.length >= 5 ? "opacity-100" : "opacity-40 pointer-events-none"}>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
                     When are you looking to remodel?
                   </h3>
@@ -289,67 +318,14 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 2: Contact Info */}
+            {/* Step 2: Scheduling (day + time) */}
             {step === 1 && (
-              <div className="space-y-4">
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={5}
-                  value={effectiveZip}
-                  onChange={(e) => handleZipChange(e.target.value)}
-                  placeholder="Zip code"
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                />
-                {geo.in_service_area && geo.region_name && (
-                  <p className="text-xs text-accent flex items-center gap-1">
-                    <MapPin className="w-3 h-3" /> Great — we have installers in the {geo.region_name}!
-                  </p>
-                )}
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                />
-                <div>
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={(e) => handlePhoneChange(e.target.value)}
-                    placeholder="(555) 555-5555"
-                    className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent ${phoneError ? "border-destructive" : "border-input"}`}
-                  />
-                  {phoneError && <p className="text-xs text-destructive mt-1">{phoneError}</p>}
-                </div>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email (optional)"
-                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                />
-                <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-2">
-                  By clicking Submit, I expressly consent to Solid Surface Baths contacting me at the telephone number or email address provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology, SMS/MMS messages, AI generative voice, and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. Message and data rates may apply. I understand that consent is not a condition of purchase and to be helped I can call{" "}
-                  <a href="tel:9178130137" className="underline text-accent">917-813-0137</a>.
-                </p>
-              </div>
-            )}
-
-            {/* Step 3: Day/Time Preference */}
-            {step === 2 && (
               <div className="space-y-5">
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
                   <Timer className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
-                  <div className="space-y-2">
-                    <p className="text-sm text-foreground leading-relaxed">
-                      Our certified local contractor will call within the next <span className="font-bold text-accent">60 minutes</span> during business hours to schedule an in-home visit to measure the space, show you samples, and answer any questions you have. <span className="text-muted-foreground">If submitted after hours, expect a call first thing in the morning.</span>
-                    </p>
-                    <p className="text-sm text-foreground leading-relaxed">
-                      They will provide a <span className="font-bold text-accent">no-pressure, guaranteed 1-year locked-in price</span> for your bath remodel project.
-                    </p>
-                  </div>
+                  <p className="text-sm text-foreground leading-relaxed">
+                    Pick your preferred time for your <span className="font-bold text-accent">free in-home visit</span>. Your local installer will measure the space, show samples, and lock in a <span className="font-bold text-accent">1-year price guarantee</span> — no pressure.
+                  </p>
                 </div>
 
                 <div>
@@ -398,15 +374,105 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
+            {/* Step 3: Contact Info */}
+            {step === 2 && (
+              <div className="space-y-4">
+                <h3 className="font-serif font-bold text-foreground text-base sm:text-lg">
+                  Where should we send your match?
+                </h3>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
+                />
+                <div>
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    placeholder="(555) 555-5555"
+                    className={`w-full px-4 py-3 border rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent ${phoneError ? "border-destructive" : "border-input"}`}
+                  />
+                  {phoneError && <p className="text-xs text-destructive mt-1">{phoneError}</p>}
+                </div>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email (optional)"
+                  className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
+                />
+                <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-2">
+                  By clicking Confirm, I expressly consent to Solid Surface Baths contacting me at the telephone number or email address provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology, SMS/MMS messages, AI generative voice, and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. Message and data rates may apply. I understand that consent is not a condition of purchase and to be helped I can call{" "}
+                  <a href="tel:9178130137" className="underline text-accent">917-813-0137</a>.
+                </p>
+              </div>
+            )}
+
+            {/* Step 4: Confirm */}
+            {step === 3 && (
+              <div className="space-y-5">
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
+                    <CheckCircle2 className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="font-serif font-bold text-foreground text-lg sm:text-xl mb-2">
+                    Confirm Your Match
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Review your details, then we'll connect you with your local installer.
+                  </p>
+                </div>
+
+                <div className="bg-secondary rounded-lg p-4 space-y-2.5 text-sm">
+                  {geo.region_name && (
+                    <div className="flex justify-between gap-3">
+                      <span className="text-muted-foreground">Service Area</span>
+                      <span className="text-foreground font-medium text-right">{geo.region_name}</span>
+                    </div>
+                  )}
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Zip Code</span>
+                    <span className="text-foreground font-medium">{effectiveZip}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Timeline</span>
+                    <span className="text-foreground font-medium text-right">{timeline}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Priority</span>
+                    <span className="text-foreground font-medium text-right">{concern}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Preferred Visit</span>
+                    <span className="text-foreground font-medium text-right">{preferredDay} · {preferredTime}</span>
+                  </div>
+                  <div className="border-t border-border pt-2.5 mt-2.5 flex justify-between gap-3">
+                    <span className="text-muted-foreground">Contact</span>
+                    <span className="text-foreground font-medium text-right">{name}<br />{phone}</span>
+                  </div>
+                </div>
+
+                <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
+                  <Shield className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <p className="text-xs sm:text-sm text-foreground leading-relaxed">
+                    Your installer will call within <span className="font-bold text-accent">60 minutes</span> during business hours to confirm your visit. Free, no obligation, 1-year price guarantee.
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Navigation */}
-            {step === 2 ? (
+            {step === 3 ? (
               <div className="mt-6 sm:mt-8 space-y-3">
                 <button
                   type="submit"
                   disabled={!canAdvance() || submitting}
                   className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
-                  {submitting ? "Submitting..." : "Get My Free Quote"}
+                  {submitting ? "Matching you..." : "Confirm My Match"}
                 </button>
                 <button
                   type="button"
@@ -437,7 +503,11 @@ const MultiStepFormSection = () => {
                   disabled={!canAdvance()}
                   className="flex items-center gap-1 bg-cta text-cta-foreground font-semibold px-6 py-3 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
                 >
-                  {step === 0 ? "See My Local Installer Options" : "Next"}
+                  {step === 0
+                    ? "See My Local Installer Options"
+                    : step === 1
+                    ? "Check Available Appointment Times"
+                    : "Review My Match"}
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
