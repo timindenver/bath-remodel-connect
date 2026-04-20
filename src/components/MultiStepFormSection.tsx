@@ -53,7 +53,7 @@ const MultiStepFormSection = () => {
   // 3: Confirm (review + submit)
   const canAdvance = () => {
     if (step === 0) return effectiveZip.trim().length >= 5 && projectType !== "";
-    if (step === 1) return timeline !== "";
+    if (step === 1) return timeline !== "" && priority !== "";
     if (step === 2) return name.trim() !== "" && isPhoneValid();
     if (step === 3) return true;
     return false;
