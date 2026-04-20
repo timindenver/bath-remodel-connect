@@ -13,7 +13,7 @@ const steps = [
   },
   {
     icon: Calendar,
-    title: "Choose Your Next Step",
+    title: "Confirm your Local Match",
     description: "See availability and decide whether you'd like to book a no-obligation in-home consultation.",
   },
 ];
