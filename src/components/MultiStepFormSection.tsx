@@ -64,12 +64,54 @@ const MultiStepFormSection = () => {
     return false;
   };
 
+  const isZipValid = (z: string) => /^\d{5}$/.test(z);
+
   const handleZipChange = async (value: string) => {
-    const cleaned = value.replace(/\D/g, "");
+    const cleaned = value.replace(/\D/g, "").slice(0, 5);
     setZipCode(cleaned);
+    if (zipError) setZipError("");
     if (cleaned.length === 5) {
       await lookupByZip(cleaned);
     }
+  };
+
+  // Auto-focus ZIP input when entering availability step
+  useEffect(() => {
+    if (step === -1) {
+      // small delay to allow render
+      const t = setTimeout(() => zipInputRef.current?.focus(), 50);
+      return () => clearTimeout(t);
+    }
+  }, [step]);
+
+  // Matching animation: 1.8s total, then advance to project step (0)
+  useEffect(() => {
+    if (step !== -0.5) return;
+    setMatchingProgress(25);
+    setMatchingMessageIdx(0);
+
+    const t1 = setTimeout(() => setMatchingProgress(75), 200);
+    const tMsg1 = setTimeout(() => setMatchingMessageIdx(1), 500);
+    const tMsg2 = setTimeout(() => setMatchingMessageIdx(2), 1000);
+    const t2 = setTimeout(() => setMatchingProgress(100), 1400);
+    const tDone = setTimeout(() => setStep(0), 1800);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(tMsg1);
+      clearTimeout(tMsg2);
+      clearTimeout(tDone);
+    };
+  }, [step]);
+
+  const handleAvailabilityCheck = async () => {
+    if (!isZipValid(effectiveZip)) {
+      setZipError("Please enter a valid ZIP code");
+      return;
+    }
+    await lookupByZip(effectiveZip);
+    setStep(-0.5);
   };
 
   const handleSubmit = async (e: FormEvent) => {
