@@ -632,18 +632,28 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 3: Contact Info — phone-primary */}
+            {/* Step 3: Contact Info — phone call matching */}
             {step === 3 && (
-              <div className="space-y-4">
+              <div className="space-y-5">
+                {/* Match reinforcement */}
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-3 flex gap-2.5 items-start">
                   <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                   <p className="text-xs sm:text-sm text-foreground leading-relaxed">
                     Based on your answers, we'll match you with installers experienced in projects like yours.
                   </p>
                 </div>
-                <h3 className="font-serif font-bold text-foreground text-base sm:text-lg">
-                  What's the best number for your local match?
-                </h3>
+
+                {/* Headline + Support text */}
+                <div>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What's the best number for your quick installer matching call?
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    A short call helps confirm your setup, timeline, and the best installer options for your project.
+                  </p>
+                </div>
+
+                {/* Name field */}
                 <div>
                   <label className="block text-xs font-medium text-muted-foreground mb-1.5">
                     Your name
@@ -657,9 +667,11 @@ const MultiStepFormSection = () => {
                     className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
                   />
                 </div>
+
+                {/* Phone field - primary focus */}
                 <div>
                   <label className="block text-xs font-medium text-foreground mb-1.5">
-                    Mobile number
+                    Best number for your quick matching call
                   </label>
                   <input
                     type="tel"
@@ -672,36 +684,39 @@ const MultiStepFormSection = () => {
                     <p className="text-xs text-destructive mt-1">{phoneError}</p>
                   ) : (
                     <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
-                      We'll use this to follow up about your local installer options and project pricing.
+                      We'll use this to review your project details, confirm installer fit, and discuss next steps.
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">
-                    Preferred follow-up
-                  </label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {["Call", "Text", "Either"].map((option) => (
-                      <button
-                        key={option}
-                        type="button"
-                        onClick={() => setFollowUpPref(option)}
-                        className={`py-2.5 rounded-lg border-2 text-sm font-medium transition-all ${
-                          followUpPref === option
-                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
-                            : "border-border hover:border-accent/50 text-muted-foreground"
-                        }`}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                  <p className="text-[11px] text-muted-foreground mt-1.5">
-                    You decide how we reach out. No pressure.
+
+                {/* Reassurance section - what to expect */}
+                <div className="bg-secondary/60 rounded-lg p-4 border border-border/60">
+                  <h4 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-accent" />
+                    What to expect next
+                  </h4>
+                  <ul className="space-y-1.5">
+                    <li className="flex items-start gap-2 text-xs text-muted-foreground">
+                      <span className="text-accent mt-0.5">•</span>
+                      <span>A quick project review call</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-xs text-muted-foreground">
+                      <span className="text-accent mt-0.5">•</span>
+                      <span>Confirmation of your setup and timeline</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-xs text-muted-foreground">
+                      <span className="text-accent mt-0.5">•</span>
+                      <span>Your best-fit installer options and next steps</span>
+                    </li>
+                  </ul>
+                  <p className="text-[11px] text-accent mt-2.5 font-medium">
+                    Most calls take just a few minutes.
                   </p>
                 </div>
+
+                {/* Email field - optional */}
                 <div>
-                  <label className="block text-[11px] font-normal text-muted-foreground mb-1.5">
+                  <label className="block text-xs font-medium text-muted-foreground mb-1.5">
                     Email <span className="opacity-70">(optional)</span>
                   </label>
                   <input
@@ -712,9 +727,14 @@ const MultiStepFormSection = () => {
                     placeholder="you@example.com"
                     className="w-full px-4 py-2.5 border border-input rounded-lg bg-muted/30 text-muted-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:text-foreground focus:bg-background"
                   />
+                  <p className="text-[11px] text-muted-foreground mt-1.5">
+                    Receive your installer match details in writing too.
+                  </p>
                 </div>
-                <p className="text-[10px] text-muted-foreground text-center leading-relaxed mt-2">
-                  By clicking Confirm, I expressly consent to Solid Surface Baths contacting me at the telephone number or email address provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology, SMS/MMS messages, AI generative voice, and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. Message and data rates may apply. I understand that consent is not a condition of purchase and to be helped I can call{" "}
+
+                {/* TCPA Disclaimer - updated for call focus */}
+                <p className="text-[10px] text-muted-foreground text-center leading-relaxed">
+                  By clicking Continue to Confirm, I expressly consent to Solid Surface Baths contacting me at the telephone number provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. I understand that consent is not a condition of purchase and to be helped I can call{" "}
                   <a href="tel:9178130137" className="underline text-accent">917-813-0137</a>.
                 </p>
               </div>
