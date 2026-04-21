@@ -1,4 +1,4 @@
-import { createContext, useContext, ReactNode } from "react";
+import { createContext, useContext, ReactNode, useEffect } from "react";
 import { useGeoDetection, GeoData } from "@/hooks/useGeoDetection";
 import { useUtmParams, UtmParams } from "@/hooks/useUtmParams";
 
@@ -14,6 +14,16 @@ const GeoContext = createContext<GeoContextValue | null>(null);
 export function GeoProvider({ children }: { children: ReactNode }) {
   const { geo, loading, lookupByZip } = useGeoDetection();
   const utm = useUtmParams();
+
+  // Allow QA / shareable test links via ?zip=19103
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const zipOverride = params.get("zip");
+    if (zipOverride && /^\d{5}$/.test(zipOverride)) {
+      lookupByZip(zipOverride);
+    }
+  }, [lookupByZip]);
 
   return (
     <GeoContext.Provider value={{ geo, geoLoading: loading, lookupByZip, utm }}>
