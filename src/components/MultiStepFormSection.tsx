@@ -721,7 +721,7 @@ const MultiStepFormSection = () => {
             )}
 
             {/* Step 4: Confirm */}
-            {step === 3 && (
+            {step === 4 && (
               <div className="space-y-5">
                 <div className="text-center">
                   <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
