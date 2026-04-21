@@ -780,7 +780,7 @@ const MultiStepFormSection = () => {
             )}
 
             {/* Navigation */}
-            {step === 3 ? (
+            {step === 4 ? (
               <div className="mt-6 sm:mt-8 space-y-3">
                 <button
                   type="submit"
