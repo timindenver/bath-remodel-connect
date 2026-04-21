@@ -11,7 +11,10 @@ const MultiStepFormSection = () => {
   const [matchingProgress, setMatchingProgress] = useState(0);
   const [matchingMessageIdx, setMatchingMessageIdx] = useState(0);
   const zipInputRef = useRef<HTMLInputElement>(null);
+  const [bathroomLevel, setBathroomLevel] = useState("");
+  const [showerSetup, setShowerSetup] = useState("");
   const [projectType, setProjectType] = useState("");
+  const [shutoffAccess, setShutoffAccess] = useState("");
   const [timeline, setTimeline] = useState("");
   const [zipCode, setZipCode] = useState(geo.zip_code || "");
   const [name, setName] = useState("");
@@ -51,16 +54,18 @@ const MultiStepFormSection = () => {
   // Sync zip from geo detection
   const effectiveZip = zipCode || geo.zip_code || "";
 
-  // 4-step flow:
-  // 0: Project (zip + project type)
-  // 1: Timeline + Schedule (timeline + preferred day + time)
-  // 2: Contact (name + phone + email)
-  // 3: Confirm (review + submit)
+  // 5-step flow (after ZIP availability check):
+  // 0: Bathroom level + Shower setup
+  // 1: Project goal + Water shut-off
+  // 2: Timeline + Priority
+  // 3: Contact (name + phone + email)
+  // 4: Confirm
   const canAdvance = () => {
-    if (step === 0) return effectiveZip.trim().length >= 5 && projectType !== "";
-    if (step === 1) return timeline !== "" && priority !== "";
-    if (step === 2) return name.trim() !== "" && isPhoneValid();
-    if (step === 3) return true;
+    if (step === 0) return bathroomLevel !== "" && showerSetup !== "";
+    if (step === 1) return projectType !== "" && shutoffAccess !== "";
+    if (step === 2) return timeline !== "" && priority !== "";
+    if (step === 3) return name.trim() !== "" && isPhoneValid();
+    if (step === 4) return true;
     return false;
   };
 
@@ -132,6 +137,9 @@ const MultiStepFormSection = () => {
           contractor_region_id: geo.contractor_region_id,
           in_service_area: geo.in_service_area,
           project_type: projectType,
+          bathroom_level: bathroomLevel,
+          shower_setup: showerSetup,
+          shutoff_access: shutoffAccess,
           timeline,
           priority,
           follow_up_preference: followUpPref,
@@ -181,7 +189,7 @@ const MultiStepFormSection = () => {
   };
 
   const next = () => {
-    if (canAdvance() && step < 3) setStep(step + 1);
+    if (canAdvance() && step < 4) setStep(step + 1);
   };
   const back = () => {
     if (step > 0) setStep(step - 1);
@@ -255,9 +263,9 @@ const MultiStepFormSection = () => {
     );
   }
 
-  const totalSteps = 4;
+  const totalSteps = 5;
   const progressPercent = step >= 0 ? ((step + 1) / totalSteps) * 100 : 0;
-  const stepLabels = ["Project", "Timing", "Contact", "Confirm"];
+  const stepLabels = ["Bathroom", "Project", "Timing", "Contact", "Confirm"];
 
   const matchingMessages = [
     "Checking installer availability in your area…",
@@ -429,47 +437,86 @@ const MultiStepFormSection = () => {
             />
           </div>
           <p className="text-[11px] sm:text-xs text-muted-foreground text-center mt-2">
-            {step === 0 && "Just getting started — takes about 60 seconds."}
-            {step === 1 && "You're halfway there — almost matched."}
-            {step === 2 && "Almost done — one more step to see your local options."}
-            {step === 3 && "You're 100% complete — just confirm to send."}
+            {step === 0 && "Just getting started — about 60 seconds total."}
+            {step === 1 && "Tell us about your project — we're matching as you go."}
+            {step === 2 && "Almost there — refining your installer match."}
+            {step === 3 && "One last step — your local match is ready."}
+            {step === 4 && "You're 100% complete — just confirm to send."}
           </p>
         </div>
 
         <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit}>
-            {/* Step 0: Project (zip + project type only) */}
+            {/* Step 0: Bathroom level + Shower setup */}
             {step === 0 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    What's your zip code?
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What level is your bathroom on?
                   </h3>
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    maxLength={5}
-                    value={effectiveZip}
-                    onChange={(e) => handleZipChange(e.target.value)}
-                    placeholder="Zip code"
-                    className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                  />
-                  {geo.in_service_area && geo.region_name && (
-                    <p className="text-xs text-accent mt-2 flex items-center gap-1">
-                      <MapPin className="w-3 h-3" /> Great — we have an installer in the {geo.region_name}!
-                    </p>
-                  )}
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Access and layout can impact installation approach and timeline.
+                  </p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {["First floor", "Second floor", "Basement"].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setBathroomLevel(option)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
+                          bathroomLevel === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                <div className={effectiveZip.length >= 5 ? "opacity-100" : "opacity-40 pointer-events-none"}>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    What type of project?
+                <div className={bathroomLevel ? "opacity-100" : "opacity-40 pointer-events-none"}>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What type of shower setup do you currently have?
                   </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Different setups may require different installation methods.
+                  </p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {["Tub + shower combo", "Walk-in shower", "Not sure"].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setShowerSetup(option)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
+                          showerSetup === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Step 1: Project goal + Water shut-off */}
+            {step === 1 && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What are you looking to do with your shower?
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Helps us match you with installers experienced in your type of project.
+                  </p>
                   <div className="grid grid-cols-1 gap-2">
                     {[
-                      "Tub Replacement",
-                      "Shower Replacement",
-                      "Tub/Shower Combo Replacement"
+                      "Replace existing shower",
+                      "Upgrade to something more modern",
+                      "Full remodel",
                     ].map((option) => (
                       <button
                         key={option}
@@ -486,16 +533,48 @@ const MultiStepFormSection = () => {
                     ))}
                   </div>
                 </div>
+
+                <div className={projectType ? "opacity-100" : "opacity-40 pointer-events-none"}>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    Do you know where your home's main water shut-off is located?
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    This can affect installation planning and timing.
+                  </p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      "Yes, easy to access",
+                      "Yes, but not easily accessible",
+                      "Not sure",
+                    ].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setShutoffAccess(option)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
+                          shutoffAccess === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
 
-            {/* Step 1: Timing + Priority */}
-            {step === 1 && (
+            {/* Step 2: Timing + Priority */}
+            {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    When are you looking to remodel?
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    When are you looking to complete your project?
                   </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Installer availability can vary based on schedule.
+                  </p>
                   <div className="grid grid-cols-2 gap-2">
                     {["Within 30 days", "1-3 months", "3-6 months", "Just researching"].map(
                       (option) => (
@@ -523,17 +602,17 @@ const MultiStepFormSection = () => {
 
                 <div className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
-                    What matters most to you?
+                    What's most important for your new shower?
                   </h3>
                   <p className="text-xs text-muted-foreground mb-3">
-                    Helps us match you to the right local installer.
+                    Helps us match you with installers who specialize in what matters most to you.
                   </p>
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      "No mold / easy cleaning",
-                      "Better long-term value",
+                      "Easy cleaning / low maintenance",
+                      "Long-term durability",
                       "Faster installation",
-                      "Premium look",
+                      "High-end look",
                     ].map((option) => (
                       <button
                         key={option}
@@ -553,13 +632,13 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 2: Contact Info — phone-primary */}
-            {step === 2 && (
+            {/* Step 3: Contact Info — phone-primary */}
+            {step === 3 && (
               <div className="space-y-4">
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-3 flex gap-2.5 items-start">
                   <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                   <p className="text-xs sm:text-sm text-foreground leading-relaxed">
-                    Based on your answers, we're ready to help identify the best local next step for your project.
+                    Based on your answers, we'll match you with installers experienced in projects like yours.
                   </p>
                 </div>
                 <h3 className="font-serif font-bold text-foreground text-base sm:text-lg">
@@ -642,7 +721,7 @@ const MultiStepFormSection = () => {
             )}
 
             {/* Step 4: Confirm */}
-            {step === 3 && (
+            {step === 4 && (
               <div className="space-y-5">
                 <div className="text-center">
                   <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
@@ -664,12 +743,24 @@ const MultiStepFormSection = () => {
                     </div>
                   )}
                   <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Project</span>
+                    <span className="text-muted-foreground">Zip Code</span>
+                    <span className="text-foreground font-medium">{effectiveZip}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Bathroom Level</span>
+                    <span className="text-foreground font-medium text-right">{bathroomLevel}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Current Setup</span>
+                    <span className="text-foreground font-medium text-right">{showerSetup}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Project Goal</span>
                     <span className="text-foreground font-medium text-right">{projectType}</span>
                   </div>
                   <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Zip Code</span>
-                    <span className="text-foreground font-medium">{effectiveZip}</span>
+                    <span className="text-muted-foreground">Water Shut-off</span>
+                    <span className="text-foreground font-medium text-right">{shutoffAccess}</span>
                   </div>
                   <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Timeline</span>
@@ -701,7 +792,7 @@ const MultiStepFormSection = () => {
             )}
 
             {/* Navigation */}
-            {step === 3 ? (
+            {step === 4 ? (
               <div className="mt-6 sm:mt-8 space-y-3">
                 <button
                   type="submit"
@@ -743,7 +834,7 @@ const MultiStepFormSection = () => {
                       : "bg-cta text-cta-foreground"
                   }`}
                 >
-                  See My Local Installer Options
+                  {step === 2 ? "See My Local Installer Options" : "Continue"}
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
