@@ -834,7 +834,7 @@ const MultiStepFormSection = () => {
                       : "bg-cta text-cta-foreground"
                   }`}
                 >
-                  See My Local Installer Options
+                  {step === 2 ? "See My Local Installer Options" : "Continue"}
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
