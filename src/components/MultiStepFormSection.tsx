@@ -796,10 +796,12 @@ const MultiStepFormSection = () => {
                     <span className="text-muted-foreground">Contact</span>
                     <span className="text-foreground font-medium text-right">{name}<br />{phone}</span>
                   </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Follow-up</span>
-                    <span className="text-foreground font-medium text-right">{followUpPref}</span>
-                  </div>
+                  {email && (
+                    <div className="flex justify-between gap-3">
+                      <span className="text-muted-foreground">Email</span>
+                      <span className="text-foreground font-medium text-right">{email}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
