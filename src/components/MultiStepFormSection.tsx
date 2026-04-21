@@ -80,12 +80,17 @@ const MultiStepFormSection = () => {
     }
   };
 
-  // Auto-focus ZIP input when entering availability step
+  // Auto-focus ZIP input only after user interaction (not on initial page load)
+  const hasInteractedRef = useRef(false);
   useEffect(() => {
-    if (step === -1) {
-      // small delay to allow render
-      const t = setTimeout(() => zipInputRef.current?.focus(), 50);
+    if (step === -1 && hasInteractedRef.current) {
+      const t = setTimeout(() => {
+        zipInputRef.current?.focus({ preventScroll: true });
+      }, 50);
       return () => clearTimeout(t);
+    }
+    if (step !== -1) {
+      hasInteractedRef.current = true;
     }
   }, [step]);
 
