@@ -71,21 +71,6 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
-
-      {/* Secondary bar below hero - reinforces trust, not the primary CTA */}
-      <section className="bg-foreground text-primary-foreground py-6 sm:py-8 px-6 sm:px-12 lg:px-24">
-        <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center">
-          <div className="flex items-center gap-2 text-sm sm:text-base opacity-90">
-            <span className="text-accent">★★★★★</span>
-            <span>4.9 rating from homeowners</span>
-          </div>
-          <div className="hidden sm:block w-px h-6 bg-primary-foreground/20" />
-          <div className="flex items-center gap-2 text-sm sm:text-base opacity-90">
-            <span className="inline-block w-2 h-2 rounded-full bg-accent" />
-            <span>Installers available in your area</span>
-          </div>
-        </div>
-      </section>
     </>
   );
 };
