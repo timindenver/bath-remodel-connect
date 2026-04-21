@@ -241,21 +241,21 @@ const MultiStepFormSection = () => {
     return (
       <section
         id="lead-form"
-        className="min-h-[100svh] flex items-center justify-center px-4 sm:px-6 py-16 bg-background"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 bg-background"
       >
-        <div className="max-w-xl mx-auto text-center">
+        <div className="max-w-xl mx-auto text-center w-full">
           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 sm:mb-8 ring-8 ring-accent/5">
             <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-accent" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 sm:mb-5 text-balance">
             You're Matched!
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-foreground/80 mb-3 text-balance">
+          <p className="text-base sm:text-lg lg:text-xl text-foreground/80 mb-3 text-balance max-w-lg mx-auto">
             {geo.region_name
               ? `Your matched installer for the ${geo.region_name} area will call within 60 minutes (during business hours) to confirm your matching call and next steps.`
               : "Your matched local installer will call within 60 minutes during business hours to confirm your project details and matching options."}
           </p>
-          <p className="text-sm sm:text-base text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-md mx-auto">
             No obligation. No pressure. Walk away anytime.
           </p>
         </div>
