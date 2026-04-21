@@ -54,16 +54,18 @@ const MultiStepFormSection = () => {
   // Sync zip from geo detection
   const effectiveZip = zipCode || geo.zip_code || "";
 
-  // 4-step flow:
-  // 0: Project (zip + project type)
-  // 1: Timeline + Schedule (timeline + preferred day + time)
-  // 2: Contact (name + phone + email)
-  // 3: Confirm (review + submit)
+  // 5-step flow (after ZIP availability check):
+  // 0: Bathroom level + Shower setup
+  // 1: Project goal + Water shut-off
+  // 2: Timeline + Priority
+  // 3: Contact (name + phone + email)
+  // 4: Confirm
   const canAdvance = () => {
-    if (step === 0) return effectiveZip.trim().length >= 5 && projectType !== "";
-    if (step === 1) return timeline !== "" && priority !== "";
-    if (step === 2) return name.trim() !== "" && isPhoneValid();
-    if (step === 3) return true;
+    if (step === 0) return bathroomLevel !== "" && showerSetup !== "";
+    if (step === 1) return projectType !== "" && shutoffAccess !== "";
+    if (step === 2) return timeline !== "" && priority !== "";
+    if (step === 3) return name.trim() !== "" && isPhoneValid();
+    if (step === 4) return true;
     return false;
   };
 
