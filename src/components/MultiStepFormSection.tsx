@@ -447,38 +447,76 @@ const MultiStepFormSection = () => {
 
         <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit}>
-            {/* Step 0: Project (zip + project type only) */}
+            {/* Step 0: Bathroom level + Shower setup */}
             {step === 0 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    What's your zip code?
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What level is your bathroom on?
                   </h3>
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    maxLength={5}
-                    value={effectiveZip}
-                    onChange={(e) => handleZipChange(e.target.value)}
-                    placeholder="Zip code"
-                    className="w-full px-4 py-3 border border-input rounded-lg bg-background text-foreground text-base focus:outline-none focus:ring-2 focus:ring-accent"
-                  />
-                  {geo.in_service_area && geo.region_name && (
-                    <p className="text-xs text-accent mt-2 flex items-center gap-1">
-                      <MapPin className="w-3 h-3" /> Great — we have an installer in the {geo.region_name}!
-                    </p>
-                  )}
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Access and layout can impact installation approach and timeline.
+                  </p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {["First floor", "Second floor", "Basement"].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setBathroomLevel(option)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
+                          bathroomLevel === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                <div className={effectiveZip.length >= 5 ? "opacity-100" : "opacity-40 pointer-events-none"}>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    What type of project?
+                <div className={bathroomLevel ? "opacity-100" : "opacity-40 pointer-events-none"}>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What type of shower setup do you currently have?
                   </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Different setups may require different installation methods.
+                  </p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {["Tub + shower combo", "Walk-in shower", "Not sure"].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setShowerSetup(option)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
+                          showerSetup === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Step 1: Project goal + Water shut-off */}
+            {step === 1 && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    What are you looking to do with your shower?
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Helps us match you with installers experienced in your type of project.
+                  </p>
                   <div className="grid grid-cols-1 gap-2">
                     {[
-                      "Tub Replacement",
-                      "Shower Replacement",
-                      "Tub/Shower Combo Replacement"
+                      "Replace existing shower",
+                      "Upgrade to something more modern",
+                      "Full remodel",
                     ].map((option) => (
                       <button
                         key={option}
@@ -495,16 +533,48 @@ const MultiStepFormSection = () => {
                     ))}
                   </div>
                 </div>
+
+                <div className={projectType ? "opacity-100" : "opacity-40 pointer-events-none"}>
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    Do you know where your home's main water shut-off is located?
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    This can affect installation planning and timing.
+                  </p>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[
+                      "Yes, easy to access",
+                      "Yes, but not easily accessible",
+                      "Not sure",
+                    ].map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => setShutoffAccess(option)}
+                        className={`p-3 rounded-lg border-2 text-sm font-medium transition-all text-left ${
+                          shutoffAccess === option
+                            ? "border-accent bg-accent/15 text-foreground shadow-sm ring-2 ring-accent/30"
+                            : "border-border hover:border-accent/50 text-muted-foreground"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
 
-            {/* Step 1: Timing + Priority */}
-            {step === 1 && (
+            {/* Step 2: Timing + Priority */}
+            {step === 2 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-3">
-                    When are you looking to remodel?
+                  <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
+                    When are you looking to complete your project?
                   </h3>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Installer availability can vary based on schedule.
+                  </p>
                   <div className="grid grid-cols-2 gap-2">
                     {["Within 30 days", "1-3 months", "3-6 months", "Just researching"].map(
                       (option) => (
@@ -532,17 +602,17 @@ const MultiStepFormSection = () => {
 
                 <div className={timeline ? "opacity-100" : "opacity-40 pointer-events-none"}>
                   <h3 className="font-serif font-bold text-foreground text-base sm:text-lg mb-1">
-                    What matters most to you?
+                    What's most important for your new shower?
                   </h3>
                   <p className="text-xs text-muted-foreground mb-3">
-                    Helps us match you to the right local installer.
+                    Helps us match you with installers who specialize in what matters most to you.
                   </p>
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      "No mold / easy cleaning",
-                      "Better long-term value",
+                      "Easy cleaning / low maintenance",
+                      "Long-term durability",
                       "Faster installation",
-                      "Premium look",
+                      "High-end look",
                     ].map((option) => (
                       <button
                         key={option}
