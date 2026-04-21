@@ -256,8 +256,138 @@ const MultiStepFormSection = () => {
   }
 
   const totalSteps = 4;
-  const progressPercent = ((step + 1) / totalSteps) * 100;
+  const progressPercent = step >= 0 ? ((step + 1) / totalSteps) * 100 : 0;
   const stepLabels = ["Project", "Timing", "Contact", "Confirm"];
+
+  const matchingMessages = [
+    "Checking installer availability in your area…",
+    "Matching you with certified installers…",
+    "Verifying coverage near your ZIP code…",
+  ];
+
+  // ---------- Availability check (ZIP entry) ----------
+  if (step === -1) {
+    return (
+      <section id="lead-form" className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
+        <div className="max-w-xl mx-auto">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="inline-flex items-center gap-1.5 bg-accent/10 text-accent text-[11px] sm:text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+              <MapPin className="w-3.5 h-3.5" />
+              Availability Check
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-3 text-balance">
+              Check Availability of Certified Installers in Your Area
+            </h2>
+            <p className="text-sm sm:text-base text-muted-foreground text-balance">
+              Find out if qualified, vetted installers are available near you in under 60 seconds.
+            </p>
+          </div>
+
+          <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleAvailabilityCheck();
+              }}
+              className="space-y-5"
+            >
+              <div>
+                <label htmlFor="zip-availability" className="block text-sm font-medium text-foreground mb-2">
+                  Enter your ZIP Code
+                </label>
+                <input
+                  id="zip-availability"
+                  ref={zipInputRef}
+                  type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  autoComplete="postal-code"
+                  maxLength={5}
+                  value={effectiveZip}
+                  onChange={(e) => handleZipChange(e.target.value)}
+                  placeholder="e.g. 18902"
+                  aria-invalid={!!zipError}
+                  className={`w-full px-4 py-3.5 border-2 rounded-lg bg-background text-foreground text-lg tracking-wider focus:outline-none focus:ring-2 focus:ring-accent transition-colors ${
+                    zipError ? "border-destructive" : "border-input focus:border-accent"
+                  }`}
+                />
+                {zipError && (
+                  <p className="text-xs text-destructive mt-1.5">{zipError}</p>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                disabled={!isZipValid(effectiveZip)}
+                className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
+              >
+                Check Availability
+              </button>
+
+              <div className="flex items-center justify-center gap-3 text-[11px] sm:text-xs text-muted-foreground">
+                <span>No spam. No obligation.</span>
+                <span aria-hidden>•</span>
+                <span>Takes less than 60 seconds</span>
+              </div>
+            </form>
+
+            <div className="mt-6 pt-5 border-t border-border">
+              <div className="flex items-center justify-center flex-wrap gap-x-1.5 gap-y-1 mb-3 text-center">
+                <span className="text-base font-bold text-foreground">4.9</span>
+                <span className="text-amber-500" aria-hidden>★★★★★</span>
+                <span className="text-xs text-muted-foreground">avg homeowner rating across our installer network</span>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground bg-secondary px-2.5 py-1 rounded-full">
+                  <ShieldCheck className="w-3 h-3" /> Licensed & Insured
+                </span>
+                <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground bg-secondary px-2.5 py-1 rounded-full">
+                  <CheckCircle2 className="w-3 h-3" /> Vetted & Background-Checked
+                </span>
+                <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground bg-secondary px-2.5 py-1 rounded-full">
+                  <Users className="w-3 h-3" /> Local Installers
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // ---------- Matching animation (1.8s) ----------
+  if (step === -0.5) {
+    return (
+      <section id="lead-form" className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
+        <div className="max-w-xl mx-auto">
+          <div className="bg-card border border-border rounded-lg p-8 sm:p-12 shadow-sm text-center">
+            <div className="relative w-16 h-16 mx-auto mb-5">
+              <div className="absolute inset-0 rounded-full bg-accent/20 animate-ping" />
+              <div className="relative w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                <Search className="w-7 h-7 text-accent" />
+              </div>
+            </div>
+            <p
+              key={matchingMessageIdx}
+              className="text-base sm:text-lg font-medium text-foreground mb-5 animate-fade-in"
+            >
+              {matchingMessages[matchingMessageIdx]}
+            </p>
+            <div className="h-1.5 bg-muted rounded-full overflow-hidden max-w-sm mx-auto">
+              <div
+                className="h-full bg-accent rounded-full"
+                style={{
+                  width: `${matchingProgress}%`,
+                  transition: "width 600ms cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
+              />
+            </div>
+            <p className="text-[11px] text-muted-foreground mt-3">ZIP {effectiveZip}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="lead-form" className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
@@ -268,7 +398,9 @@ const MultiStepFormSection = () => {
             Free Quote + 1-Year Price Guarantee
           </p>
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground mb-2 sm:mb-3">
-            Find Your Local Shower Match
+            {geo.in_service_area && geo.region_name
+              ? `Great — installers available in ${geo.region_name}`
+              : "Find Your Local Shower Match"}
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground">
             Answer a few quick questions so we can match your project to the right local installer. About 60 seconds. No obligation. No spam.
