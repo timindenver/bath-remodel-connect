@@ -1,11 +1,16 @@
-import { useState, FormEvent, useCallback } from "react";
-import { ChevronRight, ChevronLeft, Shield, MapPin, Timer, CheckCircle2 } from "lucide-react";
+import { useState, FormEvent, useCallback, useEffect, useRef } from "react";
+import { ChevronRight, ChevronLeft, Shield, MapPin, Timer, CheckCircle2, Search, ShieldCheck, Users } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 import { supabase } from "@/integrations/supabase/client";
 
 const MultiStepFormSection = () => {
   const { geo, lookupByZip, utm } = useGeo();
-  const [step, setStep] = useState(0);
+  // step: -1 = availability check (ZIP), -0.5 = matching animation, 0..3 = original flow
+  const [step, setStep] = useState<number>(-1);
+  const [zipError, setZipError] = useState("");
+  const [matchingProgress, setMatchingProgress] = useState(0);
+  const [matchingMessageIdx, setMatchingMessageIdx] = useState(0);
+  const zipInputRef = useRef<HTMLInputElement>(null);
   const [projectType, setProjectType] = useState("");
   const [timeline, setTimeline] = useState("");
   const [zipCode, setZipCode] = useState(geo.zip_code || "");
