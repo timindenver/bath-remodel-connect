@@ -43,7 +43,7 @@ const Index = () => {
         <EducationSection />
         <BenefitsSection />
         <BridgeCTASection />
-        <FinalCTASection />
+        
         <FAQSection />
         <Footer />
         <StickyMobileCTA />
