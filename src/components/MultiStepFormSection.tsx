@@ -632,13 +632,13 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 2: Contact Info — phone-primary */}
-            {step === 2 && (
+            {/* Step 3: Contact Info — phone-primary */}
+            {step === 3 && (
               <div className="space-y-4">
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-3 flex gap-2.5 items-start">
                   <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                   <p className="text-xs sm:text-sm text-foreground leading-relaxed">
-                    Based on your answers, we're ready to help identify the best local next step for your project.
+                    Based on your answers, we'll match you with installers experienced in projects like yours.
                   </p>
                 </div>
                 <h3 className="font-serif font-bold text-foreground text-base sm:text-lg">
