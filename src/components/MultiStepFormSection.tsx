@@ -743,12 +743,24 @@ const MultiStepFormSection = () => {
                     </div>
                   )}
                   <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Project</span>
+                    <span className="text-muted-foreground">Zip Code</span>
+                    <span className="text-foreground font-medium">{effectiveZip}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Bathroom Level</span>
+                    <span className="text-foreground font-medium text-right">{bathroomLevel}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Current Setup</span>
+                    <span className="text-foreground font-medium text-right">{showerSetup}</span>
+                  </div>
+                  <div className="flex justify-between gap-3">
+                    <span className="text-muted-foreground">Project Goal</span>
                     <span className="text-foreground font-medium text-right">{projectType}</span>
                   </div>
                   <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Zip Code</span>
-                    <span className="text-foreground font-medium">{effectiveZip}</span>
+                    <span className="text-muted-foreground">Water Shut-off</span>
+                    <span className="text-foreground font-medium text-right">{shutoffAccess}</span>
                   </div>
                   <div className="flex justify-between gap-3">
                     <span className="text-muted-foreground">Timeline</span>
