@@ -263,9 +263,9 @@ const MultiStepFormSection = () => {
     );
   }
 
-  const totalSteps = 4;
+  const totalSteps = 5;
   const progressPercent = step >= 0 ? ((step + 1) / totalSteps) * 100 : 0;
-  const stepLabels = ["Project", "Timing", "Contact", "Confirm"];
+  const stepLabels = ["Bathroom", "Project", "Timing", "Contact", "Confirm"];
 
   const matchingMessages = [
     "Checking installer availability in your area…",
