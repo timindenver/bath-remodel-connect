@@ -252,8 +252,8 @@ const MultiStepFormSection = () => {
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-foreground/80 mb-3 text-balance">
             {geo.region_name
-              ? `Your local installer for the ${geo.region_name} will call within 60 minutes (during business hours) to confirm your in-home visit.`
-              : "Your matched local installer will call within 60 minutes during business hours to confirm your in-home visit."}
+              ? `Your matched installer for the ${geo.region_name} area will call within 60 minutes (during business hours) to confirm your matching call and next steps.`
+              : "Your matched local installer will call within 60 minutes during business hours to confirm your project details and matching options."}
           </p>
           <p className="text-sm sm:text-base text-muted-foreground">
             No obligation. No pressure. Walk away anytime.
