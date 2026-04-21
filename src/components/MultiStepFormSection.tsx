@@ -11,7 +11,10 @@ const MultiStepFormSection = () => {
   const [matchingProgress, setMatchingProgress] = useState(0);
   const [matchingMessageIdx, setMatchingMessageIdx] = useState(0);
   const zipInputRef = useRef<HTMLInputElement>(null);
+  const [bathroomLevel, setBathroomLevel] = useState("");
+  const [showerSetup, setShowerSetup] = useState("");
   const [projectType, setProjectType] = useState("");
+  const [shutoffAccess, setShutoffAccess] = useState("");
   const [timeline, setTimeline] = useState("");
   const [zipCode, setZipCode] = useState(geo.zip_code || "");
   const [name, setName] = useState("");
