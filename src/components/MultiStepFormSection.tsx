@@ -437,10 +437,11 @@ const MultiStepFormSection = () => {
             />
           </div>
           <p className="text-[11px] sm:text-xs text-muted-foreground text-center mt-2">
-            {step === 0 && "Just getting started — takes about 60 seconds."}
-            {step === 1 && "You're halfway there — almost matched."}
-            {step === 2 && "Almost done — one more step to see your local options."}
-            {step === 3 && "You're 100% complete — just confirm to send."}
+            {step === 0 && "Just getting started — about 60 seconds total."}
+            {step === 1 && "Tell us about your project — we're matching as you go."}
+            {step === 2 && "Almost there — refining your installer match."}
+            {step === 3 && "One last step — your local match is ready."}
+            {step === 4 && "You're 100% complete — just confirm to send."}
           </p>
         </div>
 
