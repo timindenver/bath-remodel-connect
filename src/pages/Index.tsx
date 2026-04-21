@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useRef } from "react";
 import HeroSection from "@/components/HeroSection";
 import LocalContractorSection from "@/components/LocalContractorSection";
 import TrustBadgesSection from "@/components/TrustBadgesSection";
@@ -19,18 +19,26 @@ const Footer = lazy(() => import("@/components/Footer"));
 const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
 
 const Index = () => {
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <div className="min-h-screen">
       {/* Paid-traffic order: Hero → Trust → How it works → Proof → Form → Deeper education → Urgency */}
       <HeroSection />
-      <LocalContractorSection />
+      <LocalContractorSection onCheckAvailability={scrollToForm} />
       <TrustBadgesSection />
       <Suspense fallback={null}>
         <ProcessSection />
         <BeforeAfterSection />
         <TestimonialsSection />
         <WhyMatchingMattersSection />
-        <MultiStepFormSection />
+        <div ref={formRef}>
+          <MultiStepFormSection />
+        </div>
         <ComparisonSection />
         <EducationSection />
         <BenefitsSection />
