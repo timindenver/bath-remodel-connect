@@ -59,18 +59,15 @@ const LongVideoSection = () => {
           {/* Vertical 9:16 video player */}
           <div className="lg:col-span-2 flex justify-center">
             <div className="w-full max-w-[320px] sm:max-w-[360px]">
-              <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
-                <div className="absolute inset-0">
-                  <Stream
-                    src={LONG_VIDEO_UID}
-                    streamRef={playerRef}
-                    controls
-                    preload="metadata"
-                    responsive={false}
-                    className="w-full h-full"
-                    title="Full shower remodel explainer"
-                  />
-                </div>
+              <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-0">
+                <Stream
+                  src={LONG_VIDEO_UID}
+                  streamRef={playerRef}
+                  controls
+                  preload="metadata"
+                  responsive={true}
+                  title="Full shower remodel explainer"
+                />
               </div>
             </div>
           </div>
