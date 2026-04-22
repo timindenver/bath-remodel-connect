@@ -16,7 +16,7 @@ const TIMESTAMPS: { label: string; time: number }[] = [
   { label: "How do we help you avoid mistakes?", time: 80 }, // 1:20
   { label: "What actually happens when I submit my request?", time: 145 }, // 2:25
   { label: "What if I'm not ready?", time: 170 }, // 2:50
-  { label: "Will you be getting multiple calls and texts?", time: 210 }, // 3:30
+  { label: "Will I get multiple calls and texts from contractors?", time: 210 }, // 3:30
 ];
 
 const LongVideoSection = () => {
