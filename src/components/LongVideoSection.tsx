@@ -7,10 +7,10 @@ const CUSTOMER_SUBDOMAIN = "customer-38242opq113ub1y9.cloudflarestream.com";
 
 const TIMESTAMPS: { label: string; time: number; display: string }[] = [
   { label: "Worried about pushy sales appointments?", time: 18, display: "0:18" },
-  { label: "Difference vs one-day showers", time: 52, display: "0:52" },
-  { label: "What should this cost?", time: 94, display: "1:34" },
-  { label: "What happens after submitting?", time: 135, display: "2:15" },
-  { label: "How contractor matching works", time: 168, display: "2:48" },
+  { label: "Why one-day showers look cheaper (and what's different)", time: 52, display: "0:52" },
+  { label: "What a quality shower should actually cost", time: 94, display: "1:34" },
+  { label: "What actually happens after you submit your info", time: 135, display: "2:15" },
+  { label: "How we avoid sending you to multiple contractors", time: 168, display: "2:48" },
 ];
 
 const LongVideoSection = () => {
@@ -43,13 +43,13 @@ const LongVideoSection = () => {
       <div className="max-w-6xl mx-auto px-6 sm:px-12 lg:px-16">
         <div className="text-center mb-8 lg:mb-10">
           <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-            Still have questions?
+            Most homeowners wish they knew this before choosing a shower remodel.
           </p>
           <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground text-balance">
-            Not ready to book yet? Watch this first (3 minutes)
+            Before You Choose a Shower Remodel, Watch This (3 Minutes)
           </h2>
           <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto text-balance">
-            This explains everything—how the process works, what to expect, and how to avoid common mistakes when choosing a shower remodel.
+            This quick video will help you understand your options, avoid common mistakes, and make sure you don't end up with a shower you regret.
           </p>
         </div>
 
@@ -74,8 +74,8 @@ const LongVideoSection = () => {
           {/* Clickable timestamps */}
           <div className="lg:col-span-3">
             <div className="bg-card border border-border rounded-lg p-5 sm:p-6 shadow-sm">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">
-                Jump to what matters to you
+              <h3 className="text-base font-bold text-foreground mb-4">
+                Start with what matters most to you:
               </h3>
               <ul className="space-y-2">
                 {TIMESTAMPS.map((ts) => {
@@ -109,6 +109,11 @@ const LongVideoSection = () => {
             </div>
           </div>
         </div>
+
+        {/* Soft CTA */}
+        <p className="mt-8 lg:mt-10 text-center text-base sm:text-lg text-muted-foreground italic max-w-2xl mx-auto">
+          When you're ready, you can safely check your options below—no pressure.
+        </p>
       </div>
     </section>
   );
