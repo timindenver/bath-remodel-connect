@@ -32,7 +32,7 @@ const HeroSection = () => {
               <div className="max-w-2xl text-primary-foreground text-center sm:text-left mx-auto sm:mx-0">
                 {/* Headline - control version */}
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold leading-tight">
-                  Get Matched With a Trusted Local Shower Installer
+                  A Better-Looking Alternative to One-Day Plastic Showers
                 </h1>
                 
                 {/* Offer line - prominent but premium */}
@@ -42,7 +42,7 @@ const HeroSection = () => {
                 
                 {/* Subheadline */}
                 <p className="mt-5 text-base sm:text-lg lg:text-xl opacity-90 leading-relaxed text-balance">
-                  Check local availability, compare your options, and request real pricing in about 60 seconds. No obligation.
+                  Explore premium, grout-free shower options with clear pricing and a guided, low-pressure process.
                 </p>
                 
                 {/* Value props */}
