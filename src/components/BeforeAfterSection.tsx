@@ -54,13 +54,6 @@ const BeforeAfterSection = () => {
                   />
                 </figure>
               </div>
-              {pair.tag && (
-                <div className="mt-4 flex items-center justify-center">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-medium">
-                    {pair.tag}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
