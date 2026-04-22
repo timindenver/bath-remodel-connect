@@ -292,7 +292,7 @@ const MultiStepFormSection = () => {
               Check Availability of Certified Installers in Your Area
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground text-balance">
-              Find out if qualified, vetted installers are available near you in under 60 seconds.
+              Find out if qualified, vetted installers are available near you.
             </p>
           </div>
 
@@ -339,8 +339,6 @@ const MultiStepFormSection = () => {
 
               <div className="flex items-center justify-center gap-3 text-[11px] sm:text-xs text-muted-foreground">
                 <span>No spam. No obligation.</span>
-                <span aria-hidden>•</span>
-                <span>Takes less than 60 seconds</span>
               </div>
             </form>
 
