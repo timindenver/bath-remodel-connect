@@ -14,13 +14,10 @@ const BeforeAfterSection = () => {
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-10 sm:mb-14">
+        <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground text-balance">
-            Real Before & After Transformations
+            From Hard-to-Clean Tile to a Modern Grout-Free Shower in just 2-3 days
           </h2>
-          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
-            See how local installers turn dated bathrooms into clean, modern, grout-free showers — often in just 2–3 days.
-          </p>
         </div>
 
         <div className="space-y-12 sm:space-y-16">
@@ -57,16 +54,11 @@ const BeforeAfterSection = () => {
                   />
                 </figure>
               </div>
-              {pair.caption && (
-                <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-                  <p className="text-center text-sm sm:text-base text-muted-foreground font-medium">
-                    {pair.caption}
-                  </p>
-                  {pair.tag && (
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-medium">
-                      {pair.tag}
-                    </span>
-                  )}
+              {pair.tag && (
+                <div className="mt-4 flex items-center justify-center">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-muted text-muted-foreground text-xs font-medium">
+                    {pair.tag}
+                  </span>
                 </div>
               )}
             </div>
