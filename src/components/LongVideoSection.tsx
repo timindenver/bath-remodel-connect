@@ -54,23 +54,25 @@ const LongVideoSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-6 lg:gap-10 items-start">
-          {/* Video player */}
-          <div className="lg:col-span-3">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
-              <iframe
-                ref={iframeRef}
-                src={embedSrc}
-                loading="lazy"
-                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full border-0"
-                title="Full shower remodel explainer"
-              />
+          {/* Vertical 9:16 video player */}
+          <div className="lg:col-span-2 flex justify-center">
+            <div className="w-full max-w-[320px] sm:max-w-[360px]">
+              <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
+                <iframe
+                  ref={iframeRef}
+                  src={embedSrc}
+                  loading="lazy"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full border-0"
+                  title="Full shower remodel explainer"
+                />
+              </div>
             </div>
           </div>
 
           {/* Clickable timestamps */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <div className="bg-card border border-border rounded-lg p-5 sm:p-6 shadow-sm">
               <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">
                 Jump to what matters to you

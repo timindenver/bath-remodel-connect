@@ -33,21 +33,23 @@ const VideoTrustSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* LEFT — Video (mobile: shows above bullets) */}
-          <div className="order-1 lg:order-1">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
-              <iframe
-                src={embedSrc}
-                loading="lazy"
-                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full border-0"
-                title="What happens after you submit the form"
-              />
+          {/* LEFT — Vertical 9:16 video */}
+          <div className="order-1 lg:order-1 flex justify-center">
+            <div className="w-full max-w-[300px] sm:max-w-[340px]">
+              <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
+                <iframe
+                  src={embedSrc}
+                  loading="lazy"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full border-0"
+                  title="What happens after you submit the form"
+                />
+              </div>
+              <p className="mt-3 text-center text-sm text-muted-foreground">
+                Tap the video to unmute • 45 seconds
+              </p>
             </div>
-            <p className="mt-3 text-center text-sm text-muted-foreground">
-              Tap the video to unmute • 45 seconds
-            </p>
           </div>
 
           {/* RIGHT — Reassurance bullets + CTA */}
