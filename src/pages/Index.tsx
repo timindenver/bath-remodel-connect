@@ -2,9 +2,11 @@ import { lazy, Suspense, useRef } from "react";
 import HeroSection from "@/components/HeroSection";
 import LocalContractorSection from "@/components/LocalContractorSection";
 import TrustBadgesSection from "@/components/TrustBadgesSection";
+import VideoTrustSection from "@/components/VideoTrustSection";
 
 // Lazy load below-fold sections to reduce initial bundle size
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
+const LongVideoSection = lazy(() => import("@/components/LongVideoSection"));
 const BeforeAfterSection = lazy(() => import("@/components/BeforeAfterSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const MultiStepFormSection = lazy(() => import("@/components/MultiStepFormSection"));
@@ -29,6 +31,7 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Paid-traffic order: Hero → Trust → How it works → Proof → Form → Deeper education → Urgency */}
       <HeroSection />
+      <VideoTrustSection />
       <LocalContractorSection onCheckAvailability={scrollToForm} />
       <TrustBadgesSection />
       <Suspense fallback={null}>
@@ -43,7 +46,7 @@ const Index = () => {
         <EducationSection />
         <BenefitsSection />
         <BridgeCTASection />
-        
+        <LongVideoSection />
         <FAQSection />
         <Footer />
         <StickyMobileCTA />
