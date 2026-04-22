@@ -16,25 +16,29 @@ const VideoTrustSection = () => {
   const embedSrc = `https://${CUSTOMER_SUBDOMAIN}/${SHORT_VIDEO_UID}/iframe?autoplay=true&muted=true&preload=metadata&poster=https%3A%2F%2F${CUSTOMER_SUBDOMAIN}%2F${SHORT_VIDEO_UID}%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D1s`;
 
   return (
-    <section className="bg-background py-12 sm:py-16 lg:py-20 border-b border-border">
+    <section className="bg-background py-14 sm:py-20 lg:py-24 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-        {/* Section eyebrow */}
+        {/* Section eyebrow — desire bridge */}
         <div className="text-center mb-8 lg:mb-12">
           <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-cta bg-cta/10 px-4 py-2 rounded-full">
             <ShieldCheck className="w-4 h-4" />
-            Important — Watch this before you fill out the form
+            If you're considering upgrading your shower, this will help you avoid a costly mistake
           </p>
-          <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground text-balance">
-            Worried about getting bombarded by contractors?
+          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground text-balance leading-tight">
+            Thinking About a Shower Remodel? Here's What Happens Next
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            This 45-second clip explains how we handle your information and exactly what happens after you submit.
+          <p className="mt-4 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+            Watch this quick 45-second clip so you know exactly what happens after you submit—and why you won't get bombarded with calls.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* LEFT — Vertical 9:16 video */}
-          <div className="order-1 lg:order-1 flex justify-center">
+          <div className="order-2 lg:order-1 flex flex-col items-center">
+            {/* Pre-video attention line (mobile shows above video, desktop above too) */}
+            <p className="mb-3 text-base sm:text-lg font-bold text-foreground text-center max-w-[340px]">
+              <span className="text-cta">Important:</span> Watch this before you fill out the form
+            </p>
             <div className="w-full max-w-[300px] sm:max-w-[340px]">
               <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
                 <iframe
@@ -53,7 +57,7 @@ const VideoTrustSection = () => {
           </div>
 
           {/* RIGHT — Reassurance bullets + CTA */}
-          <div className="order-2 lg:order-2">
+          <div className="order-3 lg:order-2">
             <div className="bg-card border-2 border-cta/20 rounded-lg p-6 sm:p-8 shadow-lg">
               <div className="inline-block bg-foreground text-background text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-sm mb-4">
                 Our Promise
@@ -67,7 +71,7 @@ const VideoTrustSection = () => {
               <ul className="mt-4 space-y-3">
                 {[
                   "You will NOT be contacted by multiple contractors",
-                  "We only match you with ONE vetted local installer",
+                  "We match you with ONE vetted installer (not multiple companies)",
                   "You'll get a quick call from OUR team first (3–4 minutes)",
                   "We confirm your goals before connecting you",
                 ].map((item) => (
@@ -82,9 +86,9 @@ const VideoTrustSection = () => {
                 onClick={scrollToForm}
                 className="mt-6 w-full bg-cta text-cta-foreground font-semibold px-6 py-4 rounded-sm text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-md"
               >
-                Check My Local Availability
+                Check My Shower Options
               </button>
-              <p className="mt-3 text-center text-sm text-muted-foreground">
+              <p className="mt-3 text-center text-sm font-medium text-foreground/80">
                 No contractor spam. You'll hear from our team first.
               </p>
             </div>
