@@ -73,7 +73,7 @@ const LocalContractorSection = ({ onCheckAvailability }: LocalContractorSectionP
               onClick={onCheckAvailability}
               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 rounded-lg"
             >
-              Check Availability Near Me
+              Check My Shower Options
             </Button>
 
             {/* Microcopy — subtle personalization signal */}

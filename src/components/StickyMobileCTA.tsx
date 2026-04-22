@@ -24,7 +24,7 @@ const StickyMobileCTA = () => {
         onClick={scrollToForm}
         className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
       >
-        See My Local Installer Options
+        Check My Shower Options
       </button>
       <p className="text-[10px] text-muted-foreground text-center mt-1">🔒 60 seconds · No obligation · No spam</p>
     </div>

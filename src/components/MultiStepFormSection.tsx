@@ -861,7 +861,7 @@ const MultiStepFormSection = () => {
                       : "bg-cta text-cta-foreground"
                   }`}
                 >
-                  {step === 2 ? "See My Local Installer Options" : "Continue"}
+                  {step === 2 ? "Check My Shower Options" : "Continue"}
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
