@@ -30,7 +30,7 @@ const LocalContractorSection = ({ onCheckAvailability }: LocalContractorSectionP
             </h2>
 
             <p className="text-sm sm:text-base text-muted-foreground mb-4">
-              Find out if qualified, vetted installers are available near you in under 60 seconds.
+              Find out if qualified, vetted installers are available near you.
             </p>
 
             {/* Aggregate rating — network-level, not tied to one contractor */}
