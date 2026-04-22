@@ -7,10 +7,10 @@ const CUSTOMER_SUBDOMAIN = "customer-38242opq113ub1y9.cloudflarestream.com";
 
 const TIMESTAMPS: { label: string; time: number; display: string }[] = [
   { label: "Worried about pushy sales appointments?", time: 18, display: "0:18" },
-  { label: "Difference vs one-day showers", time: 52, display: "0:52" },
-  { label: "What should this cost?", time: 94, display: "1:34" },
-  { label: "What happens after submitting?", time: 135, display: "2:15" },
-  { label: "How contractor matching works", time: 168, display: "2:48" },
+  { label: "Why one-day showers look cheaper (and what's different)", time: 52, display: "0:52" },
+  { label: "What a quality shower should actually cost", time: 94, display: "1:34" },
+  { label: "What actually happens after you submit your info", time: 135, display: "2:15" },
+  { label: "How we avoid sending you to multiple contractors", time: 168, display: "2:48" },
 ];
 
 const LongVideoSection = () => {
