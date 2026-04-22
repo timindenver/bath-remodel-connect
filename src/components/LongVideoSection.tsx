@@ -1,42 +1,44 @@
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
+import { Stream, type StreamPlayerApi } from "@cloudflare/stream-react";
 
 // Cloudflare Stream — long ~3.5min explainer
 const LONG_VIDEO_UID = "e6a9329e7f334ee6948223b39ca4c551";
-const CUSTOMER_SUBDOMAIN = "customer-38242opq113ub1y9.cloudflarestream.com";
 
-const TIMESTAMPS: { label: string; time: number; display: string }[] = [
-  { label: "Worried about pushy sales appointments?", time: 18, display: "0:18" },
-  { label: "Why one-day showers look cheaper (and what's different)", time: 52, display: "0:52" },
-  { label: "What a quality shower should actually cost", time: 94, display: "1:34" },
-  { label: "What actually happens after you submit your info", time: 135, display: "2:15" },
-  { label: "How we avoid sending you to multiple contractors", time: 168, display: "2:48" },
+const formatTime = (seconds: number) => {
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return `${m}:${s.toString().padStart(2, "0")}`;
+};
+
+const TIMESTAMPS: { label: string; time: number }[] = [
+  { label: "Why one-day showers look cheaper (and what's different)", time: 52 },
+  { label: "How do we help you avoid mistakes?", time: 80 }, // 1:20
+  { label: "What actually happens when I submit my request?", time: 145 }, // 2:25
+  { label: "What if I'm not ready?", time: 170 }, // 2:50
+  { label: "Will you be getting multiple calls and texts?", time: 210 }, // 3:30
 ];
 
 const LongVideoSection = () => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const playerRef = useRef<StreamPlayerApi | undefined>(undefined);
   const [activeTime, setActiveTime] = useState<number | null>(null);
 
-  // Cloudflare Stream supports the postMessage Player API:
-  // https://developers.cloudflare.com/stream/uploading-videos/player-api/
   const seekTo = (seconds: number) => {
     setActiveTime(seconds);
-    const iframe = iframeRef.current;
-    if (!iframe || !iframe.contentWindow) return;
-    // Stream player listens for { event: "command", method: "...", value: ... } via postMessage.
-    iframe.contentWindow.postMessage(
-      { event: "command", func: "setCurrentTime", args: [seconds] },
-      "*"
-    );
-    iframe.contentWindow.postMessage(
-      { event: "command", func: "play", args: [] },
-      "*"
-    );
-    // Scroll player into view on mobile
-    iframe.scrollIntoView({ behavior: "smooth", block: "center" });
+    const player = playerRef.current;
+    if (!player) return;
+    try {
+      player.currentTime = seconds;
+      const playPromise = player.play();
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.catch(() => {
+          // Autoplay may be blocked; user can press play manually.
+        });
+      }
+    } catch {
+      // no-op
+    }
   };
-
-  const embedSrc = `https://${CUSTOMER_SUBDOMAIN}/${LONG_VIDEO_UID}/iframe?preload=metadata&poster=https%3A%2F%2F${CUSTOMER_SUBDOMAIN}%2F${LONG_VIDEO_UID}%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D2s`;
 
   return (
     <section className="bg-muted/30 py-12 sm:py-16 lg:py-20 border-y border-border">
@@ -58,15 +60,17 @@ const LongVideoSection = () => {
           <div className="lg:col-span-2 flex justify-center">
             <div className="w-full max-w-[320px] sm:max-w-[360px]">
               <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
-                <iframe
-                  ref={iframeRef}
-                  src={embedSrc}
-                  loading="lazy"
-                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full border-0"
-                  title="Full shower remodel explainer"
-                />
+                <div className="absolute inset-0">
+                  <Stream
+                    src={LONG_VIDEO_UID}
+                    streamRef={playerRef}
+                    controls
+                    preload="metadata"
+                    responsive={false}
+                    className="w-full h-full"
+                    title="Full shower remodel explainer"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -98,7 +102,7 @@ const LongVideoSection = () => {
                             {ts.label}
                           </span>
                           <span className="block text-xs text-muted-foreground mt-0.5 font-mono">
-                            {ts.display}
+                            {formatTime(ts.time)}
                           </span>
                         </span>
                       </button>
