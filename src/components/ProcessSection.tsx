@@ -4,7 +4,7 @@ const steps = [
   {
     icon: ClipboardList,
     title: "Tell Us About Your Project",
-    description: "Answer a few quick questions about your bathroom — takes about 60 seconds.",
+    description: "Answer a few quick questions about your bathroom — it only takes a moment.",
   },
   {
     icon: Users,
@@ -28,7 +28,7 @@ const ProcessSection = () => {
             How It Works
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 text-balance">
-            Get Matched in 60 Seconds. Get Real Pricing Fast.
+            Get Matched Quickly. Get Real Pricing Fast.
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
             No obligation. No spam. You decide whether to move forward.
