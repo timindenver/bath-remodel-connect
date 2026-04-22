@@ -59,7 +59,7 @@ const HeroSection = () => {
                     onClick={scrollToForm}
                     className="bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
                   >
-                    See My Local Installer Options
+                    Check My Shower Options
                   </button>
                   {/* Trust line */}
                   <p className="mt-3 text-sm opacity-80">

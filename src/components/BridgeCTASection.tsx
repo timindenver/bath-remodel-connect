@@ -37,7 +37,7 @@ const BridgeCTASection = () => {
           onClick={scrollToForm}
           className="bg-cta text-cta-foreground font-semibold px-12 py-5 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
         >
-          See My Local Installer Options
+          Check My Shower Options
         </button>
         <p className="mt-5 text-base sm:text-lg lg:text-xl opacity-80 flex items-center justify-center gap-2">
           <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
