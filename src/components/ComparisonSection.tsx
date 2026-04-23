@@ -19,11 +19,6 @@ const rows = [
     solid: "Enhanced durability and impact resistance",
   },
   {
-    feature: "Lifespan",
-    acrylic: "10-15 years typical",
-    solid: "25-30+ years",
-  },
-  {
     feature: "Appearance",
     acrylic: "Clean, simple panel look",
     solid: "Striking look of natural solid surface",
