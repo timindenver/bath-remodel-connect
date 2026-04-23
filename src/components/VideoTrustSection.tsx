@@ -24,9 +24,6 @@ const VideoTrustSection = () => {
             <ShieldCheck className="w-4 h-4" />
             If you're considering upgrading your shower, this will help you avoid a costly mistake
           </p>
-          <h2 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground text-balance leading-tight">
-            Thinking About a Shower Remodel? Here's What Happens Next
-          </h2>
           <p className="mt-4 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
             Watch this quick 45-second clip so you know exactly what happens after you submit—and why you won't get bombarded with calls.
           </p>
@@ -35,10 +32,6 @@ const VideoTrustSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* LEFT — Vertical 9:16 video */}
           <div className="order-2 lg:order-1 flex flex-col items-center">
-            {/* Pre-video attention line (mobile shows above video, desktop above too) */}
-            <p className="mb-3 text-base sm:text-lg font-bold text-foreground text-center max-w-[340px]">
-              <span className="text-cta">Important:</span> Watch this before you fill out the form
-            </p>
             <div className="w-full max-w-[300px] sm:max-w-[340px]">
               <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
                 <iframe
