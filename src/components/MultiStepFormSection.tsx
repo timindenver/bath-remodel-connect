@@ -334,11 +334,8 @@ const MultiStepFormSection = () => {
               </li>
             </ul>
 
-            <div className="flex justify-center mb-3">
-              <div className="space-y-1.5 w-full max-w-[220px]">
-                <div className="flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  <Smartphone className="w-3 h-3" /> Mobile
-                </div>
+            <div className="flex justify-center">
+              <div className="w-full max-w-[220px]">
                 <div className="rounded-md overflow-hidden border border-border bg-background">
                   <img
                     src={designToolPhone}
@@ -351,10 +348,6 @@ const MultiStepFormSection = () => {
                 </div>
               </div>
             </div>
-
-            <p className="text-[11px] sm:text-xs text-muted-foreground italic text-center">
-              Bonuses delivered after your matching call. While installer slots last.
-            </p>
           </div>
 
           <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
