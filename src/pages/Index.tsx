@@ -3,11 +3,13 @@ import HeroSection from "@/components/HeroSection";
 import LocalContractorSection from "@/components/LocalContractorSection";
 import TrustBadgesSection from "@/components/TrustBadgesSection";
 import VideoTrustSection from "@/components/VideoTrustSection";
+// Eager-load the first below-fold sections — they hydrate almost immediately
+// and lazy-loading them was causing large CLS (sections popping in).
+import ProcessSection from "@/components/ProcessSection";
+import BeforeAfterSection from "@/components/BeforeAfterSection";
 
-// Lazy load below-fold sections to reduce initial bundle size
-const ProcessSection = lazy(() => import("@/components/ProcessSection"));
+// Lazy load deeper below-fold sections to reduce initial bundle size
 const LongVideoSection = lazy(() => import("@/components/LongVideoSection"));
-const BeforeAfterSection = lazy(() => import("@/components/BeforeAfterSection"));
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 const MultiStepFormSection = lazy(() => import("@/components/MultiStepFormSection"));
 const WhyMatchingMattersSection = lazy(() => import("@/components/WhyMatchingMattersSection"));
@@ -19,6 +21,11 @@ const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
+
+// Reserved-space placeholder to prevent layout shift while lazy chunks load
+const SectionSkeleton = ({ minHeight = "600px" }: { minHeight?: string }) => (
+  <div aria-hidden="true" style={{ minHeight }} />
+);
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
@@ -34,14 +41,18 @@ const Index = () => {
       <VideoTrustSection />
       <LocalContractorSection onCheckAvailability={scrollToForm} />
       <TrustBadgesSection />
-      <Suspense fallback={null}>
-        <ProcessSection />
-        <BeforeAfterSection />
+      <ProcessSection />
+      <BeforeAfterSection />
+      <Suspense fallback={<SectionSkeleton minHeight="700px" />}>
         <TestimonialsSection />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton minHeight="800px" />}>
         <WhyMatchingMattersSection />
         <div ref={formRef}>
           <MultiStepFormSection />
         </div>
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton minHeight="600px" />}>
         <ComparisonSection />
         <EducationSection />
         <BenefitsSection />

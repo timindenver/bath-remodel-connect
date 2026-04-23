@@ -17,6 +17,8 @@ const HeroSection = () => {
           <img
             src={heroImage}
             alt="Woman enjoying a solid surface shower"
+            width={1920}
+            height={1280}
             className="w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"
