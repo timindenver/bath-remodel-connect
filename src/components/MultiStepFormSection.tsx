@@ -290,7 +290,7 @@ const MultiStepFormSection = () => {
 
     return (
       <section id="lead-form" className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-xl mx-auto">
           <div className="text-center mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-1.5 bg-accent/10 text-accent text-[11px] sm:text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
               <MapPin className="w-3.5 h-3.5" />
@@ -304,7 +304,59 @@ const MultiStepFormSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+          {/* Bonus Offer Card — above the availability form */}
+          <div className="relative bg-gradient-to-br from-accent/10 via-card to-card border-2 border-accent/30 rounded-lg p-5 sm:p-7 pt-7 sm:pt-9 shadow-md mt-3 mb-6">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-cta text-cta-foreground text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm flex items-center gap-1 whitespace-nowrap z-10">
+              <Sparkles className="w-3 h-3" /> Limited-Time Bonus
+            </div>
+
+            <div className="flex items-center gap-2 mb-3 mt-2">
+              <div className="w-9 h-9 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0">
+                <Gift className="w-5 h-5 text-accent" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground leading-tight">
+                Submit before <span className="text-accent">{bonusDeadline}</span> and receive:
+              </h3>
+            </div>
+
+            <ul className="space-y-2.5 mb-4">
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="text-sm sm:text-base text-foreground">
+                  A <span className="font-semibold">FREE Design Preview Mockup</span> of your new shower — fully editable so you can tweak finishes, fixtures, and layout.
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <span className="text-sm sm:text-base text-foreground">
+                  A <span className="font-semibold">FREE Kohler Premium Shower Fixture upgrade</span> — a <span className="font-semibold text-accent">$1,200 value</span>.
+                </span>
+              </li>
+            </ul>
+
+            <div className="flex justify-center mb-3">
+              <div className="space-y-1.5 w-full max-w-[220px]">
+                <div className="flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  <Smartphone className="w-3 h-3" /> Mobile
+                </div>
+                <div className="rounded-md overflow-hidden border border-border bg-background">
+                  <img
+                    src={designToolPhone}
+                    alt="Design preview tool on a smartphone"
+                    loading="lazy"
+                    width={1080}
+                    height={1920}
+                    className="w-full h-auto object-contain block"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <p className="text-[11px] sm:text-xs text-muted-foreground italic text-center">
+              Bonuses delivered after your matching call. While installer slots last.
+            </p>
+          </div>
+
           <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
             <form
               onSubmit={(e) => {
@@ -369,60 +421,6 @@ const MultiStepFormSection = () => {
                 </span>
               </div>
             </div>
-          </div>
-
-          {/* Bonus Offer Card */}
-          <div className="relative bg-gradient-to-br from-accent/10 via-card to-card border-2 border-accent/30 rounded-lg p-5 sm:p-7 pt-7 sm:pt-9 shadow-md mt-3">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-cta text-cta-foreground text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm flex items-center gap-1 whitespace-nowrap z-10">
-              <Sparkles className="w-3 h-3" /> Limited-Time Bonus
-            </div>
-
-            <div className="flex items-center gap-2 mb-3 mt-2">
-              <div className="w-9 h-9 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0">
-                <Gift className="w-5 h-5 text-accent" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground leading-tight">
-                Submit before <span className="text-accent">{bonusDeadline}</span> and receive:
-              </h3>
-            </div>
-
-            <ul className="space-y-2.5 mb-4">
-              <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <span className="text-sm sm:text-base text-foreground">
-                  A <span className="font-semibold">FREE Design Preview Mockup</span> of your new shower — fully editable so you can tweak finishes, fixtures, and layout.
-                </span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <span className="text-sm sm:text-base text-foreground">
-                  A <span className="font-semibold">FREE Kohler Premium Shower Fixture upgrade</span> — a <span className="font-semibold text-accent">$1,200 value</span>.
-                </span>
-              </li>
-            </ul>
-
-            <div className="flex justify-center mb-3">
-              <div className="space-y-1.5 w-full max-w-[220px]">
-                <div className="flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  <Smartphone className="w-3 h-3" /> Mobile
-                </div>
-                <div className="rounded-md overflow-hidden border border-border bg-background">
-                  <img
-                    src={designToolPhone}
-                    alt="Design preview tool on a smartphone"
-                    loading="lazy"
-                    width={1080}
-                    height={1920}
-                    className="w-full h-auto object-contain block"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <p className="text-[11px] sm:text-xs text-muted-foreground italic text-center">
-              Bonuses delivered after your matching call. While installer slots last.
-            </p>
-          </div>
           </div>
         </div>
       </section>
