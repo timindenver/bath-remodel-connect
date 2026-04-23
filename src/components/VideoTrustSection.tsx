@@ -21,7 +21,7 @@ const VideoTrustSection = () => {
         {/* Section eyebrow — desire bridge */}
         <div className="text-center mb-8 lg:mb-12">
           <p className="mt-4 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
-            Watch this quick 45-second clip so you know exactly what happens after you submit—and why you won't get bombarded with calls.
+            What happens after you submit a request
           </p>
         </div>
 
