@@ -372,8 +372,8 @@ const MultiStepFormSection = () => {
           </div>
 
           {/* Bonus Offer Card */}
-          <div className="relative bg-gradient-to-br from-accent/10 via-card to-card border-2 border-accent/30 rounded-lg p-5 sm:p-7 shadow-md overflow-hidden">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-cta text-cta-foreground text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+          <div className="relative bg-gradient-to-br from-accent/10 via-card to-card border-2 border-accent/30 rounded-lg p-5 sm:p-7 pt-7 sm:pt-9 shadow-md mt-3">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-cta text-cta-foreground text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm flex items-center gap-1 whitespace-nowrap z-10">
               <Sparkles className="w-3 h-3" /> Limited-Time Bonus
             </div>
 
@@ -411,7 +411,9 @@ const MultiStepFormSection = () => {
                     src={designToolPhone}
                     alt="Design preview tool on a smartphone"
                     loading="lazy"
-                    className="w-full h-auto object-contain"
+                    width={1080}
+                    height={1920}
+                    className="w-full h-auto object-contain block"
                   />
                 </div>
               </div>
