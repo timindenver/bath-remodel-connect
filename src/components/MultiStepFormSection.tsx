@@ -1,7 +1,9 @@
-import { useState, FormEvent, useCallback, useEffect, useRef } from "react";
-import { ChevronRight, ChevronLeft, Shield, MapPin, Timer, CheckCircle2, Search, ShieldCheck, Users } from "lucide-react";
+import { useState, FormEvent, useCallback, useEffect, useRef, useMemo } from "react";
+import { ChevronRight, ChevronLeft, Shield, MapPin, Timer, CheckCircle2, Search, ShieldCheck, Users, Gift, Sparkles, Monitor, Smartphone } from "lucide-react";
 import { useGeo } from "@/contexts/GeoContext";
 import { supabase } from "@/integrations/supabase/client";
+import designToolLaptop from "@/assets/design-tool-laptop.png";
+import designToolPhone from "@/assets/design-tool-phone.png";
 
 const MultiStepFormSection = () => {
   const { geo, lookupByZip, utm } = useGeo();
@@ -280,9 +282,15 @@ const MultiStepFormSection = () => {
 
   // ---------- Availability check (ZIP entry) ----------
   if (step === -1) {
+    const bonusDeadline = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    });
+
     return (
       <section id="lead-form" className="py-12 sm:py-20 lg:py-24 px-4 sm:px-6 bg-background">
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-1.5 bg-accent/10 text-accent text-[11px] sm:text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
               <MapPin className="w-3.5 h-3.5" />
@@ -296,6 +304,7 @@ const MultiStepFormSection = () => {
             </p>
           </div>
 
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           <div className="bg-card border border-border rounded-lg p-5 sm:p-8 shadow-sm">
             <form
               onSubmit={(e) => {
