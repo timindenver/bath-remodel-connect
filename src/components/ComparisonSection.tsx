@@ -5,7 +5,7 @@ import comparisonAcrylic from "@/assets/comparison-acrylic.webp";
 const rows = [
   {
     feature: "Material Feel",
-    acrylic: "Lightweight, smooth finish",
+    acrylic: "Lightweight, plastic",
     solid: "Quartz Solid Surface",
   },
   {
