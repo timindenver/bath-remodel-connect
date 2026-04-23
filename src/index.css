@@ -28,6 +28,9 @@
     --cta: 220 100% 56%;
     --cta-foreground: 0 0% 100%;
 
+    --success: 142 72% 32%;
+    --success-foreground: 0 0% 100%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 

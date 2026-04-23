@@ -315,7 +315,7 @@ const MultiStepFormSection = () => {
                 <Gift className="w-5 h-5 text-accent" />
               </div>
               <h3 className="text-lg sm:text-xl font-serif font-bold text-foreground leading-tight">
-                Submit before <span className="text-accent">{bonusDeadline}</span> and receive:
+                Submit before <span className="text-success">{bonusDeadline}</span> and receive:
               </h3>
             </div>
 
@@ -329,7 +329,7 @@ const MultiStepFormSection = () => {
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-sm sm:text-base text-foreground">
-                  A <span className="font-semibold">FREE Kohler Premium Shower Fixture upgrade</span> — a <span className="font-semibold text-accent">$1,200 value</span>.
+                  A <span className="font-semibold">FREE Kohler Premium Shower Fixture upgrade</span> — a <span className="font-bold text-success">$1,200 value</span>.
                 </span>
               </li>
             </ul>
