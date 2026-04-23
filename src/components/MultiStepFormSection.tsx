@@ -401,22 +401,9 @@ const MultiStepFormSection = () => {
               </li>
             </ul>
 
-            <div className="grid grid-cols-2 gap-2 mb-3">
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-1 text-[10px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  <Monitor className="w-3 h-3" /> Desktop
-                </div>
-                <div className="rounded-md overflow-hidden border border-border bg-background">
-                  <img
-                    src={designToolLaptop}
-                    alt="Design preview tool on a laptop"
-                    loading="lazy"
-                    className="w-full h-auto object-cover aspect-[4/3]"
-                  />
-                </div>
-              </div>
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-1 text-[10px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            <div className="flex justify-center mb-3">
+              <div className="space-y-1.5 w-full max-w-[220px]">
+                <div className="flex items-center justify-center gap-1 text-[10px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                   <Smartphone className="w-3 h-3" /> Mobile
                 </div>
                 <div className="rounded-md overflow-hidden border border-border bg-background">
@@ -424,7 +411,7 @@ const MultiStepFormSection = () => {
                     src={designToolPhone}
                     alt="Design preview tool on a smartphone"
                     loading="lazy"
-                    className="w-full h-auto object-cover aspect-[4/3]"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
               </div>
