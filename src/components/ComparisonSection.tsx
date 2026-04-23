@@ -6,7 +6,7 @@ const rows = [
   {
     feature: "Material Feel",
     acrylic: "Lightweight, smooth finish",
-    solid: "Heavier, solid, stone-like feel",
+    solid: "Natural Solid Surface",
   },
   {
     feature: "Durability",
@@ -16,12 +16,12 @@ const rows = [
   {
     feature: "Lifespan",
     acrylic: "10-15 years typical",
-    solid: "25-30+ years with proper care",
+    solid: "25-30+ years",
   },
   {
     feature: "Appearance",
     acrylic: "Clean, simple panel look",
-    solid: "High-end look similar to stone or tile",
+    solid: "Striking look of natural solid surface",
   },
   {
     feature: "Installation Time",
@@ -32,11 +32,6 @@ const rows = [
     feature: "Long-Term Value",
     acrylic: "Great for quick upgrades and budget-conscious projects",
     solid: "Ideal for long-term investment and premium finishes",
-  },
-  {
-    feature: "Maintenance",
-    acrylic: "Low maintenance, easy to wipe clean",
-    solid: "Low maintenance, non-porous and easy to clean",
   },
 ];
 
