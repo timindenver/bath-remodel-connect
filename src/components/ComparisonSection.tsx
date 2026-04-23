@@ -6,7 +6,7 @@ const rows = [
   {
     feature: "Material Feel",
     acrylic: "Lightweight, smooth finish",
-    solid: "Natural Solid Surface",
+    solid: "Quartz Solid Surface",
   },
   {
     feature: "Durability",
