@@ -63,10 +63,6 @@ const HeroSection = () => {
                   >
                     Check My Shower Options
                   </button>
-                  {/* Trust line */}
-                  <p className="mt-3 text-sm opacity-80">
-                    Free quote • 1-year price guarantee • No obligation
-                  </p>
                 </div>
               </div>
             </div>
