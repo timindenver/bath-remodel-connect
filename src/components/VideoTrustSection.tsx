@@ -20,10 +20,6 @@ const VideoTrustSection = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
         {/* Section eyebrow — desire bridge */}
         <div className="text-center mb-8 lg:mb-12">
-          <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-cta bg-cta/10 px-4 py-2 rounded-full">
-            <ShieldCheck className="w-4 h-4" />
-            If you're considering upgrading your shower, this will help you avoid a costly mistake
-          </p>
           <p className="mt-4 text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
             Watch this quick 45-second clip so you know exactly what happens after you submit—and why you won't get bombarded with calls.
           </p>
