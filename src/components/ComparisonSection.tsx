@@ -4,6 +4,11 @@ import comparisonAcrylic from "@/assets/comparison-acrylic.webp";
 
 const rows = [
   {
+    feature: "Project Cost",
+    acrylic: "Similar to traditional tile",
+    solid: "15-20% more than Acrylic",
+  },
+  {
     feature: "Material Feel",
     acrylic: "Lightweight, plastic",
     solid: "Quartz Solid Surface",
