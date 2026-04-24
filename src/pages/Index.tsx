@@ -15,7 +15,7 @@ const MultiStepFormSection = lazy(() => import("@/components/MultiStepFormSectio
 const WhyMatchingMattersSection = lazy(() => import("@/components/WhyMatchingMattersSection"));
 const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
 const EducationSection = lazy(() => import("@/components/EducationSection"));
-const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
+
 
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
@@ -55,7 +55,7 @@ const Index = () => {
       <Suspense fallback={<SectionSkeleton minHeight="600px" />}>
         <ComparisonSection />
         <EducationSection />
-        <BenefitsSection />
+        
         
         <LongVideoSection />
         <FAQSection />
