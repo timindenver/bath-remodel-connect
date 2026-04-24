@@ -255,10 +255,10 @@ const MultiStepFormSection = () => {
             <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-accent" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 sm:mb-5 text-balance">
-            You're Matched!
+            Thanks — We've Got Your Info!
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-foreground/80 mb-6 text-balance max-w-lg mx-auto">
-            Thank you! Our team will call to confirm your project details within{" "}
+            Our team will call to review your project and find the right local installer match within{" "}
             <span className="font-semibold text-foreground">2 hours</span> (during business hours).
           </p>
 
