@@ -37,7 +37,7 @@ const Index = () => {
       {/* Paid-traffic order: Hero → Trust → How it works → Proof → Form → Deeper education → Urgency */}
       <HeroSection />
       <VideoTrustSection />
-      <LocalContractorSection onCheckAvailability={scrollToForm} />
+      <LocalContractorSection onCheckAvailability={openLeadForm} />
       <TrustBadgesSection />
       <ProcessSection />
       <BeforeAfterSection />
@@ -59,6 +59,7 @@ const Index = () => {
         <FAQSection />
         <Footer />
         <StickyMobileCTA />
+        <FormModal />
       </Suspense>
     </div>
   );
