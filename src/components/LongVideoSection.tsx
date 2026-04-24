@@ -1,9 +1,5 @@
 import { useRef, useState } from "react";
 import { Play } from "lucide-react";
-import { Stream, type StreamPlayerApi } from "@cloudflare/stream-react";
-
-// Cloudflare Stream — long ~3.5min explainer
-const LONG_VIDEO_UID = "e6a9329e7f334ee6948223b39ca4c551";
 
 const formatTime = (seconds: number) => {
   const m = Math.floor(seconds / 60);
@@ -20,16 +16,16 @@ const TIMESTAMPS: { label: string; time: number }[] = [
 ];
 
 const LongVideoSection = () => {
-  const playerRef = useRef<StreamPlayerApi | undefined>(undefined);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [activeTime, setActiveTime] = useState<number | null>(null);
 
   const seekTo = (seconds: number) => {
     setActiveTime(seconds);
-    const player = playerRef.current;
-    if (!player) return;
+    const video = videoRef.current;
+    if (!video) return;
     try {
-      player.currentTime = seconds;
-      const playPromise = player.play();
+      video.currentTime = seconds;
+      const playPromise = video.play();
       if (playPromise && typeof playPromise.then === "function") {
         playPromise.catch(() => {
           // Autoplay may be blocked; user can press play manually.
@@ -59,13 +55,14 @@ const LongVideoSection = () => {
           {/* Vertical 9:16 video player */}
           <div className="lg:col-span-2 flex justify-center">
             <div className="w-full max-w-[320px] sm:max-w-[360px]">
-              <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border [&_iframe]:absolute [&_iframe]:inset-0 [&_iframe]:w-full [&_iframe]:h-full [&_iframe]:border-0">
-                <Stream
-                  src={LONG_VIDEO_UID}
-                  streamRef={playerRef}
+              <div className="relative aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black ring-1 ring-border">
+                <video
+                  ref={videoRef}
+                  src="/long-explainer.mp4"
                   controls
+                  playsInline
                   preload="metadata"
-                  responsive={true}
+                  className="absolute inset-0 w-full h-full object-cover"
                   title="Full shower remodel explainer"
                 />
               </div>
