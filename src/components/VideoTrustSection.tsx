@@ -1,16 +1,9 @@
 import { CheckCircle2, ShieldCheck } from "lucide-react";
+import { openLeadForm } from "@/lib/openLeadForm";
 
 // Cloudflare Stream — short ~45s "what happens after you submit" video
 const SHORT_VIDEO_UID = "4f6b18dd03f15677aeaee62da62c69af";
 const CUSTOMER_SUBDOMAIN = "customer-38242opq113ub1y9.cloudflarestream.com";
-
-const scrollToForm = () => {
-  const el = document.getElementById("lead-form");
-  if (el) {
-    const y = el.getBoundingClientRect().top + window.scrollY - 20;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
-};
 
 const VideoTrustSection = () => {
   const embedSrc = `https://${CUSTOMER_SUBDOMAIN}/${SHORT_VIDEO_UID}/iframe?autoplay=true&muted=true&preload=metadata&poster=https%3A%2F%2F${CUSTOMER_SUBDOMAIN}%2F${SHORT_VIDEO_UID}%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D14s`;
@@ -72,7 +65,7 @@ const VideoTrustSection = () => {
               </ul>
 
               <button
-                onClick={scrollToForm}
+                onClick={openLeadForm}
                 className="mt-6 w-full bg-cta text-cta-foreground font-semibold px-6 py-4 rounded-sm text-base uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-md"
               >
                 Check My Shower Options

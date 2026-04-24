@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-
-
-const scrollToForm = () => {
-  document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
-};
+import { openLeadForm } from "@/lib/openLeadForm";
 
 const StickyMobileCTA = () => {
   const [visible, setVisible] = useState(false);
@@ -21,7 +17,7 @@ const StickyMobileCTA = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden p-3 bg-background/95 backdrop-blur-sm border-t border-border shadow-lg">
       <button
-        onClick={scrollToForm}
+        onClick={openLeadForm}
         className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation"
       >
         Check My Shower Options

@@ -1,12 +1,5 @@
 import heroImage from "@/assets/hero-static.webp";
-
-const scrollToForm = () => {
-  const el = document.getElementById("lead-form");
-  if (el) {
-    const y = el.getBoundingClientRect().top + window.scrollY - 20;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
-};
+import { openLeadForm } from "@/lib/openLeadForm";
 
 const HeroSection = () => {
   return (
@@ -58,7 +51,7 @@ const HeroSection = () => {
                 {/* Primary CTA - moved above the fold */}
                 <div className="mt-8">
                   <button
-                    onClick={scrollToForm}
+                    onClick={openLeadForm}
                     className="bg-cta text-cta-foreground font-semibold px-8 py-4 rounded-sm text-base sm:text-lg uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-opacity touch-manipulation shadow-lg"
                   >
                     Check My Shower Options
