@@ -323,13 +323,13 @@ const MultiStepFormSection = () => {
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-sm sm:text-base text-foreground">
-                  A <span className="font-semibold">FREE Design Preview Mockup</span> of your new shower — fully editable so you can tweak finishes, fixtures, and layout.
+                  <span className="font-semibold">FREE Design Preview Mockup</span> of your new shower — fully editable so you can tweak finishes, fixtures, and layout.
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-sm sm:text-base text-foreground">
-                  A <span className="font-semibold">FREE Kohler Premium Shower Fixture upgrade</span> — a <span className="font-bold text-success">$1,200 value</span>.
+                  <span className="font-semibold">FREE Kohler Premium Shower Fixture upgrade</span> — a <span className="font-bold text-success">$1,200 value</span>.
                 </span>
               </li>
             </ul>
