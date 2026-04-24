@@ -16,7 +16,7 @@ const WhyMatchingMattersSection = lazy(() => import("@/components/WhyMatchingMat
 const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
 const EducationSection = lazy(() => import("@/components/EducationSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
-const BridgeCTASection = lazy(() => import("@/components/BridgeCTASection"));
+
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -56,7 +56,7 @@ const Index = () => {
         <ComparisonSection />
         <EducationSection />
         <BenefitsSection />
-        <BridgeCTASection />
+        
         <LongVideoSection />
         <FAQSection />
         <Footer />
