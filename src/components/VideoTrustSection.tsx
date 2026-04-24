@@ -13,7 +13,7 @@ const scrollToForm = () => {
 };
 
 const VideoTrustSection = () => {
-  const embedSrc = `https://${CUSTOMER_SUBDOMAIN}/${SHORT_VIDEO_UID}/iframe?autoplay=true&muted=true&preload=metadata&poster=https%3A%2F%2F${CUSTOMER_SUBDOMAIN}%2F${SHORT_VIDEO_UID}%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D1s`;
+  const embedSrc = `https://${CUSTOMER_SUBDOMAIN}/${SHORT_VIDEO_UID}/iframe?autoplay=true&muted=true&preload=metadata&poster=https%3A%2F%2F${CUSTOMER_SUBDOMAIN}%2F${SHORT_VIDEO_UID}%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D14s`;
 
   return (
     <section className="bg-background py-14 sm:py-20 lg:py-24 border-b border-border">
