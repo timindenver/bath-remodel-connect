@@ -36,7 +36,7 @@ const FormModal = () => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center overflow-y-auto bg-black/75 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/75 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={(e) => {
         // Backdrop click closes
         if (e.target === e.currentTarget) setOpen(false);
