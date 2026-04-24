@@ -59,6 +59,7 @@ const LongVideoSection = () => {
                 <video
                   ref={videoRef}
                   src="/long-explainer.mp4"
+                  poster="/long-explainer-poster.jpg"
                   controls
                   playsInline
                   preload="metadata"
