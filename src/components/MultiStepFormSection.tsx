@@ -257,13 +257,28 @@ const MultiStepFormSection = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 sm:mb-5 text-balance">
             You're Matched!
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-foreground/80 mb-3 text-balance max-w-lg mx-auto">
-            {geo.region_name
-              ? `Your matched installer for the ${geo.region_name} area will call within 60 minutes (during business hours) to confirm your matching call and next steps.`
-              : "Your matched local installer will call within 60 minutes during business hours to confirm your project details and matching options."}
+          <p className="text-base sm:text-lg lg:text-xl text-foreground/80 mb-6 text-balance max-w-lg mx-auto">
+            Thank you! Our team will call to confirm your project details within{" "}
+            <span className="font-semibold text-foreground">2 hours</span> (during business hours).
           </p>
+
+          <div className="bg-accent/5 border-2 border-accent/20 rounded-2xl p-5 sm:p-6 mb-6 max-w-md mx-auto">
+            <p className="text-sm sm:text-base text-foreground/80 mb-2">
+              So you know it's us calling — and not a spam call — please save this number in your phone now:
+            </p>
+            <a
+              href="tel:+12157980347"
+              className="block text-2xl sm:text-3xl lg:text-4xl font-bold text-accent tracking-tight my-3 hover:underline"
+            >
+              (215) 798-0347
+            </a>
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              Add it as <span className="font-medium text-foreground">"Shower Match Team"</span> so you'll recognize the call.
+            </p>
+          </div>
+
           <p className="text-sm sm:text-base text-muted-foreground max-w-md mx-auto">
-            No obligation. No pressure. Walk away anytime.
+            We truly appreciate your time and look forward to speaking with you soon.
           </p>
         </div>
       </section>
