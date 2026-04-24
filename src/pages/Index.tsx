@@ -7,6 +7,7 @@ import VideoTrustSection from "@/components/VideoTrustSection";
 // and lazy-loading them was causing large CLS (sections popping in).
 import ProcessSection from "@/components/ProcessSection";
 import BeforeAfterSection from "@/components/BeforeAfterSection";
+import { openLeadForm } from "@/lib/openLeadForm";
 
 // Lazy load deeper below-fold sections to reduce initial bundle size
 const LongVideoSection = lazy(() => import("@/components/LongVideoSection"));
@@ -21,6 +22,7 @@ const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
+const FormModal = lazy(() => import("@/components/FormModal"));
 
 // Reserved-space placeholder to prevent layout shift while lazy chunks load
 const SectionSkeleton = ({ minHeight = "600px" }: { minHeight?: string }) => (
@@ -29,10 +31,6 @@ const SectionSkeleton = ({ minHeight = "600px" }: { minHeight?: string }) => (
 
 const Index = () => {
   const formRef = useRef<HTMLDivElement>(null);
-
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <div className="min-h-screen">
