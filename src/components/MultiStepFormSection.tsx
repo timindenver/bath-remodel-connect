@@ -5,7 +5,11 @@ import { supabase } from "@/integrations/supabase/client";
 import designToolLaptop from "@/assets/design-tool-laptop.png";
 import designToolPhone from "@/assets/design-tool-phone.png";
 
-const MultiStepFormSection = () => {
+interface MultiStepFormSectionProps {
+  onCheckAvailability?: () => void;
+}
+
+const MultiStepFormSection = ({ onCheckAvailability }: MultiStepFormSectionProps = {}) => {
   const { geo, lookupByZip, utm } = useGeo();
   // step: -1 = availability check (ZIP), -0.5 = matching animation, 0..3 = original flow
   const [step, setStep] = useState<number>(-1);
@@ -368,7 +372,11 @@ const MultiStepFormSection = () => {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                handleAvailabilityCheck();
+                if (onCheckAvailability) {
+                  onCheckAvailability();
+                } else {
+                  handleAvailabilityCheck();
+                }
               }}
               className="space-y-5"
             >
