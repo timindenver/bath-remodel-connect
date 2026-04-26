@@ -806,8 +806,8 @@ const MultiStepFormSection = () => {
 
                 {/* TCPA Disclaimer - updated for call focus */}
                 <p className="text-[10px] text-muted-foreground text-center leading-relaxed">
-                  By clicking Continue to Confirm, I expressly consent to Solid Surface Baths contacting me at the telephone number provided for marketing purposes related to its home remodeling services, including through the use of automated dialing technology and prerecorded and/or artificial voice messages, even if my number is currently listed on any state, federal or internal Do Not Call list. I understand that consent is not a condition of purchase and to be helped I can call{" "}
-                  <a href="tel:9178130137" className="underline text-accent">917-813-0137</a>.
+                  By clicking Continue, I consent to Solid Surface Baths contacting me at the number provided — including by autodialer, prerecorded or artificial voice, and SMS — for marketing, even if on a Do Not Call list. Consent is not required to purchase. Call{" "}
+                  <a href="tel:9178130137" className="underline text-accent">917-813-0137</a> for help.
                 </p>
               </div>
             )}
