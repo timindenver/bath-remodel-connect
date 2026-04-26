@@ -372,7 +372,11 @@ const MultiStepFormSection = ({ onCheckAvailability }: MultiStepFormSectionProps
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                handleAvailabilityCheck();
+                if (onCheckAvailability) {
+                  onCheckAvailability();
+                } else {
+                  handleAvailabilityCheck();
+                }
               }}
               className="space-y-5"
             >
