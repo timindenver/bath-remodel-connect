@@ -46,7 +46,7 @@ const Index = () => {
       <ProcessSection />
       <Suspense fallback={<SectionSkeleton minHeight="800px" />}>
         <div ref={formRef}>
-          <MultiStepFormSection />
+          <MultiStepFormSection onCheckAvailability={openLeadForm} />
         </div>
       </Suspense>
       <Suspense fallback={<SectionSkeleton minHeight="600px" />}>
