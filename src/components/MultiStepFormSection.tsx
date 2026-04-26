@@ -67,7 +67,6 @@ const MultiStepFormSection = () => {
     if (step === 1) return projectType !== "" && shutoffAccess !== "";
     if (step === 2) return timeline !== "" && priority !== "";
     if (step === 3) return name.trim() !== "" && isPhoneValid();
-    if (step === 4) return true;
     return false;
   };
 
