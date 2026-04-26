@@ -195,7 +195,7 @@ const MultiStepFormSection = () => {
   };
 
   const next = () => {
-    if (canAdvance() && step < 4) setStep(step + 1);
+    if (canAdvance() && step < 3) setStep(step + 1);
   };
   const back = () => {
     if (step > 0) setStep(step - 1);
