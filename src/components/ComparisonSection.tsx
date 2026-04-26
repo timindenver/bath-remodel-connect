@@ -45,9 +45,6 @@ const ComparisonSection = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4 text-balance">
             One-Day Shower vs. Solid Surface
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-balance">
-            Both are great alternatives to tile. Here's how they compare so you can choose the right fit for your home.
-          </p>
         </div>
 
         {/* Comparison image placeholder */}
