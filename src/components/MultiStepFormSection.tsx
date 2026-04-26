@@ -380,37 +380,39 @@ const MultiStepFormSection = ({ onCheckAvailability }: MultiStepFormSectionProps
               }}
               className="space-y-5"
             >
-              <div>
-                <label htmlFor="zip-availability" className="block text-sm font-medium text-foreground mb-2">
-                  Enter your ZIP Code
-                </label>
-                <input
-                  id="zip-availability"
-                  ref={zipInputRef}
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  autoComplete="postal-code"
-                  maxLength={5}
-                  value={effectiveZip}
-                  onChange={(e) => handleZipChange(e.target.value)}
-                  placeholder="e.g. 18902"
-                  aria-invalid={!!zipError}
-                  className={`w-full px-4 py-3.5 border-2 rounded-lg bg-background text-foreground text-lg tracking-wider focus:outline-none focus:ring-2 focus:ring-accent transition-colors ${
-                    zipError ? "border-destructive" : "border-input focus:border-accent"
-                  }`}
-                />
-                {zipError && (
-                  <p className="text-xs text-destructive mt-1.5">{zipError}</p>
-                )}
-              </div>
+              {!onCheckAvailability && (
+                <div>
+                  <label htmlFor="zip-availability" className="block text-sm font-medium text-foreground mb-2">
+                    Enter your ZIP Code
+                  </label>
+                  <input
+                    id="zip-availability"
+                    ref={zipInputRef}
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    autoComplete="postal-code"
+                    maxLength={5}
+                    value={effectiveZip}
+                    onChange={(e) => handleZipChange(e.target.value)}
+                    placeholder="e.g. 18902"
+                    aria-invalid={!!zipError}
+                    className={`w-full px-4 py-3.5 border-2 rounded-lg bg-background text-foreground text-lg tracking-wider focus:outline-none focus:ring-2 focus:ring-accent transition-colors ${
+                      zipError ? "border-destructive" : "border-input focus:border-accent"
+                    }`}
+                  />
+                  {zipError && (
+                    <p className="text-xs text-destructive mt-1.5">{zipError}</p>
+                  )}
+                </div>
+              )}
 
               <button
                 type="submit"
-                disabled={!isZipValid(effectiveZip)}
+                disabled={!onCheckAvailability && !isZipValid(effectiveZip)}
                 className="w-full bg-cta text-cta-foreground font-semibold py-3.5 rounded-sm text-sm uppercase tracking-wider hover:opacity-90 active:opacity-80 transition-all disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed"
               >
-                Check Availability
+                {onCheckAvailability ? "Check My Shower Options" : "Check Availability"}
               </button>
 
               <div className="flex items-center justify-center gap-3 text-[11px] sm:text-xs text-muted-foreground">
