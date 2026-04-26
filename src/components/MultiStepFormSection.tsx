@@ -284,7 +284,7 @@ const MultiStepFormSection = () => {
     );
   }
 
-  const totalSteps = 5;
+  const totalSteps = 4;
   const progressPercent = step >= 0 ? ((step + 1) / totalSteps) * 100 : 0;
   const stepLabels = ["Bathroom", "Project", "Timing", "Contact", "Confirm"];
 
