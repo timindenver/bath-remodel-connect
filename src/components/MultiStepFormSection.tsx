@@ -67,7 +67,6 @@ const MultiStepFormSection = () => {
     if (step === 1) return projectType !== "" && shutoffAccess !== "";
     if (step === 2) return timeline !== "" && priority !== "";
     if (step === 3) return name.trim() !== "" && isPhoneValid();
-    if (step === 4) return true;
     return false;
   };
 
@@ -196,7 +195,7 @@ const MultiStepFormSection = () => {
   };
 
   const next = () => {
-    if (canAdvance() && step < 4) setStep(step + 1);
+    if (canAdvance() && step < 3) setStep(step + 1);
   };
   const back = () => {
     if (step > 0) setStep(step - 1);
@@ -285,7 +284,7 @@ const MultiStepFormSection = () => {
     );
   }
 
-  const totalSteps = 5;
+  const totalSteps = 4;
   const progressPercent = step >= 0 ? ((step + 1) / totalSteps) * 100 : 0;
   const stepLabels = ["Bathroom", "Project", "Timing", "Contact", "Confirm"];
 
@@ -512,8 +511,7 @@ const MultiStepFormSection = () => {
             {step === 0 && "Just getting started — about 60 seconds total."}
             {step === 1 && "Tell us about your project — we're matching as you go."}
             {step === 2 && "Almost there — refining your installer match."}
-            {step === 3 && "One last step — your local match is ready."}
-            {step === 4 && "You're 100% complete — just confirm to send."}
+            {step === 3 && "Last step — enter your contact info to get matched."}
           </p>
         </div>
 
@@ -812,81 +810,8 @@ const MultiStepFormSection = () => {
               </div>
             )}
 
-            {/* Step 4: Confirm */}
-            {step === 4 && (
-              <div className="space-y-5">
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle2 className="w-6 h-6 text-accent" />
-                  </div>
-                  <h3 className="font-serif font-bold text-foreground text-lg sm:text-xl mb-2">
-                    Confirm Your Local Match
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Review your details below and confirm to connect with your local installer.
-                  </p>
-                </div>
-
-                <div className="bg-secondary rounded-lg p-4 space-y-2.5 text-sm">
-                  {geo.region_name && (
-                    <div className="flex justify-between gap-3">
-                      <span className="text-muted-foreground">Service Area</span>
-                      <span className="text-foreground font-medium text-right">{geo.region_name}</span>
-                    </div>
-                  )}
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Zip Code</span>
-                    <span className="text-foreground font-medium">{effectiveZip}</span>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Bathroom Level</span>
-                    <span className="text-foreground font-medium text-right">{bathroomLevel}</span>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Current Setup</span>
-                    <span className="text-foreground font-medium text-right">{showerSetup}</span>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Project Goal</span>
-                    <span className="text-foreground font-medium text-right">{projectType}</span>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Water Shut-off</span>
-                    <span className="text-foreground font-medium text-right">{shutoffAccess}</span>
-                  </div>
-                  <div className="flex justify-between gap-3">
-                    <span className="text-muted-foreground">Timeline</span>
-                    <span className="text-foreground font-medium text-right">{timeline}</span>
-                  </div>
-                  {priority && (
-                    <div className="flex justify-between gap-3">
-                      <span className="text-muted-foreground">Top Priority</span>
-                      <span className="text-foreground font-medium text-right">{priority}</span>
-                    </div>
-                  )}
-                  <div className="border-t border-border pt-2.5 mt-2.5 flex justify-between gap-3">
-                    <span className="text-muted-foreground">Contact</span>
-                    <span className="text-foreground font-medium text-right">{name}<br />{phone}</span>
-                  </div>
-                  {email && (
-                    <div className="flex justify-between gap-3">
-                      <span className="text-muted-foreground">Email</span>
-                      <span className="text-foreground font-medium text-right">{email}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex gap-3 items-start">
-                  <Shield className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <p className="text-xs sm:text-sm text-foreground leading-relaxed">
-                    A trusted local installer will follow up during business hours to discuss your project and next steps.
-                  </p>
-                </div>
-              </div>
-            )}
-
             {/* Navigation */}
-            {step === 4 ? (
+            {step === 3 ? (
               <div className="mt-6 sm:mt-8 space-y-3">
                 <button
                   type="submit"
