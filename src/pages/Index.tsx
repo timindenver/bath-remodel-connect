@@ -36,6 +36,7 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Paid-traffic order: Hero → Trust → How it works → Proof → Form → Deeper education → Urgency */}
       <HeroSection />
+      <BeforeAfterSection />
       <Suspense fallback={<SectionSkeleton minHeight="700px" />}>
         <TestimonialsSection />
       </Suspense>
@@ -43,7 +44,6 @@ const Index = () => {
       <LocalContractorSection onCheckAvailability={openLeadForm} />
       <TrustBadgesSection />
       <ProcessSection />
-      <BeforeAfterSection />
       <Suspense fallback={<SectionSkeleton minHeight="800px" />}>
         <div ref={formRef}>
           <MultiStepFormSection />
